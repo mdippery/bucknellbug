@@ -1,0 +1,17 @@
+/* No weather data warning */
+"No weather data was returned." = "No weather data was returned.";
+
+/* No weather data explanation */
+"You may not have an active Internet connection." = "You may not have an active Internet connection.";
+
+/* Generic no weather data explanation */
+"Weather data cannot be parsed at this time." = "Weather data cannot be parsed at this time.";
+
+/* Growl application name */
+"BucknellBug" = "BucknellBug";
+
+/* Growl "Weather Updated" notification title */
+"Weather Updated" = "Weather Updated";
+
+/* Growl "Weather Updated" notification description */
+"Weather data has been updated." = "Weather data has been updated.";

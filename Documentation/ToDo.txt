@@ -1,0 +1,18 @@
+TO DO:
+
+Note that these items are in no particular order of importance.
+
+* Implement preferences for Growl use, time interval
+* Better interface than Dock menu
+    * Maybe a daemon with a borderless, transparent window?
+* Rising/falling tag for pressure (store old pressure and compare)
+* Refresh in Dock menu
+    * Can come into play if new interface is designed
+* Develop an algorithm to set the timer to three minutes or so after the
+  hour, so that weather is always checked around the time a new feed is
+  posted.
+* Develop better way to handle the build number automatically
+    * A good way would be a script that bumps the build number when release
+      versions are build
+        * If that's not possible, just bumping the build after ANY build
+          would be fine.

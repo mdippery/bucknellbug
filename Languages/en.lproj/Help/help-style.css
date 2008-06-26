@@ -1,0 +1,28 @@
+a { text-decoration:none; }
+
+h1 {
+	font-family:"Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-weight:700;
+	font-size:18pt;
+	color:#000000;
+	text-align:center;
+}
+
+h2 {
+	font-family:"Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-weight:700;
+	font-size:12pt;
+	color:#000000;
+}
+
+p {
+	font-family:"Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size:9pt;
+	color:#000000;
+}
+
+ul {
+	font-family:"Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size:9pt;
+	color:#000000;
+}
