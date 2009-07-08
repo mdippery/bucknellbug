@@ -42,6 +42,7 @@ MakeDateWithStrings(NSString *year, NSString *month, NSString *day, NSString *ho
 	
 	dateStr = [[NSMutableString alloc] initWithFormat:@"%@-", year];
 	[dateStr appendFormat:@"%@-%@ ", month, day];
+    // NSLog(@"Got date: %@", dateStr);
 	
 	// Apparently the data stream isn't adjusted for Daylight Savings Time, so
 	// if it IS Daylight Saving Time, we have to adjust the string manually,
@@ -54,6 +55,7 @@ MakeDateWithStrings(NSString *year, NSString *month, NSString *day, NSString *ho
 		[dateStr appendString:@"-0500"];
 	}
 	
+    NSLog(@"Making date with str: %@", dateStr);
 	date = [[NSDate alloc] initWithString:dateStr];
 	[dateStr release];
 	
