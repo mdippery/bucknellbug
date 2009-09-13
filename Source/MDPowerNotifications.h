@@ -27,42 +27,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @file MDPowerNotifications.h
- * Communicates with the subsystem to receive information about power-related
- * events, such as wakeup. This functionality is implemented in C, and links
- * against CoreFoundation and IOKit.
- *
- * Originally this file was an integral part of BucknellBug, but it has since been
- * modified to be a stand-alone module so that it can easily be moved to other
- * applications. It should be distributable to other apps without modification.
- */
-
 #ifndef MD_POWER_NOTIFICATIONS_H
 #define MD_POWER_NOTIFICATIONS_H
 
 #include <CoreFoundation/CoreFoundation.h>
 
-
-/**
- * @defgroup power Power Notifications
- * @{
- */
-
-/** Name of the power notification posted upon machine wake. */
 extern CFStringRef const kMDComputerDidWakeNotification;
 
-/** @} */
-
-
-/**
- * Registers an application to receive power management events. When the machine
- * wakes up, the notification @c BBComputerDidWakeNotification is posted to the
- * notification center.
- *
- * @see http://developer.apple.com/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/PowerMgmt/chapter_10_section_3.html#//apple_ref/doc/uid/TP0000020-BAJIIDEB
- * @see http://developer.apple.com/qa/qa2004/qa1340.html
- */
-void MDRegisterForPowerNotifications(void);
+extern void MDRegisterForPowerNotifications(void);
 
 #endif

@@ -15,16 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * @file BugHUDTextFieldCell.h
- * Implements custom drawing for text field cells in the HUD.
- */
-
 #import <Cocoa/Cocoa.h>
 
 
-/**
- * Draws text fields in HUDs.
- */
 @interface BugHUDTextFieldCell : NSTextFieldCell
 @end

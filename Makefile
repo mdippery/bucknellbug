@@ -18,16 +18,13 @@ DEBUG_CONFIG = Debug
 TARBALL      = BucknellBug-$(VERSION).tgz
 SRCTARBALL   = BucknellBug-$(VERSION).src.tgz
 
-.PHONY: release debug docs dist src-dist clean
+.PHONY: release debug dist src-dist clean
 
 release:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) build
 
 debug:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) build
-
-docs:
-	doxygen
 
 dist: release
 	tar czf $(TARBALL) -C build/Release/ BucknellBug.app/
@@ -40,4 +37,3 @@ clean:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) clean
 	-rm -f $(TARBALL)
 	-rm -f $(SRCTARBALL)
-	-rm -rf Documentation/API
