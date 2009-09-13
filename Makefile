@@ -10,7 +10,7 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-VERSION      = 1.2b1
+VERSION      = 2.0a1
 PROJECT      = BucknellBug.xcodeproj
 TARGET       = BucknellBug
 CONFIG       = Release
@@ -19,7 +19,7 @@ TARBALL      = BucknellBug-$(VERSION).tgz
 SRCTARBALL   = BucknellBug-$(VERSION).src.tgz
 
 .PHONY: release debug docs dist src-dist clean
-	
+
 release:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) build
 
