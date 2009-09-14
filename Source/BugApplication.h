@@ -22,6 +22,7 @@
 
 @interface BugApplication : NSObject <GrowlApplicationBridgeDelegate>
 {
+	IBOutlet NSMenu *statusMenu;
 	IBOutlet NFHUDWindow *window;
 	IBOutlet BugHUDTextField *dateField;
 	IBOutlet BugHUDTextField *temperatureField;
@@ -32,6 +33,7 @@
 	
 	BugDataParser *dataFileParser;
 	NSTimer *timer;
+	NSStatusItem *statusItem;
 }
 @end
 

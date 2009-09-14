@@ -21,6 +21,7 @@
 		B784DA59105DD89D00D90D8F /* Help in Resources */ = {isa = PBXBuildFile; fileRef = B784DA4E105DD89D00D90D8F /* Help */; };
 		B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA5F105DD8F100D90D8F /* InfoPlist.strings */; };
 		B784DA64105DD90100D90D8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA62105DD90100D90D8F /* Localizable.strings */; };
+		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B7909DC20C4BD1F4007FB75C /* iLifeControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */; };
 		B7909DDB0C4BD20A007FB75C /* iLifeControls.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
@@ -68,6 +69,7 @@
 		B784DA4F105DD89D00D90D8F /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = Languages/English.lproj/Help; sourceTree = "<group>"; };
 		B784DA60105DD8F100D90D8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Languages/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B784DA63105DD90100D90D8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Languages/English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
 		B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iLifeControls.framework; path = Frameworks/iLifeControls.framework; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -117,12 +119,9 @@
 			children = (
 				32CA4F630368D1EE00C91783 /* BucknellBug.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
-				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				B784DA5F105DD8F100D90D8F /* InfoPlist.strings */,
-				B784DA62105DD90100D90D8F /* Localizable.strings */,
-				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
-				B784DA4E105DD89D00D90D8F /* Help */,
+				B78679B1105E800E0070B84E /* Images */,
+				B78679B0105E7FFC0070B84E /* Localizable */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -141,6 +140,26 @@
 				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B78679B0105E7FFC0070B84E /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				B784DA5F105DD8F100D90D8F /* InfoPlist.strings */,
+				B784DA62105DD90100D90D8F /* Localizable.strings */,
+				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
+				B784DA4E105DD89D00D90D8F /* Help */,
+			);
+			name = Localizable;
+			sourceTree = "<group>";
+		};
+		B78679B1105E800E0070B84E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
+				B78679AE105E7FED0070B84E /* statusmenu.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		B7C8539B0AF6FC300039D98F /* Interface */ = {
@@ -225,6 +244,7 @@
 				B784DA59105DD89D00D90D8F /* Help in Resources */,
 				B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */,
 				B784DA64105DD90100D90D8F /* Localizable.strings in Resources */,
+				B78679AF105E7FED0070B84E /* statusmenu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

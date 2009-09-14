@@ -29,11 +29,13 @@
 #define	UPDATE_INTERVAL		    (15.0 * 60.0)		// Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY			    10.0				// Number of seconds to wait to update weather after wakeup
 #define DEGREE_SYMBOL	   	    0x00b0				// Unicode codepoint for degree symbol
-#define GROWL_WEATHER_UPDATED   @"Weather updated"  // Growl update name
+#define GROWL_WEATHER_UPDATED	@"Weather updated"	// Growl update name
 
 #define MillibarsToInches(mb)	((float) (mb * 0.0295301F))
 
 @interface BugApplication (Private)
+- (void)activateStatusMenu;
+- (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
 - (void)alertNewData;
 - (void)startTimer;
@@ -55,6 +57,7 @@
 
 - (void)awakeFromNib
 {
+	[self activateStatusMenu];
 	[window makeKeyAndOrderFront:self];
 	[GrowlApplicationBridge setGrowlDelegate:self];
 }
@@ -65,7 +68,25 @@
 	[dataFileParser release];
 	[timer invalidate];
 	[timer release];
+	[statusItem release];
 	[super dealloc];
+}
+
+- (void)activateStatusMenu
+{
+	NSStatusBar *bar = [NSStatusBar systemStatusBar];
+	statusItem = [[bar statusItemWithLength:NSSquareStatusItemLength] retain];
+	// [statusItem setTitle:@"BucknellBug"];
+	[statusItem setImage:[self statusMenuImage]];
+	[statusItem setHighlightMode:YES];
+	[statusItem setMenu:statusMenu];
+}
+
+- (NSImage *)statusMenuImage
+{
+	NSString *imgPath = [[NSBundle mainBundle] pathForResource:@"statusmenu" ofType:@"png"];
+	NSImage *img = [[NSImage alloc] initWithContentsOfFile:imgPath];
+	return [img autorelease];
 }
 
 - (void)updateWeatherData:(NSTimer *)aTimer
