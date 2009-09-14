@@ -45,8 +45,6 @@
 
 - (id)init
 {
-    NSLog(@"Called -[BugApplication init]");
-    
 	if ([super init] == nil) return nil;
 	
 	dataFileParser = [[BugDataParser alloc] init];
