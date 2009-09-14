@@ -14,7 +14,6 @@
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
 		B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */ = {isa = PBXBuildFile; fileRef = B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */; };
-		B723B8D70AF7B34200B9CD62 /* GrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = B723B8D50AF7B34200B9CD62 /* GrowlController.m */; };
 		B74ABE050C4BDACC00E7A521 /* BugHUDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */; };
 		B74ABE0B0C4BDADE00E7A521 /* BugHUDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE090C4BDADE00E7A521 /* BugHUDTextFieldCell.m */; };
 		B77105340AF7BF8D00FA66C0 /* BugApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BugApplication.m */; };
@@ -58,8 +57,6 @@
 		B714EA040B06FA460039B548 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDPowerNotifications.h; path = Source/MDPowerNotifications.h; sourceTree = "<group>"; };
 		B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MDPowerNotifications.c; path = Source/MDPowerNotifications.c; sourceTree = "<group>"; };
-		B723B8D40AF7B34200B9CD62 /* GrowlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlController.h; path = Source/GrowlController.h; sourceTree = "<group>"; };
-		B723B8D50AF7B34200B9CD62 /* GrowlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlController.m; path = Source/GrowlController.m; sourceTree = "<group>"; };
 		B74ABE020C4BDACC00E7A521 /* BugHUDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugHUDTextField.h; path = Source/BugHUDTextField.h; sourceTree = "<group>"; };
 		B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BugHUDTextField.m; path = Source/BugHUDTextField.m; sourceTree = "<group>"; };
 		B74ABE080C4BDADE00E7A521 /* BugHUDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugHUDTextFieldCell.h; path = Source/BugHUDTextFieldCell.h; sourceTree = "<group>"; };
@@ -108,7 +105,6 @@
 			children = (
 				B7C854460AF6FE990039D98F /* Core */,
 				B7C8539B0AF6FC300039D98F /* Interface */,
-				B723B89F0AF7B23700B9CD62 /* Growl */,
 				29B97317FDCFA39411CA2CEA /* Other Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -147,20 +143,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B723B89F0AF7B23700B9CD62 /* Growl */ = {
-			isa = PBXGroup;
-			children = (
-				B723B8D40AF7B34200B9CD62 /* GrowlController.h */,
-				B723B8D50AF7B34200B9CD62 /* GrowlController.m */,
-			);
-			name = Growl;
-			sourceTree = "<group>";
-		};
 		B7C8539B0AF6FC300039D98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B77105310AF7BF8D00FA66C0 /* BugApplication.h */,
-				B77105320AF7BF8D00FA66C0 /* BugApplication.m */,
 				B74ABE020C4BDACC00E7A521 /* BugHUDTextField.h */,
 				B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */,
 				B74ABE080C4BDADE00E7A521 /* BugHUDTextFieldCell.h */,
@@ -173,6 +158,8 @@
 		B7C854460AF6FE990039D98F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B77105310AF7BF8D00FA66C0 /* BugApplication.h */,
+				B77105320AF7BF8D00FA66C0 /* BugApplication.m */,
 				B7C854470AF6FEB90039D98F /* BugDataParser.h */,
 				B7C854480AF6FEB90039D98F /* BugDataParser.m */,
 				B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */,
@@ -250,7 +237,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				B7C854490AF6FEB90039D98F /* BugDataParser.m in Sources */,
-				B723B8D70AF7B34200B9CD62 /* GrowlController.m in Sources */,
 				B77105340AF7BF8D00FA66C0 /* BugApplication.m in Sources */,
 				B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */,
 				B74ABE050C4BDACC00E7A521 /* BugHUDTextField.m in Sources */,

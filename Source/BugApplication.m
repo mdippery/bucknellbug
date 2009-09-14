@@ -15,19 +15,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import "BugApplication.h"
+
 #import <stdarg.h>
 #import <Growl/Growl.h>
 #import <iLifeControls/NFHUDWindow.h>
 #import <SystemConfiguration/SystemConfiguration.h>
-#import "BugApplication.h"
+
 #import "BugDataParser.h"
 #import "BugHUDTextField.h"
-#import "GrowlController.h"
 #import "MDPowerNotifications.h"
 
-#define	UPDATE_INTERVAL		(15.0 * 60.0)		// Frequency at which weather is updated (once every 15 mins)
-#define WAKE_DELAY			10.0				// Number of seconds to wait to update weather after wakeup
-#define DEGREE_SYMBOL	   	0x00b0				// Unicode codepoint for degree symbol
+#define	UPDATE_INTERVAL		    (15.0 * 60.0)		// Frequency at which weather is updated (once every 15 mins)
+#define WAKE_DELAY			    10.0				// Number of seconds to wait to update weather after wakeup
+#define DEGREE_SYMBOL	   	    0x00b0				// Unicode codepoint for degree symbol
+#define GROWL_WEATHER_UPDATED   @"Weather updated"  // Growl update name
 
 #define MillibarsToInches(mb)	((float) (mb * 0.0295301F))
 
@@ -43,12 +45,20 @@
 
 - (id)init
 {
+    NSLog(@"Called -[BugApplication init]");
+    
 	if ([super init] == nil) return nil;
 	
 	dataFileParser = [[BugDataParser alloc] init];
 	timer = nil;
 	
 	return self;
+}
+
+- (void)awakeFromNib
+{
+	[window makeKeyAndOrderFront:self];
+	[GrowlApplicationBridge setGrowlDelegate:self];
 }
 
 - (void)dealloc
@@ -58,11 +68,6 @@
 	[timer invalidate];
 	[timer release];
 	[super dealloc];
-}
-
-- (void)awakeFromNib
-{
-	[window makeKeyAndOrderFront:self];
 }
 
 - (void)updateWeatherData:(NSTimer *)aTimer
@@ -97,19 +102,10 @@
 			[dateField setStringValue:@"(unavailable)"];
 		}
 		
-		// Set the temperature
 		[temperatureField setStringValue:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];
-		
-		// Set the humidity
 		[humidityField setStringValue:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
-		
-		// Set the sunshine index
 		[sunshineField setStringValue:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
-		
-		// Set the pressure
 		[pressureField setStringValue:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
-		
-		// Set the rainfall
 		[rainfallField setStringValue:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
 	} else {
 		if (!weatherData || [weatherData count] == 0) {
@@ -127,7 +123,7 @@
 	[NSApp requestUserAttention:NSInformationalRequest];
 	[GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Weather Updated", nil)
 	                            description:NSLocalizedString(@"Weather data has been updated.", nil)
-	                       notificationName:kBBGrowlWeatherUpdated
+	                       notificationName:GROWL_WEATHER_UPDATED
 	                               iconData:nil
 	                               priority:0
 	                               isSticky:NO
@@ -210,6 +206,7 @@
 
 @end
 
+
 @implementation BugApplication (NSAppDelegate)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
@@ -217,12 +214,11 @@
 	//[self updateWeatherData:nil];
 	[self startTimer];
 	
-	[[GrowlController sharedController] registerWithGrowl];
 	MDRegisterForPowerNotifications();
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(computerDidWake:)
-												 name:(NSString *) kMDComputerDidWakeNotification
-											   object:nil];
+	                                         selector:@selector(computerDidWake:)
+	                                             name:(NSString *) kMDComputerDidWakeNotification
+	                                           object:nil];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
@@ -230,6 +226,32 @@
 	// Don't close the application when the last window is closed; it should stay
 	// open (in the status item area)
 	return NO;
+}
+
+@end
+
+
+@implementation BugApplication (GrowlDelegate)
+
+- (NSDictionary *)registrationDictionaryForGrowl
+{
+	NSArray *notifications;
+	NSDictionary *growl;
+	
+	notifications = [[NSArray alloc] initWithObjects:GROWL_WEATHER_UPDATED, nil];
+	
+	growl = [NSDictionary dictionaryWithObjectsAndKeys:
+	            notifications, GROWL_NOTIFICATIONS_ALL,
+	            notifications, GROWL_NOTIFICATIONS_DEFAULT,
+	            nil];
+	
+	[notifications release];
+	return growl;
+}
+
+- (NSString *)applicationNameForGrowl
+{
+    return @"BucknellBug";
 }
 
 @end

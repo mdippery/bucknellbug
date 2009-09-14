@@ -20,7 +20,7 @@
 @class BugDataParser, BugHUDTextField, NFHUDWindow;
 
 
-@interface BugApplication : NSObject
+@interface BugApplication : NSObject <GrowlApplicationBridgeDelegate>
 {
 	IBOutlet NFHUDWindow *window;
 	IBOutlet BugHUDTextField *dateField;
@@ -41,13 +41,5 @@
 - (IBAction)openHomepage:(id)sender;
 - (IBAction)openBugHomepage:(id)sender;
 - (IBAction)refresh:(id)sender;
-
-@end
-
-
-@interface BugApplication (NSAppDelegate)
-
-- (void)applicationDidFinishLaunching:(NSNotification *)notification;
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
 
 @end
