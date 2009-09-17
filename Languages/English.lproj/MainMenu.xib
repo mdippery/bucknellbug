@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="263"/>
-			<integer value="224"/>
+			<integer value="225"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -292,6 +292,13 @@
 								<reference key="NSTextColor" ref="42552053"/>
 							</object>
 						</object>
+						<object class="NSCustomView" id="112395062">
+							<reference key="NSNextResponder" ref="860587821"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{300, 20}, {16, 16}}</string>
+							<reference key="NSSuperview" ref="860587821"/>
+							<string key="NSClassName">YRKSpinningProgressIndicator</string>
+						</object>
 					</object>
 					<string key="NSFrameSize">{336, 225}</string>
 					<reference key="NSSuperview"/>
@@ -518,6 +525,14 @@
 					</object>
 					<int key="connectionID">273</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">spinner</string>
+						<reference key="source" ref="464975199"/>
+						<reference key="destination" ref="112395062"/>
+					</object>
+					<int key="connectionID">277</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -576,6 +591,7 @@
 							<reference ref="950765945"/>
 							<reference ref="363211128"/>
 							<reference ref="431167537"/>
+							<reference ref="112395062"/>
 						</object>
 						<reference key="parent" ref="587255502"/>
 					</object>
@@ -824,6 +840,11 @@
 						<reference key="object" ref="779111420"/>
 						<reference key="parent" ref="534691727"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">276</int>
+						<reference key="object" ref="112395062"/>
+						<reference key="parent" ref="860587821"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -908,6 +929,7 @@
 					<string>263.IBPluginDependency</string>
 					<string>271.IBPluginDependency</string>
 					<string>272.IBPluginDependency</string>
+					<string>276.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>58.ImportedFromIB2</string>
 				</object>
@@ -928,8 +950,8 @@
 					<reference ref="5"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="5"/>
-					<string>{{456, 506}, {336, 225}}</string>
-					<string>{{456, 506}, {336, 225}}</string>
+					<string>{{407, 483}, {336, 225}}</string>
+					<string>{{407, 483}, {336, 225}}</string>
 					<reference ref="5"/>
 					<reference ref="5"/>
 					<string>{213, 107}</string>
@@ -992,6 +1014,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="5"/>
 				</object>
 			</object>
@@ -1015,7 +1038,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">273</int>
+			<int key="maxID">278</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1046,9 +1069,11 @@
 							<string>humidityField</string>
 							<string>pressureField</string>
 							<string>rainfallField</string>
+							<string>spinner</string>
 							<string>statusMenu</string>
 							<string>sunshineField</string>
 							<string>temperatureField</string>
+							<string>updateButton</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1057,9 +1082,11 @@
 							<string>BugHUDTextField</string>
 							<string>BugHUDTextField</string>
 							<string>BugHUDTextField</string>
+							<string>YRKSpinningProgressIndicator</string>
 							<string>NSMenu</string>
 							<string>BugHUDTextField</string>
 							<string>BugHUDTextField</string>
+							<string>NFHUDButton</string>
 							<string>NFHUDWindow</string>
 						</object>
 					</object>
@@ -1114,6 +1141,29 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">YRKSpinningProgressIndicator</string>
+					<string key="superclassName">NSView</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>animate:</string>
+							<string>startAnimation:</string>
+							<string>stopAnimation:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Source/YRKSpinningProgressIndicator.h</string>
 					</object>
 				</object>
 			</object>
