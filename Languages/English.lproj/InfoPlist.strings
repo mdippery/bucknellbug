@@ -1,4 +1,4 @@
 /* Localized versions of Info.plist keys */
 
-NSHumanReadableCopyright = "© 2006-2007 Michael Dippery";
+NSHumanReadableCopyright = "© 2006-2009 Michael Dippery";
 CFBundleHelpBookName = "BucknellBug Help";
