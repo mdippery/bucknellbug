@@ -119,7 +119,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
             [dateField setStringValue:[dateFormatter stringFromDate:feedDate]];
         } else {
             NSLog(@"Could not get date with value: %.4f", [[weatherData objectForKey:kMDKeyDate] doubleValue]);
-            [dateField setStringValue:@"(unavailable)"];
+            [dateField setStringValue:NSLocalizedString(@"(unavailable)", nil)];
         }
         
         [temperatureField setStringValue:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];

@@ -7,6 +7,9 @@
 /* Generic no weather data explanation */
 "Weather data cannot be parsed at this time." = "Weather data cannot be parsed at this time.";
 
+/* Data is unavailable label */
+"(unavailable)" = "(unavailable)";
+
 /* Growl application name */
 "BucknellBug" = "BucknellBug";
 
