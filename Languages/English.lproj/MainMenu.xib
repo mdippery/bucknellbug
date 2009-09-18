@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="263"/>
 			<integer value="225"/>
+			<integer value="263"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -315,8 +315,7 @@
 					<object class="NSMenuItem" id="57699261">
 						<reference key="NSMenu" ref="534691727"/>
 						<string key="NSTitle">Refresh</string>
-						<string key="NSKeyEquiv">r</string>
-						<int key="NSKeyEquivModMask">1048576</int>
+						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<object class="NSCustomResource" key="NSOnImage" id="746123207">
 							<string key="NSClassName">NSImage</string>
@@ -326,6 +325,14 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
+					</object>
+					<object class="NSMenuItem" id="112197209">
+						<reference key="NSMenu" ref="534691727"/>
+						<string key="NSTitle">Show Weather Data</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="746123207"/>
+						<reference key="NSMixedImage" ref="411667689"/>
 					</object>
 					<object class="NSMenuItem" id="487409802">
 						<reference key="NSMenu" ref="534691727"/>
@@ -348,8 +355,7 @@
 					<object class="NSMenuItem" id="69049427">
 						<reference key="NSMenu" ref="534691727"/>
 						<string key="NSTitle">BucknellBug Help</string>
-						<string key="NSKeyEquiv">?</string>
-						<int key="NSKeyEquivModMask">1048576</int>
+						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="746123207"/>
 						<reference key="NSMixedImage" ref="411667689"/>
@@ -385,8 +391,7 @@
 					<object class="NSMenuItem" id="642016570">
 						<reference key="NSMenu" ref="534691727"/>
 						<string key="NSTitle">Quit BucknellBug</string>
-						<string key="NSKeyEquiv">q</string>
-						<int key="NSKeyEquivModMask">1048576</int>
+						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="746123207"/>
 						<reference key="NSMixedImage" ref="411667689"/>
@@ -532,6 +537,14 @@
 						<reference key="destination" ref="112395062"/>
 					</object>
 					<int key="connectionID">277</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">makeKeyAndOrderFront:</string>
+						<reference key="source" ref="587255502"/>
+						<reference key="destination" ref="112197209"/>
+					</object>
+					<int key="connectionID">280</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -796,6 +809,7 @@
 							<reference ref="491685710"/>
 							<reference ref="487409802"/>
 							<reference ref="779111420"/>
+							<reference ref="112197209"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Status Menu</string>
@@ -844,6 +858,11 @@
 						<int key="objectID">276</int>
 						<reference key="object" ref="112395062"/>
 						<reference key="parent" ref="860587821"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">279</int>
+						<reference key="object" ref="112197209"/>
+						<reference key="parent" ref="534691727"/>
 					</object>
 				</object>
 			</object>
@@ -930,6 +949,7 @@
 					<string>271.IBPluginDependency</string>
 					<string>272.IBPluginDependency</string>
 					<string>276.IBPluginDependency</string>
+					<string>279.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>58.ImportedFromIB2</string>
 				</object>
@@ -950,8 +970,8 @@
 					<reference ref="5"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="5"/>
-					<string>{{407, 483}, {336, 225}}</string>
-					<string>{{407, 483}, {336, 225}}</string>
+					<string>{{513, 495}, {336, 225}}</string>
+					<string>{{513, 495}, {336, 225}}</string>
 					<reference ref="5"/>
 					<reference ref="5"/>
 					<string>{213, 107}</string>
@@ -1009,7 +1029,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{554, 289}, {239, 143}}</string>
+					<string>{{586, 297}, {229, 163}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1038,7 +1059,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">278</int>
+			<int key="maxID">280</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1053,9 +1074,11 @@
 							<string>openBugHomepage:</string>
 							<string>openHomepage:</string>
 							<string>refresh:</string>
+							<string>showWindow:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
