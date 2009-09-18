@@ -26,6 +26,7 @@
 		B7909DC20C4BD1F4007FB75C /* iLifeControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */; };
 		B7909DDB0C4BD20A007FB75C /* iLifeControls.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
+		B7AD96371063CEA400C644D9 /* MDSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */; };
 		B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AF8E080B35B47B00C54EC1 /* IOKit.framework */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
 		B7C854490AF6FEB90039D98F /* BugDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BugDataParser.m */; };
@@ -75,6 +76,8 @@
 		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
 		B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iLifeControls.framework; path = Frameworks/iLifeControls.framework; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		B7AD96351063CEA400C644D9 /* MDSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSpinningProgressIndicator.h; path = Source/MDSpinningProgressIndicator.h; sourceTree = "<group>"; };
+		B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDSpinningProgressIndicator.m; path = Source/MDSpinningProgressIndicator.m; sourceTree = "<group>"; };
 		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		B7C854470AF6FEB90039D98F /* BugDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugDataParser.h; path = Source/BugDataParser.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BugDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BugDataParser.m; path = Source/BugDataParser.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */,
 				B74ABE080C4BDADE00E7A521 /* BugHUDTextFieldCell.h */,
 				B74ABE090C4BDADE00E7A521 /* BugHUDTextFieldCell.m */,
+				B7AD96351063CEA400C644D9 /* MDSpinningProgressIndicator.h */,
+				B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */,
 				B72359661062D6E70019C332 /* YRKSpinningProgressIndicator.h */,
 				B72359671062D6E70019C332 /* YRKSpinningProgressIndicator.m */,
 				B784DA3E105DD7D000D90D8F /* MainMenu.xib */,
@@ -267,6 +272,7 @@
 				B74ABE050C4BDACC00E7A521 /* BugHUDTextField.m in Sources */,
 				B74ABE0B0C4BDADE00E7A521 /* BugHUDTextFieldCell.m in Sources */,
 				B72359681062D6E70019C332 /* YRKSpinningProgressIndicator.m in Sources */,
+				B7AD96371063CEA400C644D9 /* MDSpinningProgressIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

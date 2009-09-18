@@ -297,7 +297,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{300, 20}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="860587821"/>
-							<string key="NSClassName">YRKSpinningProgressIndicator</string>
+							<string key="NSClassName">MDSpinningProgressIndicator</string>
 						</object>
 					</object>
 					<string key="NSFrameSize">{336, 225}</string>
@@ -1073,7 +1073,6 @@
 							<string>statusMenu</string>
 							<string>sunshineField</string>
 							<string>temperatureField</string>
-							<string>updateButton</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1086,7 +1085,6 @@
 							<string>NSMenu</string>
 							<string>BugHUDTextField</string>
 							<string>BugHUDTextField</string>
-							<string>NFHUDButton</string>
 							<string>NFHUDWindow</string>
 						</object>
 					</object>
@@ -1125,6 +1123,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MDSpinningProgressIndicator</string>
+					<string key="superclassName">YRKSpinningProgressIndicator</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Source/MDSpinningProgressIndicator.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

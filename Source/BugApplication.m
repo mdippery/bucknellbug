@@ -59,10 +59,6 @@
 
 - (void)awakeFromNib
 {
-    // Set up spinner
-    [spinner setBackgroundColor:[window backgroundColor]];
-    [spinner setForegroundColor:[NSColor whiteColor]];
-    
     [self activateStatusMenu];
     [window makeKeyAndOrderFront:self];
     [GrowlApplicationBridge setGrowlDelegate:self];
@@ -100,7 +96,6 @@
     NSDictionary *weatherData = nil;
     BOOL feedWasUpdated = NO;
     
-    [spinner setHidden:NO];
     [spinner startAnimation:self];
     
     NSAssert(!aTimer || aTimer == timer, @"aTimer should be nil or instance variable timer");   
@@ -144,7 +139,6 @@
     [weatherData release];
     
     [spinner stopAnimation:self];
-    [spinner setHidden:YES];
     if (feedWasUpdated) [self alertNewData];
 }
 
