@@ -60,6 +60,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 
 - (void)awakeFromNib
 {
+    [spinner setHidden:YES];
     [self activateStatusMenu];
     [window makeKeyAndOrderFront:self];
     [GrowlApplicationBridge setGrowlDelegate:self];

@@ -23,7 +23,7 @@
 - (id)initWithFrame:(NSRect)frame
 {
     if ((self = [super initWithFrame:frame])) {
-        [self setHidden:YES];
+        // [self setHidden:YES];
         [self setDrawBackground:NO];
         [self setForegroundColor:[NSColor whiteColor]];
     }
