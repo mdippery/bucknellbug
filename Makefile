@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2007 Michael Dippery <mdippery@bucknell.edu>
+# Copyright (c) 2006-2009 Michael Dippery <mdippery@gmail.com>
 # BucknellBug Makefile
 #
 # This Makefile is free software; the author gives unlimited permission
@@ -15,8 +15,8 @@ PROJECT      = BucknellBug.xcodeproj
 TARGET       = BucknellBug
 CONFIG       = Release
 DEBUG_CONFIG = Debug
-TARBALL      = BucknellBug-$(VERSION).tgz
-SRCTARBALL   = BucknellBug-$(VERSION).src.tgz
+RELEASE_DMG  = BucknellBug-$(VERSION).dmg
+SRCTGZ       = BucknellBug-$(VERSION).src.tgz
 
 .PHONY: release debug dist src-dist clean
 
@@ -27,13 +27,13 @@ debug:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) build
 
 dist: release
-	tar czf $(TARBALL) -C build/Release/ BucknellBug.app/
+	hdiutil create -ov -srcfolder build/$(CONFIG)/ $(RELEASE_DMG)
 
 src-dist:
-	tar czf $(SRCTARBALL) . --exclude build
+	git archive --format=tar --prefix=bucknellbug/ master | gzip > $(SRCTGZ)
 
 clean:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) clean
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) clean
-	-rm -f $(TARBALL)
-	-rm -f $(SRCTARBALL)
+	-rm -f $(RELEASE_DMG)
+	-rm -f $(SRCTGZ)
