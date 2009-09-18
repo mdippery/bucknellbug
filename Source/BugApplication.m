@@ -35,13 +35,15 @@
 
 #define MillibarsToInches(mb)   ((float) (mb * 0.0295301F))
 
+NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
+
 @interface BugApplication (Private)
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
-- (void)alertNewData;
+- (void)alertNewData:(NSNotification *)notification;
 - (void)startTimer;
-- (void)computerDidWake:(void *)userInfo;
+- (void)computerDidWake:(NSNotification *)notification;
 - (void)showNoWeatherDataAlert;
 @end
 
@@ -49,11 +51,10 @@
 
 - (id)init
 {
-    if ([super init] == nil) return nil;
-    
-    dataFileParser = [[BugDataParser alloc] init];
-    timer = nil;
-    
+    if ((self = [super init])) {
+        dataFileParser = [[BugDataParser alloc] init];
+        timer = nil;
+    }
     return self;
 }
 
@@ -98,11 +99,7 @@
     
     [spinner startAnimation:self];
     
-    NSAssert(!aTimer || aTimer == timer, @"aTimer should be nil or instance variable timer");   
-    NSLog(@"Checking weather data with timer date: %@", [aTimer fireDate]);
-    
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
-    
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
         static NSDateFormatter *dateFormatter = nil;
         NSDate *feedDate;
@@ -130,19 +127,19 @@
         [sunshineField setStringValue:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
         [pressureField setStringValue:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
         [rainfallField setStringValue:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:BugApplicationDidUpdateWeatherNotification object:self];
     } else {
         if (!weatherData || [weatherData count] == 0) {
             [self showNoWeatherDataAlert];
         }
     }
-    
     [weatherData release];
     
     [spinner stopAnimation:self];
-    if (feedWasUpdated) [self alertNewData];
 }
 
-- (void)alertNewData
+- (void)alertNewData:(NSNotification *)notification
 {
     // Not valid, since we're now a status menu item
     // [NSApp requestUserAttention:NSInformationalRequest];
@@ -158,7 +155,6 @@
 - (void)startTimer
 {
     if (timer) {
-        //NSLog(@"Invalidating existing timer");
         [timer invalidate];
         [timer release];
         timer = nil;
@@ -171,13 +167,11 @@
                                      userInfo:nil
                                       repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-    //NSLog(@"Added timer to current run loop");
 }
 
-- (void)computerDidWake:(void *)userInfo
+- (void)computerDidWake:(NSNotification *)notification
 {
     NSLog(@"Received computerDidWake notification");
-    
     // Pause to confirm network connection has been established.
     [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY];
 }
@@ -235,15 +229,21 @@
 @implementation BugApplication (NSAppDelegate)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
-{   
+{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
     //[self updateWeatherData:nil];
     [self startTimer];
     
     MDRegisterForPowerNotifications();
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(computerDidWake:)
-                                                 name:(NSString *) kMDComputerDidWakeNotification
-                                               object:nil];
+    [nc addObserver:self
+           selector:@selector(computerDidWake:)
+               name:(NSString *) kMDComputerDidWakeNotification
+             object:nil];
+    [nc addObserver:self
+           selector:@selector(alertNewData:)
+               name:BugApplicationDidUpdateWeatherNotification
+             object:self];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
