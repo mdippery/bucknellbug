@@ -59,8 +59,7 @@
     if ([self window] == nil) {
         // No window?  View hierarchy may be going away.  Dispose timer to clear circular retain of timer to self to timer.
         [self disposeAnimTimer];
-    }
-    else if (_isAnimating) {
+    } else if (_isAnimating) {
         [self setupAnimTimer];
     }
 }
@@ -105,8 +104,7 @@
     for(i=0; i<_numFins; i++) {
         if(_isAnimating) {
             [[_foreColor colorWithAlphaComponent:alpha] set];
-        }
-        else {
+        } else {
             [[_foreColor colorWithAlphaComponent:0.2] set];
         }
 
@@ -129,8 +127,7 @@
 
     if(_position > 0) {
         _position--;
-    }
-    else {
+    } else {
         _position = _numFins;
     }
 
@@ -154,6 +151,9 @@
         // like BBug to run on 10.4, if possible. Is there a 10.4 analog
         // for NSRunLoopCommonModes?
         //[[NSRunLoop currentRunLoop] addTimer:_animationTimer forMode:NSRunLoopCommonModes];
+        // This is from an older version of the code that _did_ compile
+        // on 10.4.
+        [_animationTimer setFireDate:[NSDate date]];
         [[NSRunLoop currentRunLoop] addTimer:_animationTimer forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] addTimer:_animationTimer forMode:NSEventTrackingRunLoopMode];
     }
