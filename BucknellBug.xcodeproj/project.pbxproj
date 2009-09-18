@@ -191,8 +191,8 @@
 				B77105320AF7BF8D00FA66C0 /* BugApplication.m */,
 				B7C854470AF6FEB90039D98F /* BugDataParser.h */,
 				B7C854480AF6FEB90039D98F /* BugDataParser.m */,
-				B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */,
 				B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */,
+				B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */,
 			);
 			name = Core;
 			sourceTree = "<group>";
