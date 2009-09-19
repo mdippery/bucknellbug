@@ -17,29 +17,29 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BugDataParser, BugHUDTextField, NFHUDWindow, YRKSpinningProgressIndicator;
+@class BBDataParser, BBHUDTextField, NFHUDWindow, YRKSpinningProgressIndicator;
 
 
-@interface BugApplication : NSObject <GrowlApplicationBridgeDelegate>
+@interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
 {
     IBOutlet NSMenu *statusMenu;
     IBOutlet NFHUDWindow *window;
     IBOutlet YRKSpinningProgressIndicator *spinner;
-    IBOutlet BugHUDTextField *dateField;
-    IBOutlet BugHUDTextField *temperatureField;
-    IBOutlet BugHUDTextField *humidityField;
-    IBOutlet BugHUDTextField *sunshineField;
-    IBOutlet BugHUDTextField *pressureField;
-    IBOutlet BugHUDTextField *rainfallField;
+    IBOutlet BBHUDTextField *dateField;
+    IBOutlet BBHUDTextField *temperatureField;
+    IBOutlet BBHUDTextField *humidityField;
+    IBOutlet BBHUDTextField *sunshineField;
+    IBOutlet BBHUDTextField *pressureField;
+    IBOutlet BBHUDTextField *rainfallField;
     
-    BugDataParser *dataFileParser;
+    BBDataParser *dataFileParser;
     NSTimer *timer;
     NSStatusItem *statusItem;
 }
 @end
 
 
-@interface BugApplication (GUI)
+@interface BBApplication (GUI)
 
 - (IBAction)openHomepage:(id)sender;
 - (IBAction)openBugHomepage:(id)sender;

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "BugApplication.h"
+#import "BBApplication.h"
 
 #import <stdarg.h>
 
@@ -23,8 +23,8 @@
 #import <iLifeControls/NFHUDWindow.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
-#import "BugDataParser.h"
-#import "BugHUDTextField.h"
+#import "BBDataParser.h"
+#import "BBHUDTextField.h"
 #import "MDPowerNotifications.h"
 #import "YRKSpinningProgressIndicator.h"
 
@@ -37,7 +37,7 @@
 
 NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
 
-@interface BugApplication (Private)
+@interface BBApplication (Private)
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
@@ -47,12 +47,12 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 - (void)showNoWeatherDataAlert;
 @end
 
-@implementation BugApplication
+@implementation BBApplication
 
 - (id)init
 {
     if ((self = [super init])) {
-        dataFileParser = [[BugDataParser alloc] init];
+        dataFileParser = [[BBDataParser alloc] init];
         timer = nil;
     }
     return self;
@@ -207,7 +207,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 
 @end
 
-@implementation BugApplication (GUI)
+@implementation BBApplication (GUI)
 
 - (IBAction)openHomepage:(id)sender
 {
@@ -227,7 +227,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 @end
 
 
-@implementation BugApplication (NSAppDelegate)
+@implementation BBApplication (NSAppDelegate)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
@@ -257,7 +257,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 @end
 
 
-@implementation BugApplication (GrowlDelegate)
+@implementation BBApplication (GrowlDelegate)
 
 - (NSDictionary *)registrationDictionaryForGrowl
 {

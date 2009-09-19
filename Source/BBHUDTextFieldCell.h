@@ -18,5 +18,5 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface BugHUDTextFieldCell : NSTextFieldCell
+@interface BBHUDTextFieldCell : NSTextFieldCell
 @end

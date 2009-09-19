@@ -15,9 +15,9 @@
 		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
 		B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */ = {isa = PBXBuildFile; fileRef = B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */; };
 		B72359681062D6E70019C332 /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B72359671062D6E70019C332 /* YRKSpinningProgressIndicator.m */; };
-		B74ABE050C4BDACC00E7A521 /* BugHUDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */; };
-		B74ABE0B0C4BDADE00E7A521 /* BugHUDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE090C4BDADE00E7A521 /* BugHUDTextFieldCell.m */; };
-		B77105340AF7BF8D00FA66C0 /* BugApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BugApplication.m */; };
+		B74ABE050C4BDACC00E7A521 /* BBHUDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE030C4BDACC00E7A521 /* BBHUDTextField.m */; };
+		B74ABE0B0C4BDADE00E7A521 /* BBHUDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE090C4BDADE00E7A521 /* BBHUDTextFieldCell.m */; };
+		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
 		B784DA40105DD7D000D90D8F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B784DA3E105DD7D000D90D8F /* MainMenu.xib */; };
 		B784DA59105DD89D00D90D8F /* Help in Resources */ = {isa = PBXBuildFile; fileRef = B784DA4E105DD89D00D90D8F /* Help */; };
 		B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA5F105DD8F100D90D8F /* InfoPlist.strings */; };
@@ -29,7 +29,7 @@
 		B7AD96371063CEA400C644D9 /* MDSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */; };
 		B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AF8E080B35B47B00C54EC1 /* IOKit.framework */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
-		B7C854490AF6FEB90039D98F /* BugDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BugDataParser.m */; };
+		B7C854490AF6FEB90039D98F /* BBDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,12 +62,12 @@
 		B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MDPowerNotifications.c; path = Source/MDPowerNotifications.c; sourceTree = "<group>"; };
 		B72359661062D6E70019C332 /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YRKSpinningProgressIndicator.h; path = Source/YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		B72359671062D6E70019C332 /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YRKSpinningProgressIndicator.m; path = Source/YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
-		B74ABE020C4BDACC00E7A521 /* BugHUDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugHUDTextField.h; path = Source/BugHUDTextField.h; sourceTree = "<group>"; };
-		B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BugHUDTextField.m; path = Source/BugHUDTextField.m; sourceTree = "<group>"; };
-		B74ABE080C4BDADE00E7A521 /* BugHUDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugHUDTextFieldCell.h; path = Source/BugHUDTextFieldCell.h; sourceTree = "<group>"; };
-		B74ABE090C4BDADE00E7A521 /* BugHUDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BugHUDTextFieldCell.m; path = Source/BugHUDTextFieldCell.m; sourceTree = "<group>"; };
-		B77105310AF7BF8D00FA66C0 /* BugApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugApplication.h; path = Source/BugApplication.h; sourceTree = "<group>"; };
-		B77105320AF7BF8D00FA66C0 /* BugApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BugApplication.m; path = Source/BugApplication.m; sourceTree = "<group>"; };
+		B74ABE020C4BDACC00E7A521 /* BBHUDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBHUDTextField.h; path = Source/BBHUDTextField.h; sourceTree = "<group>"; };
+		B74ABE030C4BDACC00E7A521 /* BBHUDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBHUDTextField.m; path = Source/BBHUDTextField.m; sourceTree = "<group>"; };
+		B74ABE080C4BDADE00E7A521 /* BBHUDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBHUDTextFieldCell.h; path = Source/BBHUDTextFieldCell.h; sourceTree = "<group>"; };
+		B74ABE090C4BDADE00E7A521 /* BBHUDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBHUDTextFieldCell.m; path = Source/BBHUDTextFieldCell.m; sourceTree = "<group>"; };
+		B77105310AF7BF8D00FA66C0 /* BBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBApplication.h; path = Source/BBApplication.h; sourceTree = "<group>"; };
+		B77105320AF7BF8D00FA66C0 /* BBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBApplication.m; path = Source/BBApplication.m; sourceTree = "<group>"; };
 		B784DA3F105DD7D000D90D8F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Languages/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B784DA4C105DD85E00D90D8F /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Languages/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B784DA4F105DD89D00D90D8F /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = Languages/English.lproj/Help; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 		B7AD96351063CEA400C644D9 /* MDSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSpinningProgressIndicator.h; path = Source/MDSpinningProgressIndicator.h; sourceTree = "<group>"; };
 		B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDSpinningProgressIndicator.m; path = Source/MDSpinningProgressIndicator.m; sourceTree = "<group>"; };
 		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		B7C854470AF6FEB90039D98F /* BugDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BugDataParser.h; path = Source/BugDataParser.h; sourceTree = "<group>"; };
-		B7C854480AF6FEB90039D98F /* BugDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BugDataParser.m; path = Source/BugDataParser.m; sourceTree = "<group>"; };
+		B7C854470AF6FEB90039D98F /* BBDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataParser.h; path = Source/BBDataParser.h; sourceTree = "<group>"; };
+		B7C854480AF6FEB90039D98F /* BBDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataParser.m; path = Source/BBDataParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,10 +171,10 @@
 		B7C8539B0AF6FC300039D98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B74ABE020C4BDACC00E7A521 /* BugHUDTextField.h */,
-				B74ABE030C4BDACC00E7A521 /* BugHUDTextField.m */,
-				B74ABE080C4BDADE00E7A521 /* BugHUDTextFieldCell.h */,
-				B74ABE090C4BDADE00E7A521 /* BugHUDTextFieldCell.m */,
+				B74ABE020C4BDACC00E7A521 /* BBHUDTextField.h */,
+				B74ABE030C4BDACC00E7A521 /* BBHUDTextField.m */,
+				B74ABE080C4BDADE00E7A521 /* BBHUDTextFieldCell.h */,
+				B74ABE090C4BDADE00E7A521 /* BBHUDTextFieldCell.m */,
 				B7AD96351063CEA400C644D9 /* MDSpinningProgressIndicator.h */,
 				B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */,
 				B72359661062D6E70019C332 /* YRKSpinningProgressIndicator.h */,
@@ -187,10 +187,10 @@
 		B7C854460AF6FE990039D98F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B77105310AF7BF8D00FA66C0 /* BugApplication.h */,
-				B77105320AF7BF8D00FA66C0 /* BugApplication.m */,
-				B7C854470AF6FEB90039D98F /* BugDataParser.h */,
-				B7C854480AF6FEB90039D98F /* BugDataParser.m */,
+				B77105310AF7BF8D00FA66C0 /* BBApplication.h */,
+				B77105320AF7BF8D00FA66C0 /* BBApplication.m */,
+				B7C854470AF6FEB90039D98F /* BBDataParser.h */,
+				B7C854480AF6FEB90039D98F /* BBDataParser.m */,
 				B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */,
 				B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */,
 			);
@@ -266,11 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				B7C854490AF6FEB90039D98F /* BugDataParser.m in Sources */,
-				B77105340AF7BF8D00FA66C0 /* BugApplication.m in Sources */,
+				B7C854490AF6FEB90039D98F /* BBDataParser.m in Sources */,
+				B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */,
 				B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */,
-				B74ABE050C4BDACC00E7A521 /* BugHUDTextField.m in Sources */,
-				B74ABE0B0C4BDADE00E7A521 /* BugHUDTextFieldCell.m in Sources */,
+				B74ABE050C4BDACC00E7A521 /* BBHUDTextField.m in Sources */,
+				B74ABE0B0C4BDADE00E7A521 /* BBHUDTextFieldCell.m in Sources */,
 				B72359681062D6E70019C332 /* YRKSpinningProgressIndicator.m in Sources */,
 				B7AD96371063CEA400C644D9 /* MDSpinningProgressIndicator.m in Sources */,
 			);

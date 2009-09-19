@@ -15,24 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "BBHUDTextFieldCell.h"
 
 
-extern NSString * const kMDKeyDate;
-extern NSString * const kMDKeyTemp;
-extern NSString * const kMDKeyHumidity;
-extern NSString * const kMDKeySun;
-extern NSString * const kMDKeyPressure;
-extern NSString * const kMDKeyRainfall;
+@implementation BBHUDTextFieldCell
 
-
-@interface BugDataParser : NSObject
+- (void)setTextColor:(NSColor *)color
 {
-	NSURL *dataFileURL;
-	NSDate *lastUpdate;
-	NSMutableDictionary *dataCache;
+	[super setTextColor:color];
 }
-- (id)initWithURL:(NSString *)url;
-- (NSDictionary *)fetchWeatherData:(BOOL *)hasNewData;
-- (unsigned int)maxCount;
+
 @end

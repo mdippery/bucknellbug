@@ -15,14 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "BugHUDTextFieldCell.h"
+#import <Cocoa/Cocoa.h>
 
 
-@implementation BugHUDTextFieldCell
-
-- (void)setTextColor:(NSColor *)color
-{
-	[super setTextColor:color];
-}
-
+@interface BBHUDTextField : NSTextField
 @end

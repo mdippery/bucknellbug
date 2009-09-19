@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "BugDataParser.h"
+#import "BBDataParser.h"
 
 #define NUM_DATA_ITEMS	6U
 
@@ -67,11 +67,11 @@ MakeDateWithStrings(NSString *year, NSString *month, NSString *day, NSString *ho
 	return [date autorelease];
 }
 
-@interface BugDataParser (Private)
+@interface BBDataParser (Private)
 - (void)setURL:(NSString *)url;
 @end
 
-@implementation BugDataParser
+@implementation BBDataParser
 
 - (id)init
 {

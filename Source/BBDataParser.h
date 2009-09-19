@@ -18,5 +18,21 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface BugHUDTextField : NSTextField
+extern NSString * const kMDKeyDate;
+extern NSString * const kMDKeyTemp;
+extern NSString * const kMDKeyHumidity;
+extern NSString * const kMDKeySun;
+extern NSString * const kMDKeyPressure;
+extern NSString * const kMDKeyRainfall;
+
+
+@interface BBDataParser : NSObject
+{
+	NSURL *dataFileURL;
+	NSDate *lastUpdate;
+	NSMutableDictionary *dataCache;
+}
+- (id)initWithURL:(NSString *)url;
+- (NSDictionary *)fetchWeatherData:(BOOL *)hasNewData;
+- (unsigned int)maxCount;
 @end

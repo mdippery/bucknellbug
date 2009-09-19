@@ -15,15 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "BugHUDTextField.h"
-#import "BugHUDTextFieldCell.h"
+#import "BBHUDTextField.h"
+#import "BBHUDTextFieldCell.h"
 
 
-@implementation BugHUDTextField
+@implementation BBHUDTextField
 
 + (Class)cellClass
 {
-	return [BugHUDTextFieldCell class];
+	return [BBHUDTextFieldCell class];
 }
 
 - (id)initWithCoder:(NSCoder *)coder
