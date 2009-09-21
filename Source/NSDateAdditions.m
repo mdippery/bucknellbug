@@ -27,16 +27,12 @@
 - (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
 {
     NSMutableString *dateStr = [[[NSMutableString alloc] initWithFormat:@"%@-", year] autorelease];
-    [dateStr appendFormat:@"%@-%@ ", month, day];
+    [dateStr appendFormat:@"%@-%@ %d:00:00 ", month, day, ([hour intValue] / 100)];
     
-    // Apparently the data stream isn't adjusted for Daylight Savings Time, so
-    // if it IS Daylight Saving Time, we have to adjust the string manually,
-    // as well as set the time zone.
+    // Set the appropriate offset for Daylight Savings Time
     if ([[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime]) {
-        [dateStr appendFormat:@"%d:00:00 ", ([hour intValue] / 100) - 1];
         [dateStr appendString:@"-0400"];
     } else {
-        [dateStr appendFormat:@"%d:00:00 ", [hour intValue] / 100];
         [dateStr appendString:@"-0500"];
     }
     
