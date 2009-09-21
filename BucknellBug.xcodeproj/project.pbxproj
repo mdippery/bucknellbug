@@ -100,8 +100,8 @@
 		29B97314FDCFA39411CA2CEA /* BucknellBug */ = {
 			isa = PBXGroup;
 			children = (
-				B7C854460AF6FE990039D98F /* Core */,
 				B7C8539B0AF6FC300039D98F /* Interface */,
+				B7C854460AF6FE990039D98F /* Core */,
 				B76B25371067254000204670 /* Additions */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -171,6 +171,8 @@
 		B7C8539B0AF6FC300039D98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				B77105310AF7BF8D00FA66C0 /* BBApplication.h */,
+				B77105320AF7BF8D00FA66C0 /* BBApplication.m */,
 				B784DA3E105DD7D000D90D8F /* MainMenu.xib */,
 			);
 			name = Interface;
@@ -179,8 +181,6 @@
 		B7C854460AF6FE990039D98F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B77105310AF7BF8D00FA66C0 /* BBApplication.h */,
-				B77105320AF7BF8D00FA66C0 /* BBApplication.m */,
 				B7C854470AF6FEB90039D98F /* BBDataParser.h */,
 				B7C854480AF6FEB90039D98F /* BBDataParser.m */,
 				B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */,

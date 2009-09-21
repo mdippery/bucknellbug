@@ -26,16 +26,10 @@
 }
 - (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
 {
-    NSMutableString *dateStr = [[[NSMutableString alloc] initWithFormat:@"%@-", year] autorelease];
-    [dateStr appendFormat:@"%@-%@ %d:00:00 ", month, day, ([hour intValue] / 100)];
-    
-    // Set the appropriate offset for Daylight Savings Time
-    if ([[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime]) {
-        [dateStr appendString:@"-0400"];
-    } else {
-        [dateStr appendString:@"-0500"];
-    }
-    
+    int realHour = [hour intValue] / 100;
+    BOOL isDST = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime];
+    NSString *dstOffset = isDST ? @"-0400" : @"-0500";
+    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@ %d:00:00 %@", year, month, day, realHour, dstOffset];
     NSLog(@"Making date with str: %@", dateStr);
     // I think I'm supposed to release the allocated 'self' here in order to
     // return the NEW date object...right?
