@@ -23,4 +23,8 @@
 + (id)dateWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour;
 - (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour;
 
+- (BOOL)isToday;
+- (BOOL)isTomorrowOrLater;
+- (BOOL)isYesterdayOrEarlier;
+
 @end

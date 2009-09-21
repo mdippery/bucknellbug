@@ -20,11 +20,11 @@
 #import <stdarg.h>
 
 #import <Growl/Growl.h>
-#import <iLifeControls/NFHUDWindow.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
 #import "BBDataParser.h"
 #import "MDPowerNotifications.h"
+#import "NSDateAdditions.h"
 #import "NSMenuItemAdditions.h"
 #import "NSTimerAdditions.h"
 
@@ -97,18 +97,25 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     NSDictionary *weatherData = nil;
     BOOL feedWasUpdated = NO;
     
+    // Set the date (using a 10.4 formatter)
+    if (dateFormatter == nil) {
+        [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+        dateFormatter = [[NSDateFormatter alloc] init];
+        //[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+    
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
-        // Set the date (using a 10.4 formatter)
-        if (dateFormatter == nil) {
-            [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-            dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-        }
+        NSDate *update = [weatherData objectForKey:kMDKeyDate];
         // If the date could not be parsed, it will be [NSNull null].
         // [NSNull null] is a singleton, so we can compare pointers.
-        if ([weatherData objectForKey:kMDKeyDate] != [NSNull null]) {
+        if (update != (NSObject *) [NSNull null]) {
+            if ([update isYesterdayOrEarlier]) {
+                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+            } else {
+                [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+            }
             [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:[weatherData objectForKey:kMDKeyDate]]];
         } else {
             [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
@@ -129,6 +136,12 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     [weatherData release];
     
     if (timer && [timer isValid]) {
+        NSDate *fire = [timer nextFireDate];
+        if ([fire isTomorrowOrLater]) {
+            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        } else {
+            [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+        }
         [nextUpdateItem updateTitle:[dateFormatter stringFromDate:[timer nextFireDate]]];
     }
 }

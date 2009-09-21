@@ -18,12 +18,31 @@
 #import "NSDateAdditions.h"
 
 
+@interface NSDate (PrivateBucknellBugAdditions)
+- (void)getDay:(int *)inDay andToday:(int *)inToday;
+@end
+
+
+@implementation NSDate (PrivateBucknellBugAdditions)
+
+- (void)getDay:(int *)inDay andToday:(int *)inToday
+{
+    NSDateComponents *day = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self];
+    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:[NSDate date]];
+    *inDay = [day day];
+    *inToday = [today day];
+}
+
+@end
+
+
 @implementation NSDate (BucknellBugAdditions)
 
 + (id)dateWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
 {
     return [[[self alloc] initWithYear:year month:month day:day hour:hour] autorelease];
 }
+
 - (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
 {
     BOOL makeYesterday = NO;
@@ -63,6 +82,30 @@
         self = [self addTimeInterval:(24.0 * 60.0 * 60.0)];
     }
     return self;
+}
+
+- (BOOL)isToday
+{
+    int day;
+    int today;
+    [self getDay:&day andToday:&today];
+    return day == today;
+}
+
+- (BOOL)isTomorrowOrLater
+{
+    int day;
+    int today;
+    [self getDay:&day andToday:&today];
+    return day > today;
+}
+
+- (BOOL)isYesterdayOrEarlier
+{
+    int day;
+    int today;
+    [self getDay:&day andToday:&today];
+    return day < today;
 }
 
 @end
