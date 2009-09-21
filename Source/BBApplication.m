@@ -116,7 +116,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
             } else {
                 [dateFormatter setDateStyle:NSDateFormatterNoStyle];
             }
-            [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:[weatherData objectForKey:kMDKeyDate]]];
+            [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:update]];
         } else {
             [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
         }
@@ -142,7 +142,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         } else {
             [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         }
-        [nextUpdateItem updateTitle:[dateFormatter stringFromDate:[timer nextFireDate]]];
+        [nextUpdateItem updateTitle:[dateFormatter stringFromDate:fire]];
     }
 }
 
