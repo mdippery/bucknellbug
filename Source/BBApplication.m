@@ -24,9 +24,8 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 #import "BBDataParser.h"
-#import "BBHUDTextField.h"
 #import "MDPowerNotifications.h"
-#import "YRKSpinningProgressIndicator.h"
+#import "NSMenuItemAdditions.h"
 
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
@@ -60,9 +59,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 
 - (void)awakeFromNib
 {
-    [spinner setHidden:YES];
     [self activateStatusMenu];
-    [window makeKeyAndOrderFront:self];
     [GrowlApplicationBridge setGrowlDelegate:self];
 }
 
@@ -98,14 +95,12 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     NSDictionary *weatherData = nil;
     BOOL feedWasUpdated = NO;
     
-    [spinner startAnimation:self];
-    
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
         static NSDateFormatter *dateFormatter = nil;
         NSDate *feedDate;
         
-        NSLog(@"Feed updated");
+        //NSLog(@"Feed updated");
         
         // Set the date (using a 10.4 formatter)
         if (dateFormatter == nil) {
@@ -117,17 +112,17 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         // If the date could not be parsed, it will be set to Dec. 31, 1969.
         if ([[weatherData objectForKey:kMDKeyDate] doubleValue] > 0.0) {
             feedDate = [NSDate dateWithTimeIntervalSince1970:[[weatherData objectForKey:kMDKeyDate] doubleValue]];
-            [dateField setStringValue:[dateFormatter stringFromDate:feedDate]];
+            [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:feedDate]];
         } else {
             NSLog(@"Could not get date with value: %.4f", [[weatherData objectForKey:kMDKeyDate] doubleValue]);
-            [dateField setStringValue:NSLocalizedString(@"(unavailable)", nil)];
+            [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
         }
         
-        [temperatureField setStringValue:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];
-        [humidityField setStringValue:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
-        [sunshineField setStringValue:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
-        [pressureField setStringValue:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
-        [rainfallField setStringValue:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
+        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];
+        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
+        [sunshineIndexItem updateTitle:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
+        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
+        [rainfallItem updateTitle:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:BugApplicationDidUpdateWeatherNotification object:self];
     } else {
@@ -136,8 +131,6 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         }
     }
     [weatherData release];
-    
-    [spinner stopAnimation:self];
 }
 
 - (void)alertNewData:(NSNotification *)notification

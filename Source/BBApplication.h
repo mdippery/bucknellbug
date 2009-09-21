@@ -17,20 +17,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BBDataParser, BBHUDTextField, NFHUDWindow, YRKSpinningProgressIndicator;
+@class BBDataParser;
 
 
 @interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
 {
     IBOutlet NSMenu *statusMenu;
-    IBOutlet NFHUDWindow *window;
-    IBOutlet YRKSpinningProgressIndicator *spinner;
-    IBOutlet BBHUDTextField *dateField;
-    IBOutlet BBHUDTextField *temperatureField;
-    IBOutlet BBHUDTextField *humidityField;
-    IBOutlet BBHUDTextField *sunshineField;
-    IBOutlet BBHUDTextField *pressureField;
-    IBOutlet BBHUDTextField *rainfallField;
+    IBOutlet NSMenuItem *lastUpdatedItem;
+    IBOutlet NSMenuItem *temperatureItem;
+    IBOutlet NSMenuItem *humidityItem;
+    IBOutlet NSMenuItem *sunshineIndexItem;
+    IBOutlet NSMenuItem *pressureItem;
+    IBOutlet NSMenuItem *rainfallItem;
     
     BBDataParser *dataFileParser;
     NSTimer *timer;

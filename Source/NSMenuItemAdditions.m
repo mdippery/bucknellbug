@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Michael Dippery <mdippery@gmail.com>
+ * Copyright (c) 2006-2009 Michael Dippery <mdippery@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,31 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "MDSpinningProgressIndicator.h"
+#import "NSMenuItemAdditions.h"
 
 
-@implementation MDSpinningProgressIndicator
+@implementation NSMenuItem (BucknellBugAdditions)
 
-- (id)initWithFrame:(NSRect)frame
+- (void)updateTitle:(NSString *)aTitle
 {
-    if ((self = [super initWithFrame:frame])) {
-        // [self setHidden:YES];
-        [self setDrawBackground:NO];
-        [self setForegroundColor:[NSColor whiteColor]];
-    }
-    return self;
-}
-
-- (void)startAnimation:(id)sender
-{
-    [self setHidden:NO];
-    [super startAnimation:sender];
-}
-
-- (void)stopAnimation:(id)sender
-{
-    [self setHidden:YES];
-    [super startAnimation:sender];
+    NSRange colon = [[self title] rangeOfString:@": "];
+    NSString *baseTitle = [[self title] substringToIndex:(colon.location + 2)];
+    NSString *newTitle = [baseTitle stringByAppendingString:aTitle];
+    [self setTitle:newTitle];
 }
 
 @end

@@ -14,19 +14,14 @@
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
 		B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */ = {isa = PBXBuildFile; fileRef = B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */; };
-		B72359681062D6E70019C332 /* YRKSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B72359671062D6E70019C332 /* YRKSpinningProgressIndicator.m */; };
-		B74ABE050C4BDACC00E7A521 /* BBHUDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE030C4BDACC00E7A521 /* BBHUDTextField.m */; };
-		B74ABE0B0C4BDADE00E7A521 /* BBHUDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B74ABE090C4BDADE00E7A521 /* BBHUDTextFieldCell.m */; };
+		B76B253A1067255300204670 /* NSMenuItemAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25391067255300204670 /* NSMenuItemAdditions.m */; };
 		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
 		B784DA40105DD7D000D90D8F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B784DA3E105DD7D000D90D8F /* MainMenu.xib */; };
 		B784DA59105DD89D00D90D8F /* Help in Resources */ = {isa = PBXBuildFile; fileRef = B784DA4E105DD89D00D90D8F /* Help */; };
 		B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA5F105DD8F100D90D8F /* InfoPlist.strings */; };
 		B784DA64105DD90100D90D8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA62105DD90100D90D8F /* Localizable.strings */; };
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
-		B7909DC20C4BD1F4007FB75C /* iLifeControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */; };
-		B7909DDB0C4BD20A007FB75C /* iLifeControls.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
-		B7AD96371063CEA400C644D9 /* MDSpinningProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */; };
 		B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AF8E080B35B47B00C54EC1 /* IOKit.framework */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
 		B7C854490AF6FEB90039D98F /* BBDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataParser.m */; };
@@ -40,7 +35,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */,
-				B7909DDB0C4BD20A007FB75C /* iLifeControls.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +54,8 @@
 		B714EA040B06FA460039B548 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDPowerNotifications.h; path = Source/MDPowerNotifications.h; sourceTree = "<group>"; };
 		B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MDPowerNotifications.c; path = Source/MDPowerNotifications.c; sourceTree = "<group>"; };
-		B72359661062D6E70019C332 /* YRKSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YRKSpinningProgressIndicator.h; path = Source/YRKSpinningProgressIndicator.h; sourceTree = "<group>"; };
-		B72359671062D6E70019C332 /* YRKSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YRKSpinningProgressIndicator.m; path = Source/YRKSpinningProgressIndicator.m; sourceTree = "<group>"; };
-		B74ABE020C4BDACC00E7A521 /* BBHUDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBHUDTextField.h; path = Source/BBHUDTextField.h; sourceTree = "<group>"; };
-		B74ABE030C4BDACC00E7A521 /* BBHUDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBHUDTextField.m; path = Source/BBHUDTextField.m; sourceTree = "<group>"; };
-		B74ABE080C4BDADE00E7A521 /* BBHUDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBHUDTextFieldCell.h; path = Source/BBHUDTextFieldCell.h; sourceTree = "<group>"; };
-		B74ABE090C4BDADE00E7A521 /* BBHUDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBHUDTextFieldCell.m; path = Source/BBHUDTextFieldCell.m; sourceTree = "<group>"; };
+		B76B25381067255300204670 /* NSMenuItemAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMenuItemAdditions.h; path = Source/NSMenuItemAdditions.h; sourceTree = "<group>"; };
+		B76B25391067255300204670 /* NSMenuItemAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMenuItemAdditions.m; path = Source/NSMenuItemAdditions.m; sourceTree = "<group>"; };
 		B77105310AF7BF8D00FA66C0 /* BBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBApplication.h; path = Source/BBApplication.h; sourceTree = "<group>"; };
 		B77105320AF7BF8D00FA66C0 /* BBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBApplication.m; path = Source/BBApplication.m; sourceTree = "<group>"; };
 		B784DA3F105DD7D000D90D8F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Languages/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -74,10 +64,7 @@
 		B784DA60105DD8F100D90D8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Languages/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B784DA63105DD90100D90D8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Languages/English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
-		B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iLifeControls.framework; path = Frameworks/iLifeControls.framework; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
-		B7AD96351063CEA400C644D9 /* MDSpinningProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSpinningProgressIndicator.h; path = Source/MDSpinningProgressIndicator.h; sourceTree = "<group>"; };
-		B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDSpinningProgressIndicator.m; path = Source/MDSpinningProgressIndicator.m; sourceTree = "<group>"; };
 		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		B7C854470AF6FEB90039D98F /* BBDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataParser.h; path = Source/BBDataParser.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataParser.m; path = Source/BBDataParser.m; sourceTree = "<group>"; };
@@ -93,7 +80,6 @@
 				B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */,
 				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 				B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */,
-				B7909DC20C4BD1F4007FB75C /* iLifeControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +99,7 @@
 			children = (
 				B7C854460AF6FE990039D98F /* Core */,
 				B7C8539B0AF6FC300039D98F /* Interface */,
+				B76B25371067254000204670 /* Additions */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -141,11 +128,19 @@
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				B7116EFE0C0497E1007D86E6 /* Growl.framework */,
-				B7909DC10C4BD1F4007FB75C /* iLifeControls.framework */,
 				B7AF8E080B35B47B00C54EC1 /* IOKit.framework */,
 				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B76B25371067254000204670 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				B76B25381067255300204670 /* NSMenuItemAdditions.h */,
+				B76B25391067255300204670 /* NSMenuItemAdditions.m */,
+			);
+			name = Additions;
 			sourceTree = "<group>";
 		};
 		B78679B0105E7FFC0070B84E /* Localizable */ = {
@@ -171,14 +166,6 @@
 		B7C8539B0AF6FC300039D98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B74ABE020C4BDACC00E7A521 /* BBHUDTextField.h */,
-				B74ABE030C4BDACC00E7A521 /* BBHUDTextField.m */,
-				B74ABE080C4BDADE00E7A521 /* BBHUDTextFieldCell.h */,
-				B74ABE090C4BDADE00E7A521 /* BBHUDTextFieldCell.m */,
-				B7AD96351063CEA400C644D9 /* MDSpinningProgressIndicator.h */,
-				B7AD96361063CEA400C644D9 /* MDSpinningProgressIndicator.m */,
-				B72359661062D6E70019C332 /* YRKSpinningProgressIndicator.h */,
-				B72359671062D6E70019C332 /* YRKSpinningProgressIndicator.m */,
 				B784DA3E105DD7D000D90D8F /* MainMenu.xib */,
 			);
 			name = Interface;
@@ -269,10 +256,7 @@
 				B7C854490AF6FEB90039D98F /* BBDataParser.m in Sources */,
 				B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */,
 				B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */,
-				B74ABE050C4BDACC00E7A521 /* BBHUDTextField.m in Sources */,
-				B74ABE0B0C4BDADE00E7A521 /* BBHUDTextFieldCell.m in Sources */,
-				B72359681062D6E70019C332 /* YRKSpinningProgressIndicator.m in Sources */,
-				B7AD96371063CEA400C644D9 /* MDSpinningProgressIndicator.m in Sources */,
+				B76B253A1067255300204670 /* NSMenuItemAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
