@@ -115,8 +115,8 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         }
         
         [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];
-        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
-        [sunshineIndexItem updateTitle:[NSString stringWithFormat:@"%.2f %%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
+        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
+        [sunshineIndexItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
         [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
         [rainfallItem updateTitle:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
         
