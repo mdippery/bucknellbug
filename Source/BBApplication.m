@@ -26,6 +26,7 @@
 #import "BBDataParser.h"
 #import "MDPowerNotifications.h"
 #import "NSMenuItemAdditions.h"
+#import "NSTimerAdditions.h"
 
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
@@ -92,12 +93,12 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
+    static NSDateFormatter *dateFormatter = nil;
     NSDictionary *weatherData = nil;
     BOOL feedWasUpdated = NO;
     
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
-        static NSDateFormatter *dateFormatter = nil;
         NSDate *feedDate;
         
         //NSLog(@"Feed updated");
@@ -131,6 +132,10 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         }
     }
     [weatherData release];
+    
+    if (timer && [timer isValid]) {
+        [nextUpdateItem updateTitle:[dateFormatter stringFromDate:[timer nextFireDate]]];
+    }
 }
 
 - (void)alertNewData:(NSNotification *)notification

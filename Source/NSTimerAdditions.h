@@ -17,31 +17,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BBDataParser;
 
-
-@interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
-{
-    IBOutlet NSMenu *statusMenu;
-    IBOutlet NSMenuItem *nextUpdateItem;
-    IBOutlet NSMenuItem *lastUpdatedItem;
-    IBOutlet NSMenuItem *temperatureItem;
-    IBOutlet NSMenuItem *humidityItem;
-    IBOutlet NSMenuItem *sunshineIndexItem;
-    IBOutlet NSMenuItem *pressureItem;
-    IBOutlet NSMenuItem *rainfallItem;
-    
-    BBDataParser *dataFileParser;
-    NSTimer *timer;
-    NSStatusItem *statusItem;
-}
-@end
-
-
-@interface BBApplication (GUI)
-
-- (IBAction)openHomepage:(id)sender;
-- (IBAction)openBugHomepage:(id)sender;
-- (IBAction)refresh:(id)sender;
-
+@interface NSTimer (BucknellBugAdditions)
+- (NSDate *)nextFireDate;
 @end

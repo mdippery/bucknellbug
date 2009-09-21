@@ -19,7 +19,5 @@
 
 
 @interface NSMenuItem (BucknellBugAdditions)
-
 - (void)updateTitle:(NSString *)aTitle;
-
 @end

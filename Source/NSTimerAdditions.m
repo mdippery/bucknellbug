@@ -15,33 +15,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Cocoa/Cocoa.h>
-
-@class BBDataParser;
+#import "NSTimerAdditions.h"
 
 
-@interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
+@implementation NSTimer (BucknellBugAdditions)
+
+- (NSDate *)nextFireDate
 {
-    IBOutlet NSMenu *statusMenu;
-    IBOutlet NSMenuItem *nextUpdateItem;
-    IBOutlet NSMenuItem *lastUpdatedItem;
-    IBOutlet NSMenuItem *temperatureItem;
-    IBOutlet NSMenuItem *humidityItem;
-    IBOutlet NSMenuItem *sunshineIndexItem;
-    IBOutlet NSMenuItem *pressureItem;
-    IBOutlet NSMenuItem *rainfallItem;
-    
-    BBDataParser *dataFileParser;
-    NSTimer *timer;
-    NSStatusItem *statusItem;
+    NSDate *next = [self fireDate];
+    // If a timer just fired, it will have the current time, not the time of
+    // the next update (which should be in the future), so increment to
+    // NEXT fire date.
+    if ([next compare:[NSDate date]] != NSOrderedDescending) {
+        next = [next addTimeInterval:[self timeInterval]];
+    }
+    return next;
 }
-@end
-
-
-@interface BBApplication (GUI)
-
-- (IBAction)openHomepage:(id)sender;
-- (IBAction)openBugHomepage:(id)sender;
-- (IBAction)refresh:(id)sender;
 
 @end
