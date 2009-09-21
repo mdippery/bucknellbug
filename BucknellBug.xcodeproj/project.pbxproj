@@ -15,6 +15,7 @@
 		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
 		B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */ = {isa = PBXBuildFile; fileRef = B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */; };
 		B76B253A1067255300204670 /* NSMenuItemAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25391067255300204670 /* NSMenuItemAdditions.m */; };
+		B76B257210672BB400204670 /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDateAdditions.m */; };
 		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
 		B784DA40105DD7D000D90D8F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B784DA3E105DD7D000D90D8F /* MainMenu.xib */; };
 		B784DA59105DD89D00D90D8F /* Help in Resources */ = {isa = PBXBuildFile; fileRef = B784DA4E105DD89D00D90D8F /* Help */; };
@@ -56,6 +57,8 @@
 		B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MDPowerNotifications.c; path = Source/MDPowerNotifications.c; sourceTree = "<group>"; };
 		B76B25381067255300204670 /* NSMenuItemAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMenuItemAdditions.h; path = Source/NSMenuItemAdditions.h; sourceTree = "<group>"; };
 		B76B25391067255300204670 /* NSMenuItemAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMenuItemAdditions.m; path = Source/NSMenuItemAdditions.m; sourceTree = "<group>"; };
+		B76B257010672BB400204670 /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDateAdditions.h; path = Source/NSDateAdditions.h; sourceTree = "<group>"; };
+		B76B257110672BB400204670 /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDateAdditions.m; path = Source/NSDateAdditions.m; sourceTree = "<group>"; };
 		B77105310AF7BF8D00FA66C0 /* BBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBApplication.h; path = Source/BBApplication.h; sourceTree = "<group>"; };
 		B77105320AF7BF8D00FA66C0 /* BBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBApplication.m; path = Source/BBApplication.m; sourceTree = "<group>"; };
 		B784DA3F105DD7D000D90D8F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Languages/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 		B76B25371067254000204670 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				B76B257010672BB400204670 /* NSDateAdditions.h */,
+				B76B257110672BB400204670 /* NSDateAdditions.m */,
 				B76B25381067255300204670 /* NSMenuItemAdditions.h */,
 				B76B25391067255300204670 /* NSMenuItemAdditions.m */,
 			);
@@ -257,6 +262,7 @@
 				B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */,
 				B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */,
 				B76B253A1067255300204670 /* NSMenuItemAdditions.m in Sources */,
+				B76B257210672BB400204670 /* NSDateAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@
  */
 
 #import "BBDataParser.h"
+#import "NSDateAdditions.h"
 
 #define NUM_DATA_ITEMS  6U
 
@@ -38,34 +39,6 @@ NSString * const kMDKeySun      = @"Sunshine Index";
 NSString * const kMDKeyPressure = @"Pressure";
 NSString * const kMDKeyRainfall = @"Rainfall";
 NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat";
-
-static NSDate *
-MakeDateWithStrings(NSString *year, NSString *month, NSString *day, NSString *hour)
-{
-    NSMutableString *dateStr;
-    NSDate *date;
-    
-    dateStr = [[NSMutableString alloc] initWithFormat:@"%@-", year];
-    [dateStr appendFormat:@"%@-%@ ", month, day];
-    // NSLog(@"Got date: %@", dateStr);
-    
-    // Apparently the data stream isn't adjusted for Daylight Savings Time, so
-    // if it IS Daylight Saving Time, we have to adjust the string manually,
-    // as well as set the time zone
-    if ([[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime]) {
-        [dateStr appendFormat:@"%d:00:00 ", ([hour intValue] / 100) - 1];
-        [dateStr appendString:@"-0400"];
-    } else {
-        [dateStr appendFormat:@"%d:00:00 ", [hour intValue] / 100];
-        [dateStr appendString:@"-0500"];
-    }
-    
-    NSLog(@"Making date with str: %@", dateStr);
-    date = [[NSDate alloc] initWithString:dateStr];
-    [dateStr release];
-    
-    return [date autorelease];
-}
 
 @interface BBDataParser (Private)
 - (void)setURL:(NSString *)url;
@@ -160,13 +133,10 @@ MakeDateWithStrings(NSString *year, NSString *month, NSString *day, NSString *ho
         *hasNewData = NO;
     } else {
         dataComp = [feedData componentsSeparatedByString:@","];
-        
-        lastUpdate = MakeDateWithStrings([dataComp objectAtIndex:IDX_YEAR],
-                                         [[dataComp objectAtIndex:IDX_DATE] substringToIndex:2],
-                                         [[dataComp objectAtIndex:IDX_DATE] substringFromIndex:3],
-                                         [dataComp objectAtIndex:IDX_TIME]);
-        [lastUpdate retain];
-        //NSLog(@"lastUpdate: %@", lastUpdate);
+        lastUpdate = [[NSDate alloc] initWithYear:[dataComp objectAtIndex:IDX_YEAR]
+                                            month:[[dataComp objectAtIndex:IDX_DATE] substringToIndex:2]
+                                              day:[[dataComp objectAtIndex:IDX_DATE] substringFromIndex:3]
+                                             hour:[dataComp objectAtIndex:IDX_TIME]];
         
         /*
          * Check the dates. If the feed has not changed, just return the cache.
