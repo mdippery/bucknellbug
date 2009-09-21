@@ -30,8 +30,6 @@
 #define IDX_RAINFALL    (IDX_BASE + 19)
 #define IDX_SUN         (IDX_BASE + 31)
 
-#define VAL_BLANK       [NSNull null]
-
 NSString * const kMDKeyDate     = @"Last Updated";
 NSString * const kMDKeyTemp     = @"Temperature";
 NSString * const kMDKeyHumidity = @"Humidity";
@@ -110,26 +108,19 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
     NSDate      *lastDate;
     NSString    *feedData;
     NSArray     *dataComp;
-    
-    //NSLog(@"Fetching weather data");
-    
+        
     lastDate = nil;
     if (lastUpdate) lastDate = [lastUpdate copy];
     [lastUpdate release]; lastUpdate = nil;
-    //NSLog(@"lastDate: %@", lastDate);
     
     feedData = [[NSString alloc] initWithContentsOfURL:dataFileURL
                                               encoding:NSWindowsCP1251StringEncoding
                                                  error:NULL];
-    //NSLog(@"feedData: %@", feedData);
     
-    /*
-     * Note: -[NSString initWithContentsOfUrl: encoding: error:] should return nil if the
-     * network location cannot be reached, and set an error object, but in my experience, it
-     * does neither; rather, it returns an empty string. Check for both.
-     */
+    // Note: -[NSString initWithContentsOfUrl: encoding: error:] should return nil if the
+    // network location cannot be reached, and set an error object, but in my experience, it
+    // does neither; rather, it returns an empty string. Check for both.
     if (feedData == nil || [feedData length] == 0) {   // Feed URL could not be processed
-        //NSLog(@"Weather feed returned no data");
         *hasNewData = NO;
     } else {
         dataComp = [feedData componentsSeparatedByString:@","];
@@ -138,20 +129,13 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
                                               day:[[dataComp objectAtIndex:IDX_DATE] substringFromIndex:3]
                                              hour:[dataComp objectAtIndex:IDX_TIME]];
         
-        /*
-         * Check the dates. If the feed has not changed, just return the cache.
-         * The feed is always updated if lastUpdate == nil; however, nil is not a
-         * valid argument for -[NSDate isEqualToDate:], so check before calling
-         * -[NSDate isEqualToDate].
-         */
+        // Check the dates. If the feed has not changed, just return the cache.
+        // The feed is always updated if lastUpdate == nil; however, nil is not a
+        // valid argument for -[NSDate isEqualToDate:], so check before calling
+        // -[NSDate isEqualToDate].
         if (lastUpdate == nil || (lastUpdate != nil && ![lastUpdate isEqualToDate:lastDate])) {
             *hasNewData = YES;
-            
-            //if (!dataCache) dataCache = [[NSMutableDictionary alloc] initWithCapacity:NUM_DATA_ITEMS];
-            
-            // Set date as seconds since 1970
-            [dataCache setObject:[NSNumber numberWithDouble:[lastUpdate timeIntervalSince1970]]
-                          forKey:kMDKeyDate];
+            [dataCache setObject:(lastUpdate != nil ? lastUpdate : (NSObject *) [NSNull null]) forKey:kMDKeyDate];
             [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_PRESSURE] intValue]]
                           forKey:kMDKeyPressure];
             [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_TEMP] floatValue]]

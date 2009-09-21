@@ -99,10 +99,6 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
-        NSDate *feedDate;
-        
-        //NSLog(@"Feed updated");
-        
         // Set the date (using a 10.4 formatter)
         if (dateFormatter == nil) {
             [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
@@ -110,12 +106,11 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
             [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
             [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
         }
-        // If the date could not be parsed, it will be set to Dec. 31, 1969.
-        if ([[weatherData objectForKey:kMDKeyDate] doubleValue] > 0.0) {
-            feedDate = [NSDate dateWithTimeIntervalSince1970:[[weatherData objectForKey:kMDKeyDate] doubleValue]];
-            [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:feedDate]];
+        // If the date could not be parsed, it will be [NSNull null].
+        // [NSNull null] is a singleton, so we can compare pointers.
+        if ([weatherData objectForKey:kMDKeyDate] != [NSNull null]) {
+            [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:[weatherData objectForKey:kMDKeyDate]]];
         } else {
-            NSLog(@"Could not get date with value: %.4f", [[weatherData objectForKey:kMDKeyDate] doubleValue]);
             [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
         }
         
