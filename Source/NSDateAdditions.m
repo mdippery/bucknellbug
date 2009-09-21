@@ -26,15 +26,42 @@
 }
 - (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
 {
-    int realHour = [hour intValue] / 100;
-    BOOL isDST = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime];
-    NSString *dstOffset = isDST ? @"-0400" : @"-0500";
-    NSString *dateStr = [NSString stringWithFormat:@"%@-%@-%@ %d:00:00 %@", year, month, day, realHour, dstOffset];
+    BOOL makeYesterday = NO;
+    NSMutableString *dateStr = [[[NSMutableString alloc] initWithFormat:@"%@-", year] autorelease];
+    [dateStr appendFormat:@"%@-%@ ", month, day];
+    
+    // Apparently the data stream isn't adjusted for Daylight Savings Time, so
+    // if it IS Daylight Saving Time, we have to adjust the string manually,
+    // as well as set the time zone.
+    if ([[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime]) {
+        // But at 11PM EDT (12AM EDT), we have to change the hour to be
+        // 11, and the day to be the day BEFORE -- otherwise we get a
+        // situation in which the hour is set to -1. That's bad.
+        int hourVal = [hour intValue];
+        if (hourVal == 0) {
+            hourVal = 24;           // Because we subtract 1 from it, below
+            makeYesterday = YES;    // We'll fix this below
+        }
+        
+        [dateStr appendFormat:@"%d:00:00 ", (hourVal / 100) - 1];
+        [dateStr appendString:@"-0400"];
+    } else {
+        [dateStr appendFormat:@"%d:00:00 ", [hour intValue] / 100];
+        [dateStr appendString:@"-0500"];
+    }
+    
     NSLog(@"Making date with str: %@", dateStr);
     // I think I'm supposed to release the allocated 'self' here in order to
     // return the NEW date object...right?
     [self release];
     self = [[NSDate alloc] initWithString:dateStr];
+    // If we had to adjust the date for DST (above) and it was midnight,
+    // it's actually 11 PM on the PREVIOUS day, so handle that here.
+    if (makeYesterday) {
+        // Pretty sure I should autorelease here, too, but I'm not sure
+        [self autorelease];
+        self = [self addTimeInterval:(24.0 * 60.0 * 60.0)];
+    }
     return self;
 }
 
