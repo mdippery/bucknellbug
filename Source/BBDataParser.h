@@ -28,9 +28,9 @@ extern NSString * const kMDKeyRainfall;
 
 @interface BBDataParser : NSObject
 {
-	NSURL *dataFileURL;
-	NSDate *lastUpdate;
-	NSMutableDictionary *dataCache;
+    NSURL *dataFileURL;
+    NSDate *lastUpdate;
+    NSMutableDictionary *dataCache;
 }
 - (id)initWithURL:(NSString *)url;
 - (NSDictionary *)fetchWeatherData:(BOOL *)hasNewData;
