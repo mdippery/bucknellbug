@@ -101,7 +101,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     if (dateFormatter == nil) {
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
         dateFormatter = [[NSDateFormatter alloc] init];
-        //[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     }
     
@@ -111,12 +111,11 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         // If the date could not be parsed, it will be [NSNull null].
         // [NSNull null] is a singleton, so we can compare pointers.
         if (update != (NSObject *) [NSNull null]) {
+            NSString *updateStr = [dateFormatter stringFromDate:update];
             if ([update isYesterdayOrEarlier]) {
-                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            } else {
-                [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+                updateStr = [@"Yesterday, " stringByAppendingString:updateStr];
             }
-            [lastUpdatedItem updateTitle:[dateFormatter stringFromDate:update]];
+            [lastUpdatedItem updateTitle:updateStr];
         } else {
             [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
         }
@@ -137,12 +136,11 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     
     if (timer && [timer isValid]) {
         NSDate *fire = [timer nextFireDate];
+        NSString *fireStr = [dateFormatter stringFromDate:fire];
         if ([fire isTomorrowOrLater]) {
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        } else {
-            [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+            fireStr = [@"Tomorrow, " stringByAppendingString:fireStr];
         }
-        [nextUpdateItem updateTitle:[dateFormatter stringFromDate:fire]];
+        [nextUpdateItem updateTitle:fireStr];
     }
 }
 
