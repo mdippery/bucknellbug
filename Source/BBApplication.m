@@ -41,6 +41,8 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
+- (void)updateLastUpdatedItem;
+- (void)updateNextUpdateItem;
 - (void)alertNewData:(NSNotification *)notification;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
@@ -53,7 +55,12 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 {
     if ((self = [super init])) {
         dataFileParser = [[BBDataParser alloc] init];
+        lastUpdate = nil;
         timer = nil;
+        [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     }
     return self;
 }
@@ -68,6 +75,8 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [dataFileParser release];
+    [lastUpdate release];
+    [dateFormatter release];
     [timer invalidate];
     [timer release];
     [statusItem release];
@@ -93,32 +102,18 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    static NSDateFormatter *dateFormatter = nil;
     NSDictionary *weatherData = nil;
     BOOL feedWasUpdated = NO;
     
-    // Set the date (using a 10.4 formatter)
-    if (dateFormatter == nil) {
-        [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    }
-    
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
-        NSDate *update = [weatherData objectForKey:kMDKeyDate];
-        // If the date could not be parsed, it will be [NSNull null].
-        // [NSNull null] is a singleton, so we can compare pointers.
-        if (update != (NSObject *) [NSNull null]) {
-            NSString *updateStr = [dateFormatter stringFromDate:update];
-            if ([update isYesterdayOrEarlier]) {
-                updateStr = [@"Yesterday, " stringByAppendingString:updateStr];
-            }
-            [lastUpdatedItem updateTitle:updateStr];
+        [lastUpdate release];
+        if ([weatherData objectForKey:kMDKeyDate] != (NSObject *) [NSNull null]) {
+            lastUpdate = [[weatherData objectForKey:kMDKeyDate] retain];
         } else {
-            [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
+            lastUpdate = nil;
         }
+        [self updateLastUpdatedItem];
         
         [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];
         [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
@@ -134,6 +129,24 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     }
     [weatherData release];
     
+    [self updateNextUpdateItem];
+}
+
+- (void)updateLastUpdatedItem
+{
+    if (lastUpdate) {
+        NSString *update = [dateFormatter stringFromDate:lastUpdate];
+        if ([lastUpdate isYesterdayOrEarlier]) {
+            update = [@"Yesterday, " stringByAppendingString:update];
+        }
+        [lastUpdatedItem updateTitle:update];
+    } else {
+        [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
+    }
+}
+
+- (void)updateNextUpdateItem
+{
     if (timer && [timer isValid]) {
         NSDate *fire = [timer nextFireDate];
         NSString *fireStr = [dateFormatter stringFromDate:fire];
@@ -141,6 +154,8 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
             fireStr = [@"Tomorrow, " stringByAppendingString:fireStr];
         }
         [nextUpdateItem updateTitle:fireStr];
+    } else {
+        NSLog(@"Cannot update nextUpdateItem - invalid timer %@", timer);
     }
 }
 
@@ -256,6 +271,18 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
     // Don't close the application when the last window is closed; it should stay
     // open (in the status item area)
     return NO;
+}
+
+@end
+
+
+@implementation BBApplication (NSMenuDelegate)
+
+- (void)menuNeedsUpdate:(NSMenu *)menu
+{
+    NSAssert(menu == statusMenu, @"Received delegate message for unknown menu");
+    [self updateLastUpdatedItem];
+    [self updateNextUpdateItem];
 }
 
 @end

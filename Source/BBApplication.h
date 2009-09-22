@@ -32,6 +32,8 @@
     IBOutlet NSMenuItem *rainfallItem;
     
     BBDataParser *dataFileParser;
+    NSDate *lastUpdate;
+    NSDateFormatter *dateFormatter;
     NSTimer *timer;
     NSStatusItem *statusItem;
 }
