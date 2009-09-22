@@ -58,7 +58,8 @@
         // situation in which the hour is set to -1. That's bad.
         int hourVal = [hour intValue];
         if (hourVal == 0) {
-            hourVal = 24;           // Because we subtract 1 from it, below
+            NSLog(@"Hour val is %d, adjusting to 24", hourVal);
+            hourVal = 24 * 100;     // Because we subtract 1 from it, below
             makeYesterday = YES;    // We'll fix this below
         }
         
