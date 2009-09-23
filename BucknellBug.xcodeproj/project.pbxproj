@@ -107,6 +107,7 @@
 				B7C854460AF6FE990039D98F /* Core */,
 				B76B25371067254000204670 /* Additions */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				B79680E0106A84BC00699CB9 /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -116,11 +117,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* BucknellBug.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
+				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
+				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
+				B784DA4E105DD89D00D90D8F /* Help */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				B78679B1105E800E0070B84E /* Images */,
-				B78679B0105E7FFC0070B84E /* Localizable */,
+				B784DA5F105DD8F100D90D8F /* InfoPlist.strings */,
+				B784DA62105DD90100D90D8F /* Localizable.strings */,
+				B78679AE105E7FED0070B84E /* statusmenu.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -153,24 +156,13 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
-		B78679B0105E7FFC0070B84E /* Localizable */ = {
+		B79680E0106A84BC00699CB9 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B784DA5F105DD8F100D90D8F /* InfoPlist.strings */,
-				B784DA62105DD90100D90D8F /* Localizable.strings */,
-				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
-				B784DA4E105DD89D00D90D8F /* Help */,
+				32CA4F630368D1EE00C91783 /* BucknellBug.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
-			name = Localizable;
-			sourceTree = "<group>";
-		};
-		B78679B1105E800E0070B84E /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
-				B78679AE105E7FED0070B84E /* statusmenu.png */,
-			);
-			name = Images;
+			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		B7C8539B0AF6FC300039D98F /* Interface */ = {
