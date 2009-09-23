@@ -31,11 +31,11 @@
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 #define DEGREE_SYMBOL           0x00b0              // Unicode codepoint for degree symbol
-#define GROWL_WEATHER_UPDATED   @"Weather updated"  // Growl update name
 
 #define MillibarsToInches(mb)   ((float) (mb * 0.0295301F))
 
-NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
+NSString * const BBDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
+NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 
 @interface BBApplication (Private)
 - (void)activateStatusMenu;
@@ -121,7 +121,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
         [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
         [rainfallItem updateTitle:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:BugApplicationDidUpdateWeatherNotification object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
     } else {
         if (!weatherData || [weatherData count] == 0) {
             [self showNoWeatherDataAlert];
@@ -262,7 +262,7 @@ NSString * const BugApplicationDidUpdateWeatherNotification = @"BugApplicationDi
              object:nil];
     [nc addObserver:self
            selector:@selector(alertNewData:)
-               name:BugApplicationDidUpdateWeatherNotification
+               name:BBDidUpdateWeatherNotification
              object:self];
 }
 
