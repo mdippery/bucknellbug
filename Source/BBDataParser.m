@@ -68,6 +68,7 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
 
 - (void)dealloc
 {
+    NSLog(@"Deallocating BBDataParser (instance <%p>)", self);
     [dataFileURL release];
     [lastUpdate release];
     [super dealloc];

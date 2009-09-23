@@ -73,6 +73,7 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 
 - (void)dealloc
 {
+    NSLog(@"Deallocating BBApplication (instance <%p>)", self);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [dataFileParser release];
     [lastUpdate release];
@@ -106,11 +107,16 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
     BOOL feedWasUpdated = NO;
     
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
+    NSLog(@"weatherData <%p> = %@", weatherData, weatherData);
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
+        NSDate *update = [weatherData objectForKey:kMDKeyDate];
+        NSLog(@"update <%p> = %@", update, update);
         [lastUpdate release];
-        if ([weatherData objectForKey:kMDKeyDate] != (NSObject *) [NSNull null]) {
-            lastUpdate = [[weatherData objectForKey:kMDKeyDate] retain];
+        if (update != (NSObject *) [NSNull null]) {
+            lastUpdate = [update retain];
+            NSLog(@"lastUpdate retain count is %d", [lastUpdate retainCount]);
         } else {
+            NSLog(@"Cannot set lastUpdate, update is nil");
             lastUpdate = nil;
         }
         [self updateLastUpdatedItem];
@@ -130,6 +136,7 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
     [weatherData release];
     
     [self updateNextUpdateItem];
+    NSLog(@"Finished updating weather data");
 }
 
 - (void)updateLastUpdatedItem
@@ -141,6 +148,7 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
         }
         [lastUpdatedItem updateTitle:update];
     } else {
+        NSLog(@"Could not get last updated date, lastUpdate is nil");
         [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
     }
 }
