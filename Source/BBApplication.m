@@ -108,14 +108,11 @@ NSString * const GROWL_NO_INTERNET = @"Network error";
     BOOL feedWasUpdated = NO;
     
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
-    NSLog(@"weatherData <%p> = %@", weatherData, weatherData);
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
         NSDate *update = [weatherData objectForKey:kMDKeyDate];
-        NSLog(@"update <%p> = %@", update, update);
         [lastUpdate release];
         if (update != (NSObject *) [NSNull null]) {
             lastUpdate = [update retain];
-            NSLog(@"lastUpdate retain count is %d", [lastUpdate retainCount]);
         } else {
             NSLog(@"Cannot set lastUpdate, update is nil");
             lastUpdate = nil;
@@ -137,7 +134,6 @@ NSString * const GROWL_NO_INTERNET = @"Network error";
     [weatherData release];
     
     [self updateNextUpdateItem];
-    NSLog(@"Finished updating weather data");
 }
 
 - (void)updateLastUpdatedItem

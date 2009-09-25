@@ -36,7 +36,11 @@ NSString * const kMDKeyHumidity = @"Humidity";
 NSString * const kMDKeySun      = @"Sunshine Index";
 NSString * const kMDKeyPressure = @"Pressure";
 NSString * const kMDKeyRainfall = @"Rainfall";
+#ifdef BUG_CRASH_DEBUG
+NSString * const kDataFileURL   = @"file:///Users/mdippery/Projects/bucknellbug/Documentation/Data/raw_data-crash.dat";
+#else
 NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat";
+#endif
 
 @interface BBDataParser (Private)
 - (void)setURL:(NSString *)url;
@@ -68,7 +72,6 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
 
 - (void)dealloc
 {
-    NSLog(@"Deallocating BBDataParser (instance <%p>)", self);
     [dataFileURL release];
     [lastUpdate release];
     [super dealloc];
@@ -96,6 +99,7 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
 
 - (void)setURL:(NSString *)url
 {
+    NSLog(@"Using data file at URL: %@", url);
     [dataFileURL release];
     dataFileURL = [[NSURL alloc] initWithString:url];
 }
