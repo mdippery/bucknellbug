@@ -18,3 +18,9 @@
 
 /* Growl "Weather Updated" notification description */
 "Weather data has been updated." = "Weather data has been updated.";
+
+/* Growl "Network Error" notification title */
+"Network Error" = "Network Error";
+
+/* Growl "Network Error" notification description */
+"You do not have an active Internet connection." = "You do not have an active Internet connection.";

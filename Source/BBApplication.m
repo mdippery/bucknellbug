@@ -36,6 +36,7 @@
 
 NSString * const BBDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
 NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
+NSString * const GROWL_NO_INTERNET = @"Network error";
 
 @interface BBApplication (Private)
 - (void)activateStatusMenu;
@@ -208,7 +209,6 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 {
     SCNetworkReachabilityRef netReachRef = NULL;
     SCNetworkConnectionFlags netReachFlags;
-    NSString *dialogTitle = NSLocalizedString(@"No weather data was returned.", nil);
     NSString *dialogMsg = nil;
     NSString *logMsg = [NSString stringWithString:@"No weather data returned: "];
     
@@ -221,6 +221,13 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
         } else {
             dialogMsg = NSLocalizedString(@"You may not have an active Internet connection.", nil);
             logMsg = [logMsg stringByAppendingString:@"No active Internet connection"];
+            [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Network Error", nil)
+                                        description:NSLocalizedString(@"You do not have an active Internet connection.", nil)
+                                   notificationName:GROWL_NO_INTERNET
+                                           iconData:nil
+                                           priority:1
+                                           isSticky:NO
+                                       clickContext:nil];
         }
     } else {
         dialogMsg = NSLocalizedString(@"Weather data cannot be parsed at this time.", nil);
@@ -229,7 +236,7 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
     
     // Log and show alert panel with appropriate text
     NSLog(logMsg);
-    NSRunAlertPanel(dialogTitle, dialogMsg, nil, nil, nil);
+    //NSRunAlertPanel(dialogTitle, dialogMsg, nil, nil, nil);
 }
 
 @end
@@ -303,7 +310,7 @@ NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
     NSArray *notifications;
     NSDictionary *growl;
     
-    notifications = [[NSArray alloc] initWithObjects:GROWL_WEATHER_UPDATED, nil];
+    notifications = [[NSArray alloc] initWithObjects:GROWL_WEATHER_UPDATED, GROWL_NO_INTERNET, nil];
     
     growl = [NSDictionary dictionaryWithObjectsAndKeys:
                 notifications, GROWL_NOTIFICATIONS_ALL,
