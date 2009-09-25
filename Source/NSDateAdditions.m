@@ -80,7 +80,7 @@
     if (makeYesterday) {
         // Pretty sure I should autorelease here, too, but I'm not sure
         [self autorelease];
-        self = [self addTimeInterval:(24.0 * 60.0 * 60.0)];
+        self = [self addTimeInterval:-(24.0 * 60.0 * 60.0)];
     }
     return self;
 }
