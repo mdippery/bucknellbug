@@ -118,9 +118,7 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
     if (lastUpdate) lastDate = [lastUpdate copy];
     [lastUpdate release]; lastUpdate = nil;
     
-    feedData = [[NSString alloc] initWithContentsOfURL:dataFileURL
-                                              encoding:NSWindowsCP1251StringEncoding
-                                                 error:NULL];
+    feedData = [[NSString alloc] initWithContentsOfURL:dataFileURL encoding:NSWindowsCP1251StringEncoding error:NULL];
     
     // Note: -[NSString initWithContentsOfUrl: encoding: error:] should return nil if the
     // network location cannot be reached, and set an error object, but in my experience, it
@@ -141,16 +139,11 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
         if (lastUpdate == nil || (lastUpdate != nil && ![lastUpdate isEqualToDate:lastDate])) {
             *hasNewData = YES;
             [dataCache setObject:(lastUpdate != nil ? lastUpdate : (NSObject *) [NSNull null]) forKey:kMDKeyDate];
-            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_PRESSURE] intValue]]
-                          forKey:kMDKeyPressure];
-            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_TEMP] floatValue]]
-                          forKey:kMDKeyTemp];
-            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_HUMIDITY] floatValue]]
-                          forKey:kMDKeyHumidity];
-            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_RAINFALL] intValue]]
-                          forKey:kMDKeyRainfall];
-            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_SUN] floatValue]]
-                          forKey:kMDKeySun];
+            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_PRESSURE] intValue]] forKey:kMDKeyPressure];
+            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_TEMP] floatValue]] forKey:kMDKeyTemp];
+            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_HUMIDITY] floatValue]] forKey:kMDKeyHumidity];
+            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_RAINFALL] intValue]] forKey:kMDKeyRainfall];
+            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_SUN] floatValue]] forKey:kMDKeySun];
         } else {
             *hasNewData = NO;
         }
