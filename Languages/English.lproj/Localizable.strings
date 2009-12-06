@@ -24,3 +24,9 @@
 
 /* Growl "Network Error" notification description */
 "You do not have an active Internet connection." = "You do not have an active Internet connection.";
+
+/* Growl "Parser Error" notification title */
+"Parser Error" = "Parser Error";
+
+/* Grown "Parser Error" notification description */
+"The data file could not be parsed." = "The data file could not be parsed."

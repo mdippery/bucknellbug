@@ -356,6 +356,7 @@
 				GCC_MODEL_TUNING = G4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/BucknellBug.pch;
+				GCC_VERSION = 4.0;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = /Applications;
 				PRODUCT_NAME = BucknellBug;
