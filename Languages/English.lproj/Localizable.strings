@@ -28,5 +28,5 @@
 /* Growl "Parser Error" notification title */
 "Parser Error" = "Parser Error";
 
-/* Grown "Parser Error" notification description */
+/* Growl "Parser Error" notification description */
 "The data file could not be parsed." = "The data file could not be parsed."
