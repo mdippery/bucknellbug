@@ -23,6 +23,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 #import "BBDataParser.h"
+#import "MDReachability.h"
 #import "MDPowerNotifications.h"
 #import "NSDateAdditions.h"
 #import "NSMenuItemAdditions.h"
@@ -204,38 +205,26 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)showNoWeatherDataAlert
 {
-    SCNetworkReachabilityRef netReachRef = NULL;
-    SCNetworkConnectionFlags netReachFlags;
-    //NSString *dialogMsg = nil;
-    NSString *logMsg = [NSString stringWithString:@"No weather data returned: "];
+    NSString *logMsg = nil;
     
-    // Detect whether there is a network connection or not and set dialog text
-    netReachRef = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, "www.bucknell.edu");
-    if (SCNetworkReachabilityGetFlags(netReachRef, &netReachFlags)) {
-        if ((netReachFlags & kSCNetworkFlagsReachable) == kSCNetworkFlagsReachable) {
-            //dialogMsg = NSLocalizedString(@"Weather data cannot be parsed at this time.", nil);
-            logMsg = [logMsg stringByAppendingString:@"Host is reachable, but data cannot be parsed"];
-            [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Parser Error", nil)
-                                        description:NSLocalizedString(@"The data file could not be parsed.", nil)
-                                   notificationName:GROWL_PARSER_ERROR
-                                           iconData:nil
-                                           priority:1
-                                           isSticky:NO
-                                       clickContext:nil];
-        } else {
-            //dialogMsg = NSLocalizedString(@"You may not have an active Internet connection.", nil);
-            logMsg = [logMsg stringByAppendingString:@"No active Internet connection"];
-            [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Network Error", nil)
-                                        description:NSLocalizedString(@"You do not have an active Internet connection.", nil)
-                                   notificationName:GROWL_NO_INTERNET
-                                           iconData:nil
-                                           priority:1
-                                           isSticky:NO
-                                       clickContext:nil];
-        }
+    if ([[MDReachability reachabilityWithHostname:@"www.bucknell.edu"] isReachable]) {
+        logMsg = [logMsg stringByAppendingString:@"Host is reachable, but data cannot be parsed"];
+        [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Parser Error", nil)
+                                    description:NSLocalizedString(@"The data file could not be parsed.", nil)
+                               notificationName:GROWL_PARSER_ERROR
+                                       iconData:nil
+                                       priority:1
+                                       isSticky:NO
+                                   clickContext:nil];
     } else {
-        //dialogMsg = NSLocalizedString(@"Weather data cannot be parsed at this time.", nil);
-        logMsg = [logMsg stringByAppendingString:@"SCNetworkReachabilityGetFlags() returned invalid flags"];
+        logMsg = [logMsg stringByAppendingString:@"No active Internet connection"];
+        [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Network Error", nil)
+                                    description:NSLocalizedString(@"You do not have an active Internet connection.", nil)
+                               notificationName:GROWL_NO_INTERNET
+                                       iconData:nil
+                                       priority:1
+                                       isSticky:NO
+                                   clickContext:nil];
     }
     
     // Log and show alert panel with appropriate text

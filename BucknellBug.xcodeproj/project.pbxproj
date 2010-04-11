@@ -23,6 +23,7 @@
 		B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA5F105DD8F100D90D8F /* InfoPlist.strings */; };
 		B784DA64105DD90100D90D8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B784DA62105DD90100D90D8F /* Localizable.strings */; };
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
+		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
 		B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AF8E080B35B47B00C54EC1 /* IOKit.framework */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
@@ -70,6 +71,8 @@
 		B784DA60105DD8F100D90D8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Languages/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B784DA63105DD90100D90D8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Languages/English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
+		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDReachability.h; path = Source/MDReachability.h; sourceTree = "<group>"; };
+		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReachability.m; path = Source/MDReachability.m; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		B7C854470AF6FEB90039D98F /* BBDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataParser.h; path = Source/BBDataParser.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 			children = (
 				B7C854470AF6FEB90039D98F /* BBDataParser.h */,
 				B7C854480AF6FEB90039D98F /* BBDataParser.m */,
+				B788AFD41172102D000629D3 /* MDReachability.h */,
+				B788AFD51172102D000629D3 /* MDReachability.m */,
 				B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */,
 				B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */,
 			);
@@ -261,6 +266,7 @@
 				B76B253A1067255300204670 /* NSMenuItemAdditions.m in Sources */,
 				B76B257210672BB400204670 /* NSDateAdditions.m in Sources */,
 				B76B25D6106736AB00204670 /* NSTimerAdditions.m in Sources */,
+				B788AFD61172102D000629D3 /* MDReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
