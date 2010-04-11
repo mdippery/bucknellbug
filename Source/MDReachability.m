@@ -29,7 +29,7 @@
 - (id)initWithHostname:(NSString *)aHostname
 {
     if ((self = [super init])) {
-        hostname = aHostname;
+        hostname = [aHostname copy];
     }
     return self;
 }
@@ -49,7 +49,7 @@
     if (SCNetworkReachabilityGetFlags(netReachRef, &netReachFlags)) {
         return (netReachFlags & kSCNetworkFlagsReachable) == kSCNetworkFlagsReachable;
     } else {
-        NSLog(@"-[MDReachability isConnected returned invalid flags");
+        NSLog(@"-[MDReachability isReachable] returned invalid flags");
         return NO;
     }
 }
