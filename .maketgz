@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# ----
+# A script for packing the project's source code
+# via Xcode. Set this as the argument for an
+# "External Target".
+# ----
+tgz="${BUILT_PRODUCTS_DIR}/${PROJECT_NAME}.src.tgz"
+test "${ACTION}" != "clean" && git archive --format=tar --prefix=bucknellbug/ master | gzip > "$tgz" || rm -f "$tgz"

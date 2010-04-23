@@ -2,7 +2,7 @@
 
 # ----
 # A script for building (or cleaning) a disk image
-# via excode. Set this as the argument for an
+# via Xcode. Set this as the argument for an
 # "External Target".
 # ----
 
