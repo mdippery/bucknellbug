@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2009 Michael Dippery <mdippery@gmail.com>
+# Copyright (c) 2006-2010 Michael Dippery <mdippery@gmail.com>
 # BucknellBug Makefile
 #
 # This Makefile is free software; the author gives unlimited permission
@@ -10,13 +10,13 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-VERSION      = 2.0a1
+VERSION      = 2.0a7
 PROJECT      = BucknellBug.xcodeproj
 TARGET       = BucknellBug
 CONFIG       = Release
 DEBUG_CONFIG = Debug
 RELEASE_DMG  = BucknellBug-$(VERSION).dmg
-SRCTGZ       = BucknellBug-$(VERSION).src.tgz
+SRC_TGZ      = BucknellBug-$(VERSION).src.tgz
 
 .PHONY: release debug dist src-dist clean
 
@@ -30,10 +30,10 @@ dist: release
 	hdiutil create -ov -srcfolder build/$(CONFIG)/ $(RELEASE_DMG)
 
 src-dist:
-	git archive --format=tar --prefix=bucknellbug/ master | gzip > $(SRCTGZ)
+	git archive --format=tar --prefix=bucknellbug/ master | gzip > $(SRC_TGZ)
 
 clean:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) clean
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) clean
 	-rm -f $(RELEASE_DMG)
-	-rm -f $(SRCTGZ)
+	-rm -f $(SRC_TGZ)
