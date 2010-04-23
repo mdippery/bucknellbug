@@ -111,7 +111,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     
     weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
     if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
-        NSDate *update = [weatherData objectForKey:kMDKeyDate];
+        NSDate *update = [weatherData objectForKey:MDKeyDate];
         [lastUpdate release];
         if (update != (NSObject *) [NSNull null]) {
             lastUpdate = [update retain];
@@ -121,11 +121,11 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
         }
         [self updateLastUpdatedItem];
         
-        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:kMDKeyTemp] floatValue], DEGREE_SYMBOL]];
-        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:kMDKeyHumidity] floatValue]]];
-        [sunshineIndexItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:kMDKeySun] floatValue]]];
-        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:kMDKeyPressure] intValue])]];
-        [rainfallItem updateTitle:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:kMDKeyRainfall] intValue]]];
+        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:MDKeyTemp] floatValue], DEGREE_SYMBOL]];
+        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:MDKeyHumidity] floatValue]]];
+        [sunshineIndexItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:MDKeySun] floatValue]]];
+        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:MDKeyPressure] intValue])]];
+        [rainfallItem updateTitle:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:MDKeyRainfall] intValue]]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
     } else {
@@ -266,7 +266,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     MDRegisterForPowerNotifications();
     [nc addObserver:self
            selector:@selector(computerDidWake:)
-               name:(NSString *) kMDComputerDidWakeNotification
+               name:(NSString *) MDComputerDidWakeNotification
              object:nil];
     [nc addObserver:self
            selector:@selector(alertNewData:)

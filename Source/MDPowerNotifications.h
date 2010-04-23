@@ -32,7 +32,7 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 
-extern CFStringRef const kMDComputerDidWakeNotification;
+extern CFStringRef const MDComputerDidWakeNotification;
 
 extern void MDRegisterForPowerNotifications(void);
 

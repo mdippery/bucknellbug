@@ -18,12 +18,12 @@
 #import <Cocoa/Cocoa.h>
 
 
-extern NSString * const kMDKeyDate;
-extern NSString * const kMDKeyTemp;
-extern NSString * const kMDKeyHumidity;
-extern NSString * const kMDKeySun;
-extern NSString * const kMDKeyPressure;
-extern NSString * const kMDKeyRainfall;
+extern NSString * const MDKeyDate;
+extern NSString * const MDKeyTemp;
+extern NSString * const MDKeyHumidity;
+extern NSString * const MDKeySun;
+extern NSString * const MDKeyPressure;
+extern NSString * const MDKeyRainfall;
 
 
 @interface BBDataParser : NSObject

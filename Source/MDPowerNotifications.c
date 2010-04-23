@@ -36,7 +36,7 @@
 #include <IOKit/pwr_mgt/IOPMLib.h>   /* IORegisterForSystemPower() */
 
 /***** Module constants *****/
-CFStringRef const kMDComputerDidWakeNotification = CFSTR("Computer Did Wake Up");
+CFStringRef const MDComputerDidWakeNotification = CFSTR("Computer Did Wake Up");
 
 /***** Static variables *****/
 static bool registered = false;
@@ -51,7 +51,7 @@ pwr_callback(void *refcon, io_service_t service, natural_t msg_type, void *msg_a
 {
 	if (msg_type == kIOMessageSystemHasPoweredOn) {
 		CFNotificationCenterPostNotification(CFNotificationCenterGetLocalCenter(),
-											 kMDComputerDidWakeNotification,
+											 MDComputerDidWakeNotification,
 											 NULL,
 											 NULL,
 											 false);

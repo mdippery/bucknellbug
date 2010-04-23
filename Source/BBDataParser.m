@@ -29,18 +29,14 @@
 #define IDX_HUMIDITY    (IDX_BASE + 17)
 #define IDX_RAINFALL    (IDX_BASE + 19)
 #define IDX_SUN         (IDX_BASE + 31)
+#define DATA_FILE_URL   @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"
 
-NSString * const kMDKeyDate     = @"Last Updated";
-NSString * const kMDKeyTemp     = @"Temperature";
-NSString * const kMDKeyHumidity = @"Humidity";
-NSString * const kMDKeySun      = @"Sunshine Index";
-NSString * const kMDKeyPressure = @"Pressure";
-NSString * const kMDKeyRainfall = @"Rainfall";
-#ifdef BUG_CRASH_DEBUG
-NSString * const kDataFileURL   = @"file:///Users/mdippery/Projects/bucknellbug/Documentation/Data/raw_data-crash.dat";
-#else
-NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat";
-#endif
+NSString * const MDKeyDate     = @"Last Updated";
+NSString * const MDKeyTemp     = @"Temperature";
+NSString * const MDKeyHumidity = @"Humidity";
+NSString * const MDKeySun      = @"Sunshine Index";
+NSString * const MDKeyPressure = @"Pressure";
+NSString * const MDKeyRainfall = @"Rainfall";
 
 @interface BBDataParser (Private)
 - (void)setURL:(NSString *)url;
@@ -50,7 +46,7 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
 
 - (id)init
 {
-    return [self initWithURL:kDataFileURL];
+    return [self initWithURL:DATA_FILE_URL];
 }
 
 - (id)initWithURL:(NSString *)url
@@ -138,12 +134,12 @@ NSString * const kDataFileURL   = @"http://www.departments.bucknell.edu/geograph
         // -[NSDate isEqualToDate].
         if (lastUpdate == nil || (lastUpdate != nil && ![lastUpdate isEqualToDate:lastDate])) {
             *hasNewData = YES;
-            [dataCache setObject:(lastUpdate != nil ? lastUpdate : (NSObject *) [NSNull null]) forKey:kMDKeyDate];
-            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_PRESSURE] intValue]] forKey:kMDKeyPressure];
-            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_TEMP] floatValue]] forKey:kMDKeyTemp];
-            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_HUMIDITY] floatValue]] forKey:kMDKeyHumidity];
-            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_RAINFALL] intValue]] forKey:kMDKeyRainfall];
-            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_SUN] floatValue]] forKey:kMDKeySun];
+            [dataCache setObject:(lastUpdate != nil ? lastUpdate : (NSObject *) [NSNull null]) forKey:MDKeyDate];
+            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_PRESSURE] intValue]] forKey:MDKeyPressure];
+            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_TEMP] floatValue]] forKey:MDKeyTemp];
+            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_HUMIDITY] floatValue]] forKey:MDKeyHumidity];
+            [dataCache setObject:[NSNumber numberWithInt:[[dataComp objectAtIndex:IDX_RAINFALL] intValue]] forKey:MDKeyRainfall];
+            [dataCache setObject:[NSNumber numberWithFloat:[[dataComp objectAtIndex:IDX_SUN] floatValue]] forKey:MDKeySun];
         } else {
             *hasNewData = NO;
         }
