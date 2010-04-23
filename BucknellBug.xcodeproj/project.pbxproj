@@ -30,6 +30,17 @@
 		B7C854490AF6FEB90039D98F /* BBDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataParser.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		B731D98C118212D900C4A7FB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.gcc.4_0;
+			fileType = sourcecode.c;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		B723B8B50AF7B2D100B9CD62 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -202,6 +213,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 			);
 			buildRules = (
+				B731D98C118212D900C4A7FB /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
