@@ -42,6 +42,16 @@
 		};
 /* End PBXBuildRule section */
 
+/* Begin PBXContainerItemProxy section */
+		B7B19D1A11825EBB00674594 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* BucknellBug */;
+			remoteInfo = BucknellBug;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		B723B8B50AF7B2D100B9CD62 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -205,6 +215,24 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		B7B19D1711825EB600674594 /* Disk Image */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(PROJECT_DIR)/.makedmg";
+			buildConfigurationList = B7B19D2211825EC600674594 /* Build configuration list for PBXLegacyTarget "Disk Image" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+				B7B19D1B11825EBB00674594 /* PBXTargetDependency */,
+			);
+			name = "Disk Image";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Disk Image";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		8D1107260486CEB800E47090 /* BucknellBug */ = {
 			isa = PBXNativeTarget;
@@ -247,6 +275,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* BucknellBug */,
+				B7B19D1711825EB600674594 /* Disk Image */,
 			);
 		};
 /* End PBXProject section */
@@ -303,6 +332,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B7B19D1B11825EBB00674594 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* BucknellBug */;
+			targetProxy = B7B19D1A11825EBB00674594 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B784DA3E105DD7D000D90D8F /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
@@ -347,6 +384,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B7B19D1811825EB600674594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Disk Image";
+			};
+			name = Debug;
+		};
+		B7B19D1911825EB600674594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Disk Image";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7B19CE4118259DE00674594 /* version.xcconfig */;
@@ -425,6 +483,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B7B19D2211825EC600674594 /* Build configuration list for PBXLegacyTarget "Disk Image" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B19D1811825EB600674594 /* Debug */,
+				B7B19D1911825EB600674594 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "BucknellBug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

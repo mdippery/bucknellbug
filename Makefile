@@ -15,7 +15,7 @@ PROJECT      = BucknellBug.xcodeproj
 TARGET       = BucknellBug
 CONFIG       = Release
 DEBUG_CONFIG = Debug
-RELEASE_DMG  = BucknellBug-$(VERSION).dmg
+DMG_TARGET   = Disk Image
 SRC_TGZ      = BucknellBug-$(VERSION).src.tgz
 
 .PHONY: release debug dist src-dist clean
@@ -26,8 +26,8 @@ release:
 debug:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) build
 
-dist: release
-	hdiutil create -ov -srcfolder build/$(CONFIG)/ $(RELEASE_DMG)
+dmg:
+	xcodebuild -project $(PROJECT) -target "$(DMG_TARGET)" -configuration $(CONFIG) build
 
 src-dist:
 	git archive --format=tar --prefix=bucknellbug/ master | gzip > $(SRC_TGZ)
@@ -35,5 +35,6 @@ src-dist:
 clean:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) clean
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) clean
-	-rm -f $(RELEASE_DMG)
+	xcodebuild -project $(PROJECT) -target "$(DMG_TARGET)" -configuration $(CONFIG) clean
+	xcodebuild -project $(PROJECT) -target "$(DMG_TARGET)" -configuration $(DEBUG_CONFIG) clean
 	-rm -f $(SRC_TGZ)
