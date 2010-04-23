@@ -26,6 +26,7 @@
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
 		B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AF8E080B35B47B00C54EC1 /* IOKit.framework */; };
+		B7B19CE5118259DE00674594 /* version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B7B19CE4118259DE00674594 /* version.xcconfig */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
 		B7C854490AF6FEB90039D98F /* BBDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataParser.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReachability.m; path = Source/MDReachability.m; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		B7B19CE4118259DE00674594 /* version.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = version.xcconfig; sourceTree = "<group>"; };
 		B7C854470AF6FEB90039D98F /* BBDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataParser.h; path = Source/BBDataParser.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataParser.m; path = Source/BBDataParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 			children = (
 				32CA4F630368D1EE00C91783 /* BucknellBug.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				B7B19CE4118259DE00674594 /* version.xcconfig */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "BucknellBug" */;
 			buildPhases = (
+				B7B19CD3118257C400674594 /* ShellScript */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				B723B8B50AF7B2D100B9CD62 /* CopyFiles */,
@@ -259,10 +263,27 @@
 				B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */,
 				B784DA64105DD90100D90D8F /* Localizable.strings in Resources */,
 				B78679AF105E7FED0070B84E /* statusmenu.png in Resources */,
+				B7B19CE5118259DE00674594 /* version.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7B19CD3118257C400674594 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ ! -e .build ]; then\n  touch .build\nfi\n\nread version < .build\nlet version++\necho $version > .build\necho \"CURRENT_PROJECT_VERSION = $version\" > version.xcconfig\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -328,10 +349,10 @@
 /* Begin XCBuildConfiguration section */
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B19CE4118259DE00674594 /* version.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
@@ -359,10 +380,10 @@
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B19CE4118259DE00674594 /* version.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				CURRENT_PROJECT_VERSION = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
