@@ -25,9 +25,9 @@
 #import "BBDataParser.h"
 #import "MDReachability.h"
 #import "MDPowerNotifications.h"
-#import "NSDateAdditions.h"
-#import "NSMenuItemAdditions.h"
-#import "NSTimerAdditions.h"
+#import "NSDate+BucknellBug.h"
+#import "NSMenuItem+BucknellBug.h"
+#import "NSTimer+BucknellBug.h"
 
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup

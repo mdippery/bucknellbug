@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "NSDateAdditions.h"
+#import "NSDate+BucknellBug.h"
 
 
 @interface NSDate (PrivateBucknellBugAdditions)

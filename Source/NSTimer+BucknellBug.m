@@ -15,17 +15,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "NSMenuItemAdditions.h"
+#import "NSTimer+BucknellBug.h"
 
 
-@implementation NSMenuItem (BucknellBugAdditions)
+@implementation NSTimer (BucknellBugAdditions)
 
-- (void)updateTitle:(NSString *)aTitle
+- (NSDate *)nextFireDate
 {
-    NSRange colon = [[self title] rangeOfString:@": "];
-    NSString *baseTitle = [[self title] substringToIndex:(colon.location + 2)];
-    NSString *newTitle = [baseTitle stringByAppendingString:aTitle];
-    [self setTitle:newTitle];
+    NSDate *next = [self fireDate];
+    // If a timer just fired, it will have the current time, not the time of
+    // the next update (which should be in the future), so increment to
+    // NEXT fire date.
+    if ([next compare:[NSDate date]] != NSOrderedDescending) {
+        next = [next addTimeInterval:[self timeInterval]];
+    }
+    return next;
 }
 
 @end
