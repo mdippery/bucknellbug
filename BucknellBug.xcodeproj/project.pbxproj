@@ -257,11 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "BucknellBug" */;
 			buildPhases = (
-				B7B19CD3118257C400674594 /* ShellScript */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				B723B8B50AF7B2D100B9CD62 /* CopyFiles */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				B7B19CD3118257C400674594 /* ShellScript */,
 			);
 			buildRules = (
 				B731D98C118212D900C4A7FB /* PBXBuildRule */,
