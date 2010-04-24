@@ -57,13 +57,11 @@
 
 - (BOOL)isAfter:(NSDate *)date
 {
-    NSLog(@"%@ after %@? %@", self, date, [self compare:date] == NSOrderedDescending ? @"YES" : @"NO");
     return [self compare:date] == NSOrderedDescending;
 }
 
 - (BOOL)isBefore:(NSDate *)date
 {
-    NSLog(@"%@ before %@? %@", self, date, [self compare:date] == NSOrderedAscending ? @"YES" : @"NO");
     return [self compare:date] == NSOrderedAscending;
 }
 

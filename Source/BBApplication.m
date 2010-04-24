@@ -44,11 +44,11 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
-- (void)forceUpdate;
+- (void)doUpdate;
 - (void)updateLastUpdatedItem;
 - (void)updateNextUpdateItem;
 - (void)alertNewData:(NSNotification *)notification;
-- (BOOL)checkReachability;
+- (void)showReachabilityError;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
 @end
@@ -58,12 +58,13 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (id)init
 {
     if ((self = [super init])) {
-        weatherData = [[BBDataFile alloc] init];
+        weather = [[BBDataFile alloc] init];
         timer = nil;
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        host = [[MDReachability alloc] initWithHostname:@"www.bucknell.edu"];
     }
     return self;
 }
@@ -78,11 +79,12 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 {
     NSLog(@"Deallocating BBApplication (instance <%p>)", self);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [weatherData release];
+    [weather release];
     [dateFormatter release];
     [timer invalidate];
     [timer release];
     [statusItem release];
+    [host release];
     [super dealloc];
 }
 
@@ -105,34 +107,37 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    if ([weatherData update]) {
-        [self forceUpdate];
-    } else {
-        [self checkReachability];
-    }
-    [self updateNextUpdateItem];
+    if ([weather update]) [self doUpdate];
 }
 
-- (void)forceUpdate
+- (void)doUpdate
 {
-    [self updateLastUpdatedItem];
+    if ([host isReachable]) {
+        [self updateLastUpdatedItem];
+        
+        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weather temperature], DEGREE_SYMBOL]];
+        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
+        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([weather pressure])]];
+        [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
+    } else {
+        [self showReachabilityError];
+    }
     
-    [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weatherData temperature], DEGREE_SYMBOL]];
-    [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weatherData humidity]]];
-    [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([weatherData pressure])]];
-    [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weatherData rainfall]]];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
+    [self updateNextUpdateItem];
 }
 
 - (void)updateLastUpdatedItem
 {
-    NSLog(@"date is %@", [weatherData date]);
-    NSString *update = [dateFormatter stringFromDate:[weatherData date]];
-    if ([[weatherData date] isYesterdayOrEarlier]) {
-        update = [@"Yesterday, " stringByAppendingString:update];
+    NSDate *date = [weather date];
+    if (date) {
+        NSString *update = [dateFormatter stringFromDate:date];
+        if ([date isYesterdayOrEarlier]) {
+            update = [@"Yesterday, " stringByAppendingString:update];
+        }
+        [lastUpdatedItem updateTitle:update];
     }
-    [lastUpdatedItem updateTitle:update];
 }
 
 - (void)updateNextUpdateItem
@@ -144,8 +149,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
             fireStr = [@"Tomorrow, " stringByAppendingString:fireStr];
         }
         [nextUpdateItem updateTitle:fireStr];
-    } else {
-        NSLog(@"Cannot update nextUpdateItem - invalid timer %@", timer);
     }
 }
 
@@ -162,21 +165,15 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
                                clickContext:nil];
 }
 
-- (BOOL)checkReachability
+- (void)showReachabilityError
 {
-    NSLog(@"Checking reachability of weather data host");
-    if (![[MDReachability reachabilityWithHostname:@"www.bucknell.edu"] isReachable]) {
-        [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"No Internet Connection", nil)
-                                    description:NSLocalizedString(@"You do not have an Internet connection.", nil)
-                               notificationName:GROWL_NO_INTERNET
-                                       iconData:nil
-                                       priority:0
-                                       isSticky:NO
-                                   clickContext:nil];
-        return NO;
-    } else {
-        return YES;
-    }
+    [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"No Internet Connection", nil)
+                                description:NSLocalizedString(@"You do not have an Internet connection.", nil)
+                           notificationName:GROWL_NO_INTERNET
+                                   iconData:nil
+                                   priority:0
+                                   isSticky:NO
+                               clickContext:nil];
 }
 
 - (void)startTimer
@@ -187,7 +184,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
         timer = nil;
     }
     
-    timer = [[NSTimer alloc] initWithFireDate:[[NSDate date] addTimeInterval:UPDATE_INTERVAL]
+    timer = [[NSTimer alloc] initWithFireDate:[[NSDate date] addTimeInterval:1.0]
                                      interval:UPDATE_INTERVAL
                                        target:self
                                      selector:@selector(updateWeatherData:)
@@ -200,8 +197,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 {
     NSLog(@"Received computerDidWake notification");
     // Pause to confirm network connection has been established.
-    [self performSelector:@selector(updateWeatherData:) withObject:nil afterDelay:WAKE_DELAY];
-    [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY+1.0];
+    [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY];
 }
 
 @end
@@ -242,7 +238,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
                name:BBDidUpdateWeatherNotification
              object:self];
     
-    if ([self checkReachability]) [self forceUpdate];
+    [self doUpdate];
     [self startTimer];
 }
 
