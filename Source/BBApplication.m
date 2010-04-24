@@ -222,13 +222,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [self startTimer];
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
-{
-    // Don't close the application when the last window is closed; it should stay
-    // open (in the status item area)
-    return NO;
-}
-
 @end
 
 
