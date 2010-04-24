@@ -20,7 +20,6 @@
 #import <stdarg.h>
 
 #import <Growl/Growl.h>
-#import <SystemConfiguration/SystemConfiguration.h>
 
 #import "BBDataFile.h"
 #import "MDReachability.h"

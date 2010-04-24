@@ -25,7 +25,6 @@
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
-		B7B19CE5118259DE00674594 /* version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B7B19CE4118259DE00674594 /* version.xcconfig */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
 		B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataFile.m */; };
 /* End PBXBuildFile section */
@@ -303,7 +302,6 @@
 				B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */,
 				B784DA64105DD90100D90D8F /* Localizable.strings in Resources */,
 				B78679AF105E7FED0070B84E /* statusmenu.png in Resources */,
-				B7B19CE5118259DE00674594 /* version.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
