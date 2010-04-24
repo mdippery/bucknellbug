@@ -24,7 +24,6 @@
 
 #import "BBDataFile.h"
 #import "MDReachability.h"
-#import "MDPowerNotifications.h"
 #import "NSDate+BucknellBug.h"
 #import "NSMenuItem+BucknellBug.h"
 #import "NSTimer+BucknellBug.h"
@@ -226,17 +225,15 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
+                                                           selector:@selector(computerDidWake:)
+                                                               name:NSWorkspaceDidWakeNotification
+                                                             object:nil];
     
-    MDRegisterForPowerNotifications();
-    [nc addObserver:self
-           selector:@selector(computerDidWake:)
-               name:(NSString *) MDComputerDidWakeNotification
-             object:nil];
-    [nc addObserver:self
-           selector:@selector(alertNewData:)
-               name:BBDidUpdateWeatherNotification
-             object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(alertNewData:)
+                                                 name:BBDidUpdateWeatherNotification
+                                               object:self];
     
     [self doUpdate];
     [self startTimer];

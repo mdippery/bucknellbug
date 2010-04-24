@@ -13,7 +13,6 @@
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
-		B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */ = {isa = PBXBuildFile; fileRef = B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */; };
 		B73E370211826C300092EE58 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVParser.m */; };
 		B76B253A1067255300204670 /* NSMenuItem+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */; };
 		B76B257210672BB400204670 /* NSDate+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+BucknellBug.m */; };
@@ -26,7 +25,6 @@
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
-		B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AF8E080B35B47B00C54EC1 /* IOKit.framework */; };
 		B7B19CE5118259DE00674594 /* version.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B7B19CE4118259DE00674594 /* version.xcconfig */; };
 		B7B5F82B0B797EBE0039A7CE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B7B5F8290B797EBE0039A7CE /* Credits.rtf */; };
 		B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataFile.m */; };
@@ -77,8 +75,6 @@
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		B714EA040B06FA460039B548 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDPowerNotifications.h; path = Source/MDPowerNotifications.h; sourceTree = "<group>"; };
-		B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MDPowerNotifications.c; path = Source/MDPowerNotifications.c; sourceTree = "<group>"; };
 		B73E370011826C300092EE58 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = Source/CSVParser.h; sourceTree = "<group>"; };
 		B73E370111826C300092EE58 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = Source/CSVParser.m; sourceTree = "<group>"; };
 		B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenuItem+BucknellBug.h"; path = "Source/NSMenuItem+BucknellBug.h"; sourceTree = "<group>"; };
@@ -98,7 +94,6 @@
 		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDReachability.h; path = Source/MDReachability.h; sourceTree = "<group>"; };
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReachability.m; path = Source/MDReachability.m; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
-		B7AF8E080B35B47B00C54EC1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		B7B19CE4118259DE00674594 /* version.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = version.xcconfig; sourceTree = "<group>"; };
 		B7C854470AF6FEB90039D98F /* BBDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataFile.h; path = Source/BBDataFile.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataFile.m; path = Source/BBDataFile.m; sourceTree = "<group>"; };
@@ -111,7 +106,6 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */,
-				B7AF8E090B35B47B00C54EC1 /* IOKit.framework in Frameworks */,
 				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 				B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */,
 			);
@@ -164,7 +158,6 @@
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				B7116EFE0C0497E1007D86E6 /* Growl.framework */,
-				B7AF8E080B35B47B00C54EC1 /* IOKit.framework */,
 				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
@@ -212,8 +205,6 @@
 				B73E370111826C300092EE58 /* CSVParser.m */,
 				B788AFD41172102D000629D3 /* MDReachability.h */,
 				B788AFD51172102D000629D3 /* MDReachability.m */,
-				B7229FA30B30E0270042F6C9 /* MDPowerNotifications.h */,
-				B7229FA40B30E0270042F6C9 /* MDPowerNotifications.c */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -342,7 +333,6 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */,
 				B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */,
-				B7229FA60B30E0270042F6C9 /* MDPowerNotifications.c in Sources */,
 				B76B253A1067255300204670 /* NSMenuItem+BucknellBug.m in Sources */,
 				B76B257210672BB400204670 /* NSDate+BucknellBug.m in Sources */,
 				B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */,
