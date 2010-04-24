@@ -10,7 +10,6 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-VERSION      = 2.0a7
 PROJECT      = BucknellBug.xcodeproj
 TARGET       = BucknellBug
 CONFIG       = Release
