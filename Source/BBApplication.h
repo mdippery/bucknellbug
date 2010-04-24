@@ -17,7 +17,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BBDataParser;
+@class BBDataFile;
 
 
 @interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
@@ -27,11 +27,10 @@
     IBOutlet NSMenuItem *lastUpdatedItem;
     IBOutlet NSMenuItem *temperatureItem;
     IBOutlet NSMenuItem *humidityItem;
-    IBOutlet NSMenuItem *sunshineIndexItem;
     IBOutlet NSMenuItem *pressureItem;
     IBOutlet NSMenuItem *rainfallItem;
     
-    BBDataParser *dataFileParser;
+    BBDataFile *weatherData;
     NSDate *lastUpdate;
     NSDateFormatter *dateFormatter;
     NSTimer *timer;

@@ -22,7 +22,7 @@
 #import <Growl/Growl.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
-#import "BBDataParser.h"
+#import "BBDataFile.h"
 #import "MDReachability.h"
 #import "MDPowerNotifications.h"
 #import "NSDate+BucknellBug.h"
@@ -33,7 +33,7 @@
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 #define DEGREE_SYMBOL           0x00b0              // Unicode codepoint for degree symbol
 
-#define MillibarsToInches(mb)   ((float) (mb * 0.0295301F))
+#define MillibarsToInches(mb)   ((float) ((unsigned int) mb * 0.0295301F))
 
 NSString * const BBDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
 NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
@@ -57,7 +57,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (id)init
 {
     if ((self = [super init])) {
-        dataFileParser = [[BBDataParser alloc] init];
+        weatherData = [[BBDataFile alloc] init];
         lastUpdate = nil;
         timer = nil;
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
@@ -78,7 +78,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 {
     NSLog(@"Deallocating BBApplication (instance <%p>)", self);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [dataFileParser release];
+    [weatherData release];
     [lastUpdate release];
     [dateFormatter release];
     [timer invalidate];
@@ -106,35 +106,21 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    NSDictionary *weatherData = nil;
-    BOOL feedWasUpdated = NO;
-    
-    weatherData = [[dataFileParser fetchWeatherData:&feedWasUpdated] retain];
-    if (weatherData && [weatherData count] > 0 && feedWasUpdated) {
-        NSDate *update = [weatherData objectForKey:MDKeyDate];
+    BOOL feedWasUpdated = [weatherData update];
+    if (feedWasUpdated) {
         [lastUpdate release];
-        if (update != (NSObject *) [NSNull null]) {
-            lastUpdate = [update retain];
-        } else {
-            NSLog(@"Cannot set lastUpdate, update is nil");
-            lastUpdate = nil;
-        }
+        lastUpdate = [[weatherData date] retain];
         [self updateLastUpdatedItem];
         
-        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [[weatherData objectForKey:MDKeyTemp] floatValue], DEGREE_SYMBOL]];
-        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:MDKeyHumidity] floatValue]]];
-        [sunshineIndexItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [[weatherData objectForKey:MDKeySun] floatValue]]];
-        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([[weatherData objectForKey:MDKeyPressure] intValue])]];
-        [rainfallItem updateTitle:[NSString stringWithFormat:@"%d in.", [[weatherData objectForKey:MDKeyRainfall] intValue]]];
+        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weatherData temperature], DEGREE_SYMBOL]];
+        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weatherData humidity]]];
+        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([weatherData pressure])]];
+        [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weatherData rainfall]]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
     } else {
-        if (!weatherData || [weatherData count] == 0) {
-            [self showNoWeatherDataAlert];
-        }
-    }
-    [weatherData release];
-    
+        [self showNoWeatherDataAlert];
+    }    
     [self updateNextUpdateItem];
 }
 
@@ -227,9 +213,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
                                    clickContext:nil];
     }
     
-    // Log and show alert panel with appropriate text
     NSLog(@"%@", logMsg);
-    //NSRunAlertPanel(dialogTitle, dialogMsg, nil, nil, nil);
 }
 
 @end

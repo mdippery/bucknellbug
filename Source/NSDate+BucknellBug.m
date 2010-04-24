@@ -48,12 +48,21 @@
     NSString *tz = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0400" : @"-0500";
     NSMutableString *dateStr = [[[NSMutableString alloc] initWithFormat:@"%@-%@-%@ %d:00:00 %@", year, month, day, ([hour intValue] / 100), tz] autorelease];
     
-    NSLog(@"Making date with str: %@", dateStr);
     // I think I'm supposed to release the allocated 'self' here in order to
     // return the NEW date object...right?
     [self release];
     self = [[NSDate alloc] initWithString:dateStr];
     return self;
+}
+
+- (BOOL)isAfter:(NSDate *)date
+{
+    return self == [self laterDate:date];
+}
+
+- (BOOL)isBefore:(NSDate *)date
+{
+    return self == [self earlierDate:date];
 }
 
 - (BOOL)isToday

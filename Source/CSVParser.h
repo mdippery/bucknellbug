@@ -18,21 +18,14 @@
 #import <Cocoa/Cocoa.h>
 
 
-extern NSString * const MDKeyDate;
-extern NSString * const MDKeyTemp;
-extern NSString * const MDKeyHumidity;
-extern NSString * const MDKeySun;
-extern NSString * const MDKeyPressure;
-extern NSString * const MDKeyRainfall;
-
-
-@interface BBDataParser : NSObject
+@interface CSVParser : NSObject
 {
-    NSURL *dataFileURL;
-    NSDate *lastUpdate;
-    NSMutableDictionary *dataCache;
+    NSArray *data;
 }
-- (id)initWithURL:(NSString *)url;
-- (NSDictionary *)fetchWeatherData:(BOOL *)hasNewData;
-- (unsigned int)maxCount;
+
+- (id)initWithContentsOfString:(NSString *)s;
+- (id)initWithContentsOfURL:(NSURL *)url encoding:(NSStringEncoding)enc;
+- (NSString *)objectAtIndex:(unsigned int)i;
+- (unsigned int)count;
+
 @end

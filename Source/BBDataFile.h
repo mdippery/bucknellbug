@@ -17,17 +17,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class CSVParser;
 
-@interface NSDate (BucknellBugAdditions)
 
-+ (id)dateWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour;
-- (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour;
+@interface BBDataFile : NSObject
+{
+    CSVParser *data;
+}
+- (id)init;
+- (BOOL)update;
 
-- (BOOL)isAfter:(NSDate *)date;
-- (BOOL)isBefore:(NSDate *)data;
-
-- (BOOL)isToday;
-- (BOOL)isTomorrowOrLater;
-- (BOOL)isYesterdayOrEarlier;
-
+- (NSDate *)date;
+- (double)temperature;
+- (double)humidity;
+- (unsigned int)pressure;
+- (unsigned int)rainfall;
 @end
