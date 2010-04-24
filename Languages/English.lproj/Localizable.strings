@@ -1,32 +1,5 @@
-/* No weather data warning */
-"No weather data was returned." = "No weather data was returned.";
-
-/* No weather data explanation */
-"You may not have an active Internet connection." = "You may not have an active Internet connection.";
-
-/* Generic no weather data explanation */
-"Weather data cannot be parsed at this time." = "Weather data cannot be parsed at this time.";
-
-/* Data is unavailable label */
-"(unavailable)" = "(unavailable)";
-
-/* Growl application name */
-"BucknellBug" = "BucknellBug";
-
 /* Growl "Weather Updated" notification title */
 "Weather Updated" = "Weather Updated";
 
 /* Growl "Weather Updated" notification description */
 "Weather data has been updated." = "Weather data has been updated.";
-
-/* Growl "Network Error" notification title */
-"Network Error" = "Network Error";
-
-/* Growl "Network Error" notification description */
-"You do not have an active Internet connection." = "You do not have an active Internet connection.";
-
-/* Growl "Parser Error" notification title */
-"Parser Error" = "Parser Error";
-
-/* Growl "Parser Error" notification description */
-"The data file could not be parsed." = "The data file could not be parsed.";
