@@ -48,6 +48,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (void)updateLastUpdatedItem;
 - (void)updateNextUpdateItem;
 - (void)alertNewData:(NSNotification *)notification;
+- (BOOL)checkReachability;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
 @end
@@ -104,7 +105,11 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    if ([weatherData update]) [self forceUpdate];
+    if ([weatherData update]) {
+        [self forceUpdate];
+    } else {
+        [self checkReachability];
+    }
     [self updateNextUpdateItem];
 }
 
@@ -122,6 +127,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)updateLastUpdatedItem
 {
+    NSLog(@"date is %@", [weatherData date]);
     NSString *update = [dateFormatter stringFromDate:[weatherData date]];
     if ([[weatherData date] isYesterdayOrEarlier]) {
         update = [@"Yesterday, " stringByAppendingString:update];
@@ -154,6 +160,23 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
                                    priority:0
                                    isSticky:NO
                                clickContext:nil];
+}
+
+- (BOOL)checkReachability
+{
+    NSLog(@"Checking reachability of weather data host");
+    if (![[MDReachability reachabilityWithHostname:@"www.bucknell.edu"] isReachable]) {
+        [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"No Internet Connection", nil)
+                                    description:NSLocalizedString(@"You do not have an Internet connection.", nil)
+                               notificationName:GROWL_NO_INTERNET
+                                       iconData:nil
+                                       priority:0
+                                       isSticky:NO
+                                   clickContext:nil];
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 - (void)startTimer
@@ -218,7 +241,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
                name:BBDidUpdateWeatherNotification
              object:self];
     
-    [self forceUpdate];
+    if ([self checkReachability]) [self forceUpdate];
     [self startTimer];
 }
 

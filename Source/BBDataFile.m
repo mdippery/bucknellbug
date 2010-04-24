@@ -72,10 +72,14 @@ typedef enum {
 
 - (NSDate *)date
 {
-    NSString *yearStr = [data objectAtIndex:IdxYear];
-    NSString *dateStr = [data objectAtIndex:IdxDate];
-    NSString *timeStr = [data objectAtIndex:IdxTime];
-    return [NSDate dateWithYear:yearStr month:[dateStr substringToIndex:2] day:[dateStr substringFromIndex:3] hour:timeStr];
+    NSString *y = [data objectAtIndex:IdxYear];
+    NSString *d = [data objectAtIndex:IdxDate];
+    NSString *t = [data objectAtIndex:IdxTime];
+    if (y && d && t) {
+        return [NSDate dateWithYear:y month:[d substringToIndex:2] day:[d substringFromIndex:3] hour:t];
+    } else {
+        return nil;
+    }
 }
 
 - (double)temperature
