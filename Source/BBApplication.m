@@ -44,12 +44,12 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
+- (void)forceUpdate;
 - (void)updateLastUpdatedItem;
 - (void)updateNextUpdateItem;
 - (void)alertNewData:(NSNotification *)notification;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
-- (void)showNoWeatherDataAlert;
 @end
 
 @implementation BBApplication
@@ -58,7 +58,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 {
     if ((self = [super init])) {
         weatherData = [[BBDataFile alloc] init];
-        lastUpdate = nil;
         timer = nil;
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
         dateFormatter = [[NSDateFormatter alloc] init];
@@ -79,7 +78,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     NSLog(@"Deallocating BBApplication (instance <%p>)", self);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [weatherData release];
-    [lastUpdate release];
     [dateFormatter release];
     [timer invalidate];
     [timer release];
@@ -106,36 +104,29 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    BOOL feedWasUpdated = [weatherData update];
-    if (feedWasUpdated) {
-        [lastUpdate release];
-        lastUpdate = [[weatherData date] retain];
-        [self updateLastUpdatedItem];
-        
-        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weatherData temperature], DEGREE_SYMBOL]];
-        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weatherData humidity]]];
-        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([weatherData pressure])]];
-        [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weatherData rainfall]]];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
-    } else {
-        [self showNoWeatherDataAlert];
-    }    
+    if ([weatherData update]) [self forceUpdate];
     [self updateNextUpdateItem];
+}
+
+- (void)forceUpdate
+{
+    [self updateLastUpdatedItem];
+    
+    [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weatherData temperature], DEGREE_SYMBOL]];
+    [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weatherData humidity]]];
+    [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([weatherData pressure])]];
+    [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weatherData rainfall]]];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
 }
 
 - (void)updateLastUpdatedItem
 {
-    if (lastUpdate) {
-        NSString *update = [dateFormatter stringFromDate:lastUpdate];
-        if ([lastUpdate isYesterdayOrEarlier]) {
-            update = [@"Yesterday, " stringByAppendingString:update];
-        }
-        [lastUpdatedItem updateTitle:update];
-    } else {
-        NSLog(@"Could not get last updated date, lastUpdate is nil");
-        [lastUpdatedItem updateTitle:NSLocalizedString(@"(unavailable)", nil)];
+    NSString *update = [dateFormatter stringFromDate:[weatherData date]];
+    if ([[weatherData date] isYesterdayOrEarlier]) {
+        update = [@"Yesterday, " stringByAppendingString:update];
     }
+    [lastUpdatedItem updateTitle:update];
 }
 
 - (void)updateNextUpdateItem
@@ -173,7 +164,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
         timer = nil;
     }
     
-    timer = [[NSTimer alloc] initWithFireDate:[[NSDate date] addTimeInterval:1.0]
+    timer = [[NSTimer alloc] initWithFireDate:[[NSDate date] addTimeInterval:UPDATE_INTERVAL]
                                      interval:UPDATE_INTERVAL
                                        target:self
                                      selector:@selector(updateWeatherData:)
@@ -187,33 +178,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     NSLog(@"Received computerDidWake notification");
     // Pause to confirm network connection has been established.
     [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY];
-}
-
-- (void)showNoWeatherDataAlert
-{
-    NSString *logMsg = nil;
-    
-    if ([[MDReachability reachabilityWithHostname:@"www.bucknell.edu"] isReachable]) {
-        logMsg = [logMsg stringByAppendingString:@"Host is reachable, but data cannot be parsed"];
-        [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Parser Error", nil)
-                                    description:NSLocalizedString(@"The data file could not be parsed.", nil)
-                               notificationName:GROWL_PARSER_ERROR
-                                       iconData:nil
-                                       priority:1
-                                       isSticky:NO
-                                   clickContext:nil];
-    } else {
-        logMsg = [logMsg stringByAppendingString:@"No active Internet connection"];
-        [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Network Error", nil)
-                                    description:NSLocalizedString(@"You do not have an active Internet connection.", nil)
-                               notificationName:GROWL_NO_INTERNET
-                                       iconData:nil
-                                       priority:1
-                                       isSticky:NO
-                                   clickContext:nil];
-    }
-    
-    NSLog(@"%@", logMsg);
 }
 
 @end
@@ -244,9 +208,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
-    //[self updateWeatherData:nil];
-    [self startTimer];
-    
     MDRegisterForPowerNotifications();
     [nc addObserver:self
            selector:@selector(computerDidWake:)
@@ -256,6 +217,9 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
            selector:@selector(alertNewData:)
                name:BBDidUpdateWeatherNotification
              object:self];
+    
+    [self forceUpdate];
+    [self startTimer];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication

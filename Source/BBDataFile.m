@@ -63,7 +63,7 @@ typedef enum {
     // http://www.departments.bucknell.edu/geography/Weather/output.htm
     // http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat
     
-    NSDate *lastDate = [[self date] copy];
+    NSDate *lastDate = [[self date] retain];
     [data release];
     data = [[CSVParser alloc] initWithContentsOfURL:DATA_FILE_URL encoding:DATA_FILE_ENC];
     if (data == nil) return NO;
