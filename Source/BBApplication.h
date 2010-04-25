@@ -41,6 +41,7 @@
 
 @interface BBApplication (GUI)
 
+- (IBAction)orderFrontStandardAboutPanel:(id)sender;
 - (IBAction)openHomepage:(id)sender;
 - (IBAction)openBugHomepage:(id)sender;
 - (IBAction)refresh:(id)sender;

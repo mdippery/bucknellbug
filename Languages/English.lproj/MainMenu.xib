@@ -219,14 +219,6 @@
 					<int key="connectionID">139</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">orderFrontStandardAboutPanel:</string>
-						<reference key="source" ref="17029138"/>
-						<reference key="destination" ref="491685710"/>
-					</object>
-					<int key="connectionID">142</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="17029138"/>
@@ -329,6 +321,14 @@
 						<reference key="destination" ref="464975199"/>
 					</object>
 					<int key="connectionID">306</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">orderFrontStandardAboutPanel:</string>
+						<reference key="source" ref="464975199"/>
+						<reference key="destination" ref="491685710"/>
+					</object>
+					<int key="connectionID">307</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -566,7 +566,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">306</int>
+			<int key="maxID">307</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -580,10 +580,12 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>openBugHomepage:</string>
 							<string>openHomepage:</string>
+							<string>orderFrontStandardAboutPanel:</string>
 							<string>refresh:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -599,7 +601,6 @@
 							<string>pressureItem</string>
 							<string>rainfallItem</string>
 							<string>statusMenu</string>
-							<string>sunshineIndexItem</string>
 							<string>temperatureItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -610,7 +611,6 @@
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 							<string>NSMenu</string>
-							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 						</object>
 					</object>

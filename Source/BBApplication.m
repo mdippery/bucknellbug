@@ -202,6 +202,12 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 @implementation BBApplication (GUI)
 
+- (IBAction)orderFrontStandardAboutPanel:(id)sender
+{
+    [NSApp activateIgnoringOtherApps:YES];
+    [NSApp orderFrontStandardAboutPanel:sender];
+}
+
 - (IBAction)openHomepage:(id)sender
 {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.bucknell.edu/weather/Index.html"]];
