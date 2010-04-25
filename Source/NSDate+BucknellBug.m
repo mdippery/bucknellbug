@@ -37,7 +37,7 @@
     
     // I think I'm supposed to release the allocated 'self' here in order to
     // return the NEW date object...right?
-    [self release];
+    [self autorelease];
     self = [[NSDate alloc] initWithString:dateStr];
     return self;
 }
