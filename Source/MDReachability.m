@@ -17,8 +17,6 @@
 
 #import "MDReachability.h"
 
-#import <SystemConfiguration/SystemConfiguration.h>
-
 
 @implementation MDReachability
 
@@ -31,22 +29,22 @@
 {
     if ((self = [super init])) {
         hostname = [aHostname copy];
+        netReachRef = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [hostname UTF8String]);
     }
     return self;
 }
 
 - (void)dealloc
 {
+    if (netReachRef) CFRelease(netReachRef);
     [hostname release];
     [super dealloc];
 }
 
 - (BOOL)isReachable
 {
-    SCNetworkReachabilityRef netReachRef = NULL;
     SCNetworkConnectionFlags netReachFlags;
     
-    netReachRef = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [hostname UTF8String]);
     if (SCNetworkReachabilityGetFlags(netReachRef, &netReachFlags)) {
         return (netReachFlags & kSCNetworkFlagsReachable) == kSCNetworkFlagsReachable;
     } else {

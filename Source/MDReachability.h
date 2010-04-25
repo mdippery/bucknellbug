@@ -16,11 +16,13 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 
 @interface MDReachability : NSObject
 {
     NSString *hostname;
+    SCNetworkReachabilityRef netReachRef;
 }
 
 + (id)reachabilityWithHostname:(NSString *)aHostname;
