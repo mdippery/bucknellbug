@@ -124,8 +124,8 @@
 		29B97314FDCFA39411CA2CEA /* BucknellBug */ = {
 			isa = PBXGroup;
 			children = (
-				B7C8539B0AF6FC300039D98F /* Interface */,
-				B7C854460AF6FE990039D98F /* Core */,
+				B7C8539B0AF6FC300039D98F /* Controllers */,
+				B7C854460AF6FE990039D98F /* Models */,
 				B76B25371067254000204670 /* Additions */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				B79680E0106A84BC00699CB9 /* Other Sources */,
@@ -138,12 +138,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
-				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
-				B784DA4E105DD89D00D90D8F /* Help */,
+				B784DA3E105DD7D000D90D8F /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				B784DA5F105DD8F100D90D8F /* InfoPlist.strings */,
 				B784DA62105DD90100D90D8F /* Localizable.strings */,
+				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
+				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
+				B784DA4E105DD89D00D90D8F /* Help */,
 				B78679AE105E7FED0070B84E /* statusmenu.png */,
 			);
 			name = Resources;
@@ -185,17 +186,16 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		B7C8539B0AF6FC300039D98F /* Interface */ = {
+		B7C8539B0AF6FC300039D98F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B77105310AF7BF8D00FA66C0 /* BBApplication.h */,
 				B77105320AF7BF8D00FA66C0 /* BBApplication.m */,
-				B784DA3E105DD7D000D90D8F /* MainMenu.xib */,
 			);
-			name = Interface;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		B7C854460AF6FE990039D98F /* Core */ = {
+		B7C854460AF6FE990039D98F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B7C854470AF6FEB90039D98F /* BBDataFile.h */,
@@ -205,7 +205,7 @@
 				B788AFD41172102D000629D3 /* MDReachability.h */,
 				B788AFD51172102D000629D3 /* MDReachability.m */,
 			);
-			name = Core;
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
