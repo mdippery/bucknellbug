@@ -20,7 +20,7 @@
 #import "CSVParser.h"
 #import "NSDate+BucknellBug.h"
 
-#define DATA_FILE_URL   [NSURL URLWithString:@"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"]
+#define DATA_FILE_URL   @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"
 #define DATA_FILE_ENC   NSWindowsCP1251StringEncoding
 
 typedef enum {
@@ -33,12 +33,16 @@ typedef enum {
     IdxRainfall = 19-1
 } DataFileIndex;
 
+@interface BBDataFile (Private)
+- (void)resetData;
+@end
+
 @implementation BBDataFile
 
 - (id)init
 {
     if ((self == [super init])) {
-        data = [[CSVParser alloc] initWithContentsOfURL:DATA_FILE_URL encoding:DATA_FILE_ENC];
+        [self resetData];
         if (!data) {
             [self autorelease];
             return nil;
@@ -58,6 +62,12 @@ typedef enum {
     return [NSString stringWithFormat:@"<%@ %p> (data = %@)", [self class], self, data];
 }
 
+- (void)resetData
+{
+    [data release];
+    data = [[CSVParser alloc] initWithContentsOfURL:[NSURL URLWithString:DATA_FILE_URL] encoding:DATA_FILE_ENC];
+}
+
 - (BOOL)update
 {
     // For parse documentation, see
@@ -65,9 +75,8 @@ typedef enum {
     // http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat
     
     NSDate *lastDate = [[[self date] retain] autorelease];
-    [data release];
-    data = [[CSVParser alloc] initWithContentsOfURL:DATA_FILE_URL encoding:DATA_FILE_ENC];
-    if (data == nil) return NO;
+    [self resetData];
+    if (!data) return NO;
     return [[self date] isAfter:lastDate];
 }
 

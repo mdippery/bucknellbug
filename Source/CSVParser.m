@@ -46,20 +46,12 @@
 
 - (NSString *)objectAtIndex:(unsigned int)i
 {
-    if (data) {
-        return (NSString *) [data objectAtIndex:i];
-    } else {
-        return nil;
-    }
+    return data ? (NSString *) [data objectAtIndex:i] : nil;
 }
 
 - (unsigned int)count
 {
-    if (data) {
-        return [data count];
-    } else {
-        return 0U;
-    }
+    return data ? [data count] : 0U;
 }
 
 @end
