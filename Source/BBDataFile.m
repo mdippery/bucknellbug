@@ -24,14 +24,14 @@
 #define DATA_FILE_ENC   NSWindowsCP1251StringEncoding
 
 typedef enum {
-    IdxYear     = 2-1,
-    IdxDate     = 3-1,
-    IdxTime     = 4-1,
-    IdxPressure = 8-1,
-    IdxTemp     = 13-1,
-    IdxHumidity = 17-1,
-    IdxRainfall = 19-1
-} DataFileIndex;
+    BBYearIndex        = 2-1,
+    BBDateIndex        = 3-1,
+    BBTimeIndex        = 4-1,
+    BBPressureIndex    = 8-1,
+    BBTemperatureIndex = 13-1,
+    BBHumidityIndex    = 17-1,
+    BBRainfallIndex    = 19-1
+} BBDataFileIndex;
 
 @interface BBDataFile (Private)
 - (void)resetData;
@@ -82,9 +82,9 @@ typedef enum {
 
 - (NSDate *)date
 {
-    NSString *y = [data objectAtIndex:IdxYear];
-    NSString *d = [data objectAtIndex:IdxDate];
-    NSString *t = [data objectAtIndex:IdxTime];
+    NSString *y = [data objectAtIndex:BBYearIndex];
+    NSString *d = [data objectAtIndex:BBDateIndex];
+    NSString *t = [data objectAtIndex:BBTimeIndex];
     if (y && d && t) {
         return [NSDate dateWithYear:y month:[d substringToIndex:2] day:[d substringFromIndex:3] hour:t];
     } else {
@@ -94,22 +94,22 @@ typedef enum {
 
 - (double)temperature
 {
-    return [[data objectAtIndex:IdxTemp] doubleValue];
+    return [[data objectAtIndex:BBTemperatureIndex] doubleValue];
 }
 
 - (double)humidity
 {
-    return [[data objectAtIndex:IdxHumidity] doubleValue];
+    return [[data objectAtIndex:BBHumidityIndex] doubleValue];
 }
 
 - (unsigned int)pressure
 {
-    return (unsigned int) [[data objectAtIndex:IdxPressure] intValue];
+    return (unsigned int) [[data objectAtIndex:BBPressureIndex] intValue];
 }
 
 - (unsigned int)rainfall
 {
-    return (unsigned int) [[data objectAtIndex:IdxRainfall] intValue];
+    return (unsigned int) [[data objectAtIndex:BBRainfallIndex] intValue];
 }
 
 @end
