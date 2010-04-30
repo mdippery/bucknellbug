@@ -17,7 +17,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BBDataFile, MDReachability;
+@class BBDataFile, MDReachability, SUUpdater;
 
 
 @interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
@@ -29,6 +29,8 @@
     IBOutlet NSMenuItem *humidityItem;
     IBOutlet NSMenuItem *pressureItem;
     IBOutlet NSMenuItem *rainfallItem;
+    
+    IBOutlet SUUpdater *updater;
     
     BBDataFile *weather;
     NSDateFormatter *dateFormatter;

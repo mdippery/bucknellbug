@@ -54,7 +54,6 @@
        what's going on. */
 #if ADJUST_WEATHER_FEED
 #warning Adjusting for error in weather feed in -[NSDate timeZone]
-    NSLog(@"Correcting for error in weather feed");
     return [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0300" : @"-0400";
 #else
     return [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0400" : @"-0500";
