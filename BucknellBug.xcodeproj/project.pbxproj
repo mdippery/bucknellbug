@@ -229,7 +229,7 @@
 /* Begin PBXLegacyTarget section */
 		B70705F0118B1C900073C2E5 /* Sparkle Archive */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(PROJECT_DIR)/.makesparkle";
+			buildArgumentsString = "$(PROJECT_DIR)/Tools/Build/make-sparkle";
 			buildConfigurationList = B70705F5118B1CB90073C2E5 /* Build configuration list for PBXLegacyTarget "Sparkle Archive" */;
 			buildPhases = (
 			);
@@ -244,7 +244,7 @@
 		};
 		B7B19D1711825EB600674594 /* Disk Image */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(PROJECT_DIR)/.makedmg";
+			buildArgumentsString = "$(PROJECT_DIR)/Tools/Build/make-dmg";
 			buildConfigurationList = B7B19D2211825EC600674594 /* Build configuration list for PBXLegacyTarget "Disk Image" */;
 			buildPhases = (
 			);
@@ -259,7 +259,7 @@
 		};
 		B7B19D2D1182619D00674594 /* Source Archive */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(PROJECT_DIR)/.maketgz";
+			buildArgumentsString = "$(PROJECT_DIR)/Tools/Build/make-tgz";
 			buildConfigurationList = B7B19D36118261D000674594 /* Build configuration list for PBXLegacyTarget "Source Archive" */;
 			buildPhases = (
 			);
