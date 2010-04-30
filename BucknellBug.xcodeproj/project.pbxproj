@@ -44,6 +44,13 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		B70705F3118B1CB20073C2E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = BucknellBug;
+		};
 		B7B19D1A11825EBB00674594 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -220,6 +227,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
+		B70705F0118B1C900073C2E5 /* Sparkle Archive */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(PROJECT_DIR)/.makesparkle";
+			buildConfigurationList = B70705F5118B1CB90073C2E5 /* Build configuration list for PBXLegacyTarget "Sparkle Archive" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+				B70705F4118B1CB20073C2E5 /* PBXTargetDependency */,
+			);
+			name = "Sparkle Archive";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Sparkle Archive";
+		};
 		B7B19D1711825EB600674594 /* Disk Image */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(PROJECT_DIR)/.makedmg";
@@ -295,6 +317,7 @@
 				8D1107260486CEB800E47090 /* BucknellBug */,
 				B7B19D1711825EB600674594 /* Disk Image */,
 				B7B19D2D1182619D00674594 /* Source Archive */,
+				B70705F0118B1C900073C2E5 /* Sparkle Archive */,
 			);
 		};
 /* End PBXProject section */
@@ -352,6 +375,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B70705F4118B1CB20073C2E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* BucknellBug */;
+			targetProxy = B70705F3118B1CB20073C2E5 /* PBXContainerItemProxy */;
+		};
 		B7B19D1B11825EBB00674594 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* BucknellBug */;
@@ -403,6 +431,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B70705F1118B1C900073C2E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Sparkle Archive";
+			};
+			name = Debug;
+		};
+		B70705F2118B1C900073C2E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Sparkle Archive";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		B7B19D1811825EB600674594 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -521,6 +570,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B70705F5118B1CB90073C2E5 /* Build configuration list for PBXLegacyTarget "Sparkle Archive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B70705F1118B1C900073C2E5 /* Debug */,
+				B70705F2118B1C900073C2E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B7B19D2211825EC600674594 /* Build configuration list for PBXLegacyTarget "Disk Image" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

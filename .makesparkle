@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# ----
+# A script to create an archive for Sparkle
+# via Xcode. Set this as the argument for an
+# "External Target".
+# ----
+dir="${BUILT_PRODUCTS_DIR}"
+app="${PROJECT_NAME}.app"
+tgz="${PROJECT_NAME}.tgz"
+test "${ACTION}" != "clean" && tar czf "${dir}/${tgz}" -C "$dir" "$app" || rm -f "${dir}/${tgz}"

@@ -10,12 +10,13 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-PROJECT      = BucknellBug.xcodeproj
-TARGET       = BucknellBug
-CONFIG       = Release
-DEBUG_CONFIG = Debug
-DMG_TARGET   = Disk Image
-SRC_TARGET   = Source Archive
+PROJECT        = BucknellBug.xcodeproj
+TARGET         = BucknellBug
+CONFIG         = Release
+DEBUG_CONFIG   = Debug
+DMG_TARGET     = Disk Image
+SRC_TARGET     = Source Archive
+SPARKLE_TARGET = Sparkle Archive
 
 .PHONY: release debug dist src-dist clean
 
@@ -31,8 +32,12 @@ dmg:
 srcdist:
 	xcodebuild -project $(PROJECT) -target "$(SRC_TARGET)" -configuration $(CONFIG) build
 
+sparke:
+	xcodebuild -project $(PROJECT) -target "$(SPARKLE_TARGET)" -configuration $(CONFIG) build
+
 clean:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) clean
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) clean
 	xcodebuild -project $(PROJECT) -target "$(DMG_TARGET)" -configuration $(CONFIG) clean
 	xcodebuild -project $(PROJECT) -target "$(SRC_TARGET)" -configuration $(CONFIG) clean
+	xcodebuild -project $(PROJECT) -target "$(SPARKLE_TARGET)" -configuration $(CONFIG) clean
