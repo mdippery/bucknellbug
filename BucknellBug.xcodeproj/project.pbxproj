@@ -118,9 +118,9 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */,
-				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 				B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */,
 				B701F3F2118B169200F762A0 /* Sparkle.framework in Frameworks */,
+				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,15 +168,23 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				B714EA040B06FA460039B548 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				B7116EFE0C0497E1007D86E6 /* Growl.framework */,
 				B701F3E4118B164400F762A0 /* Sparkle.framework */,
 				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
+				B7372F5A118B443E00DFAA1A /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7372F5A118B443E00DFAA1A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		B76B25371067254000204670 /* Additions */ = {
