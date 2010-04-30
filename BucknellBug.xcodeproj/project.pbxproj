@@ -11,6 +11,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		B701F3F2118B169200F762A0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B701F3E4118B164400F762A0 /* Sparkle.framework */; };
 		B701F3F3118B169900F762A0 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B701F3E4118B164400F762A0 /* Sparkle.framework */; };
+		B701F414118B187300F762A0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B701F413118B187300F762A0 /* dsa_pub.pem */; };
 		B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B70F1B470B06B3AC00A15771 /* BugIcon.icns */; };
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
@@ -75,6 +76,7 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BucknellBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucknellBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B701F3E4118B164400F762A0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		B701F413118B187300F762A0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		B714EA040B06FA460039B548 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -151,6 +153,7 @@
 				B7B5F8290B797EBE0039A7CE /* Credits.rtf */,
 				B784DA4E105DD89D00D90D8F /* Help */,
 				B78679AE105E7FED0070B84E /* statusmenu.png */,
+				B701F413118B187300F762A0 /* dsa_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				B784DA61105DD8F100D90D8F /* InfoPlist.strings in Resources */,
 				B784DA64105DD90100D90D8F /* Localizable.strings in Resources */,
 				B78679AF105E7FED0070B84E /* statusmenu.png in Resources */,
+				B701F414118B187300F762A0 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
