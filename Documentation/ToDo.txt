@@ -1,6 +1,0 @@
-TO DO:
-
-Note that these items are in no particular order of importance.
-
-* Implement preferences for Growl use, time interval
-* Rising/falling tag for pressure (store old pressure and compare)
