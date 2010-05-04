@@ -20,7 +20,7 @@
 
 @interface NSDate (PrivateBucknellBugAdditions)
 - (NSString *)timeZone;
-- (void)getDay:(int *)inDay andToday:(int *)inToday;
+- (void)getDay:(int *)inDay today:(int *)inToday;
 @end
 
 @implementation NSDate (BucknellBugAdditions)
@@ -74,7 +74,7 @@
 {
     int day;
     int today;
-    [self getDay:&day andToday:&today];
+    [self getDay:&day today:&today];
     return day == today;
 }
 
@@ -82,7 +82,7 @@
 {
     int day;
     int today;
-    [self getDay:&day andToday:&today];
+    [self getDay:&day today:&today];
     return day > today;
 }
 
@@ -90,11 +90,11 @@
 {
     int day;
     int today;
-    [self getDay:&day andToday:&today];
+    [self getDay:&day today:&today];
     return day < today;
 }
 
-- (void)getDay:(int *)inDay andToday:(int *)inToday
+- (void)getDay:(int *)inDay today:(int *)inToday
 {
     NSDateComponents *day = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self];
     NSDateComponents *today = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:[NSDate date]];
