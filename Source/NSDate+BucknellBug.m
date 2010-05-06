@@ -46,18 +46,10 @@
 {
     /* For some reason, the weather feed shows the time in the future. For
        example, if it's 8:02 PM and the weather feed was just updated, it
-       will display 2100 as the update time. Maybe this is semantically
-       correct for some reason, I don't know (I should talk to Bucknell's
-       weather guy to find out), but it's confusing to the user to see a
-       last updated time in the _future_. This chunk of code will adjust
-       the last updated time to make more sense, until I can figure out
-       what's going on. */
-#if ADJUST_WEATHER_FEED
-#warning Adjusting for error in weather feed in -[NSDate timeZone]
+       will display 2100 as the update time. The Bucknell weather prof
+       believes this is a bug in the way the data file is created, and that
+       it's entirely appropriate for me to compensate here. */
     return [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0300" : @"-0400";
-#else
-    return [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0400" : @"-0500";
-#endif
 }
 
 - (BOOL)isAfter:(NSDate *)date
