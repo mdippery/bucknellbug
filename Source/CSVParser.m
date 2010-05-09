@@ -46,7 +46,7 @@
 
 - (NSString *)objectAtIndex:(unsigned int)i
 {
-    return data ? (NSString *) [data objectAtIndex:i] : nil;
+    return data ? [data objectAtIndex:i] : nil;
 }
 
 - (unsigned int)count
