@@ -265,20 +265,6 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = "Disk Image";
 		};
-		B7B19D2D1182619D00674594 /* Source Archive */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(PROJECT_DIR)/Tools/Build/make-tgz";
-			buildConfigurationList = B7B19D36118261D000674594 /* Build configuration list for PBXLegacyTarget "Source Archive" */;
-			buildPhases = (
-			);
-			buildToolPath = /bin/sh;
-			buildWorkingDirectory = "";
-			dependencies = (
-			);
-			name = "Source Archive";
-			passBuildSettingsInEnvironment = 1;
-			productName = "Source Archive";
-		};
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
@@ -324,7 +310,6 @@
 			targets = (
 				8D1107260486CEB800E47090 /* BucknellBug */,
 				B7B19D1711825EB600674594 /* Disk Image */,
-				B7B19D2D1182619D00674594 /* Source Archive */,
 				B70705F0118B1C900073C2E5 /* Sparkle Archive */,
 			);
 		};
@@ -481,27 +466,6 @@
 			};
 			name = Release;
 		};
-		B7B19D2E1182619D00674594 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Source Archive";
-			};
-			name = Debug;
-		};
-		B7B19D2F1182619D00674594 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = "Source Archive";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7B19CE4118259DE00674594 /* version.xcconfig */;
@@ -592,15 +556,6 @@
 			buildConfigurations = (
 				B7B19D1811825EB600674594 /* Debug */,
 				B7B19D1911825EB600674594 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7B19D36118261D000674594 /* Build configuration list for PBXLegacyTarget "Source Archive" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7B19D2E1182619D00674594 /* Debug */,
-				B7B19D2F1182619D00674594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
