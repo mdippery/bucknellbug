@@ -17,12 +17,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class CSVParser;
+@class CSVFile;
 
 
 @interface BBDataFile : NSObject
 {
-    CSVParser *data;
+    CSVFile *data;
 }
 - (id)init;
 - (BOOL)update;

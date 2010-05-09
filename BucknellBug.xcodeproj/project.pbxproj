@@ -16,7 +16,7 @@
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
-		B73E370211826C300092EE58 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVParser.m */; };
+		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
 		B76B253A1067255300204670 /* NSMenuItem+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */; };
 		B76B257210672BB400204670 /* NSDate+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+BucknellBug.m */; };
 		B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */; };
@@ -87,8 +87,8 @@
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		B714EA040B06FA460039B548 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		B73E370011826C300092EE58 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = Source/CSVParser.h; sourceTree = "<group>"; };
-		B73E370111826C300092EE58 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = Source/CSVParser.m; sourceTree = "<group>"; };
+		B73E370011826C300092EE58 /* CSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVFile.h; path = Source/CSVFile.h; sourceTree = "<group>"; };
+		B73E370111826C300092EE58 /* CSVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVFile.m; path = Source/CSVFile.m; sourceTree = "<group>"; };
 		B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenuItem+BucknellBug.h"; path = "Source/NSMenuItem+BucknellBug.h"; sourceTree = "<group>"; };
 		B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenuItem+BucknellBug.m"; path = "Source/NSMenuItem+BucknellBug.m"; sourceTree = "<group>"; };
 		B76B257010672BB400204670 /* NSDate+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+BucknellBug.h"; path = "Source/NSDate+BucknellBug.h"; sourceTree = "<group>"; };
@@ -224,8 +224,8 @@
 			children = (
 				B7C854470AF6FEB90039D98F /* BBDataFile.h */,
 				B7C854480AF6FEB90039D98F /* BBDataFile.m */,
-				B73E370011826C300092EE58 /* CSVParser.h */,
-				B73E370111826C300092EE58 /* CSVParser.m */,
+				B73E370011826C300092EE58 /* CSVFile.h */,
+				B73E370111826C300092EE58 /* CSVFile.m */,
 				B788AFD41172102D000629D3 /* MDReachability.h */,
 				B788AFD51172102D000629D3 /* MDReachability.m */,
 			);
@@ -361,7 +361,7 @@
 				B76B257210672BB400204670 /* NSDate+BucknellBug.m in Sources */,
 				B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */,
 				B788AFD61172102D000629D3 /* MDReachability.m in Sources */,
-				B73E370211826C300092EE58 /* CSVParser.m in Sources */,
+				B73E370211826C300092EE58 /* CSVFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

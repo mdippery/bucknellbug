@@ -17,7 +17,7 @@
 
 #import "BBDataFile.h"
 
-#import "CSVParser.h"
+#import "CSVFile.h"
 #import "NSDate+BucknellBug.h"
 
 #define DATA_FILE_URL   @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"
@@ -65,7 +65,7 @@ typedef enum {
 - (void)resetData
 {
     [data release];
-    data = [[CSVParser alloc] initWithContentsOfURL:[NSURL URLWithString:DATA_FILE_URL] encoding:DATA_FILE_ENC];
+    data = [[CSVFile alloc] initWithContentsOfURL:[NSURL URLWithString:DATA_FILE_URL] encoding:DATA_FILE_ENC];
 }
 
 - (BOOL)update

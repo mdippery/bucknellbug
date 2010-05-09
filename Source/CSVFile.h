@@ -18,7 +18,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface CSVParser : NSObject
+@interface CSVFile : NSObject
 {
     NSArray *data;
 }
