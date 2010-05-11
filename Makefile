@@ -1,5 +1,5 @@
-# Copyright (c) 2006-2010 Michael Dippery <mdippery@gmail.com>
 # BucknellBug Makefile
+# Copyright (C) 2006-2010 Michael Dippery <mdippery@gmail.com>
 #
 # This Makefile is free software; the author gives unlimited permission
 # to copy and/or distribute it, with or without modifications,
@@ -17,9 +17,9 @@ DEBUG_CONFIG   = Debug
 DMG_TARGET     = Disk Image
 SPARKLE_TARGET = Sparkle Archive
 
-.PHONY: release debug dist src-dist clean
+.PHONY: release debug dist sparkle bump-version clean
 
-release:
+release: bump-version
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) build
 
 debug:
@@ -30,6 +30,9 @@ dist:
 
 sparkle:
 	xcodebuild -project $(PROJECT) -target "$(SPARKLE_TARGET)" -configuration $(CONFIG) build
+
+bump-version:
+	agvtool next-version -all
 
 clean:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) clean
