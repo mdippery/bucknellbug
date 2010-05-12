@@ -193,7 +193,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)computerDidWake:(NSNotification *)notification
 {
-    NSLog(@"Received computerDidWake notification");
+    //NSLog(@"Received computerDidWake notification");
     // Pause to confirm network connection has been established.
     [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY];
 }
