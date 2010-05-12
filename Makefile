@@ -19,7 +19,7 @@ SPARKLE_TARGET = Sparkle Archive
 
 .PHONY: release debug dist sparkle bump-version clean
 
-release: bump-version
+release:
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) build
 
 debug:
