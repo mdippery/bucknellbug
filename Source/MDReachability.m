@@ -25,11 +25,21 @@
     return [[[self alloc] initWithHostname:aHostname] autorelease];
 }
 
++ (id)reachabilityWithURL:(NSURL *)url
+{
+    return [[[self alloc] initWithURL:url] autorelease];
+}
+
 - (id)initWithHostname:(NSString *)aHostname
 {
-    if ((self = [super init])) {
-        hostname = [aHostname copy];
-        netReachRef = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [hostname UTF8String]);
+    return [self initWithURL:[NSURL URLWithString:aHostname]];
+}
+
+- (id)initWithURL:(NSURL *)url
+{
+    if ((self = [super init]) != nil) {
+        hostname = [url retain];
+        netReachRef = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [[hostname absoluteString] UTF8String]);
     }
     return self;
 }
@@ -43,6 +53,11 @@
 
 - (BOOL)isReachable
 {
+    // In 10.6+, NSURL has a method named
+    // `checkResourceIsReachableAndReturnError:`. If
+    // I ever switch to only supporting 10.6, I can
+    // use this method instead.
+    
     SCNetworkConnectionFlags netReachFlags;
     
     if (SCNetworkReachabilityGetFlags(netReachRef, &netReachFlags)) {

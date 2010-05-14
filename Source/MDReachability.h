@@ -21,12 +21,14 @@
 
 @interface MDReachability : NSObject
 {
-    NSString *hostname;
+    NSURL *hostname;
     SCNetworkReachabilityRef netReachRef;
 }
 
 + (id)reachabilityWithHostname:(NSString *)aHostname;
++ (id)reachabilityWithURL:(NSURL *)url;
 - (id)initWithHostname:(NSString *)aHostname;
+- (id)initWithURL:(NSURL *)url;
 - (BOOL)isReachable;
 
 @end
