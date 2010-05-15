@@ -198,9 +198,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY];
 }
 
-@end
-
-@implementation BBApplication (GUI)
+#pragma mark IBActions
 
 - (IBAction)orderFrontStandardAboutPanel:(id)sender
 {
@@ -223,10 +221,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [self updateWeatherData:nil];
 }
 
-@end
-
-
-@implementation BBApplication (NSAppDelegate)
+#pragma mark NSApplication Delegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
@@ -244,10 +239,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [self startTimer];
 }
 
-@end
-
-
-@implementation BBApplication (NSMenuDelegate)
+#pragma mark NSMenu Delegate
 
 - (void)menuNeedsUpdate:(NSMenu *)menu
 {
@@ -256,10 +248,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [self updateNextUpdateItem];
 }
 
-@end
-
-
-@implementation BBApplication (GrowlDelegate)
+#pragma mark Growl Delegate
 
 - (NSDictionary *)registrationDictionaryForGrowl
 {

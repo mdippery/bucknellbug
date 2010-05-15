@@ -38,11 +38,8 @@
     NSStatusItem *statusItem;
     MDReachability *host;
 }
-@end
 
-
-@interface BBApplication (GUI)
-
+// IBActions
 - (IBAction)orderFrontStandardAboutPanel:(id)sender;
 - (IBAction)openHomepage:(id)sender;
 - (IBAction)openBugHomepage:(id)sender;
