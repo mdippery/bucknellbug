@@ -218,7 +218,11 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (IBAction)refresh:(id)sender
 {
-    [self updateWeatherData:nil];
+    if ([host isReachable]) {
+        [self updateWeatherData:nil];
+    } else {
+        [self showReachabilityError];
+    }
 }
 
 #pragma mark NSApplication Delegate
