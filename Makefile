@@ -35,7 +35,5 @@ bump-version:
 	agvtool next-version -all
 
 clean:
-	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIG) clean
-	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(DEBUG_CONFIG) clean
-	xcodebuild -project $(PROJECT) -target "$(DMG_TARGET)" -configuration $(CONFIG) clean
-	xcodebuild -project $(PROJECT) -target "$(SPARKLE_TARGET)" -configuration $(CONFIG) clean
+	xcodebuild -project $(PROJECT) -alltargets -configuration $(CONFIG) clean
+	xcodebuild -project $(PROJECT) -alltargets -configuration $(DEBUG_CONFIG) clean
