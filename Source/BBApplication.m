@@ -24,6 +24,7 @@
 #import "BBDataFile.h"
 #import "MDReachability.h"
 #import "NSDate+BucknellBug.h"
+#import "NSImage+Convenience.h"
 #import "NSMenuItem+BucknellBug.h"
 #import "NSTimer+BucknellBug.h"
 
@@ -75,7 +76,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)dealloc
 {
-    NSLog(@"Deallocating BBApplication (instance <%p>)", self);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [weather release];
     [dateFormatter release];
@@ -99,8 +99,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (NSImage *)statusMenuImage
 {
     NSString *imgPath = [[NSBundle mainBundle] pathForResource:@"statusmenu" ofType:@"png"];
-    NSImage *img = [[NSImage alloc] initWithContentsOfFile:imgPath];
-    return [img autorelease];
+    return [NSImage imageWithContentsOfFile:imgPath];
 }
 
 - (void)updateWeatherData:(NSTimer *)aTimer
