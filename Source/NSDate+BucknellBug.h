@@ -20,9 +20,6 @@
 
 @interface NSDate (BucknellBugAdditions)
 
-+ (id)dateWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour;
-- (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour;
-
 - (BOOL)isAfter:(NSDate *)date;
 - (BOOL)isBefore:(NSDate *)data;
 

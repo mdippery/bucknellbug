@@ -31,7 +31,9 @@ typedef enum {
 } BBDataFileIndex;
 
 @interface BBDataFile (Private)
++ (NSDateFormatter *)dateFormatter;
 - (void)resetData;
+- (NSString *)dateString;
 @end
 
 @implementation BBDataFile
@@ -44,6 +46,18 @@ typedef enum {
 + (NSStringEncoding)defaultEncoding
 {
     return NSWindowsCP1251StringEncoding;
+}
+
++ (NSDateFormatter *)dateFormatter
+{
+    static NSDateFormatter *sharedFormatter = nil;
+    if (!sharedFormatter) {
+        int offset = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? -3 : -4;
+        offset *= (60 * 60);
+        sharedFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y/%m/%d %H00 %z" allowNaturalLanguage:NO];
+        //[sharedFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:offset]];
+    }
+    return sharedFormatter;
 }
 
 - (id)init
@@ -89,11 +103,19 @@ typedef enum {
 
 - (NSDate *)date
 {
-    NSString *y = [data objectAtIndex:BBYearIndex];
-    NSString *d = [data objectAtIndex:BBDateIndex];
-    NSString *t = [data objectAtIndex:BBTimeIndex];
-    if (y && d && t) {
-        return [NSDate dateWithYear:y month:[d substringToIndex:2] day:[d substringFromIndex:3] hour:t];
+    NSString *dateStr = [self dateString];
+    NSLog(@"Got date string: %@", dateStr);
+    return [[BBDataFile dateFormatter] dateFromString:dateStr];
+}
+
+- (NSString *)dateString
+{
+    NSString *year = [data objectAtIndex:BBYearIndex];
+    NSString *date = [data objectAtIndex:BBDateIndex];
+    NSString *time = [data objectAtIndex:BBTimeIndex];
+    if (year && date && time) {
+        NSString *tz = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0300" : @"-0400";
+        return [NSString stringWithFormat:@"%@/%@ %@%@ %@", year, date, [time length] == 3 ? @"0" : @"", time, tz];
     } else {
         return nil;
     }

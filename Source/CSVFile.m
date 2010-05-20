@@ -41,7 +41,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p> (%@)", [self class], self, [data componentsJoinedByString:@","]];
+    return [NSString stringWithFormat:@"<%@: %p> (data = %@)", [self class], self, [data componentsJoinedByString:@","]];
 }
 
 - (NSString *)objectAtIndex:(unsigned int)i

@@ -20,38 +20,10 @@
 
 
 @interface NSDate (PrivateBucknellBugAdditions)
-- (NSString *)timeZone;
 - (void)getDay:(int *)inDay today:(int *)inToday;
 @end
 
 @implementation NSDate (BucknellBugAdditions)
-
-+ (id)dateWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
-{
-    return [[[self alloc] initWithYear:year month:month day:day hour:hour] autorelease];
-}
-
-- (id)initWithYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour
-{
-    NSString *tz = [self timeZone];
-    NSMutableString *dateStr = [[[NSMutableString alloc] initWithFormat:@"%@-%@-%@ %d:00:00 %@", year, month, day, ([hour intValue] / 100), tz] autorelease];
-    
-    // I think I'm supposed to release the allocated 'self' here in order to
-    // return the NEW date object...right?
-    [self autorelease];
-    self = [[NSDate alloc] initWithString:dateStr];
-    return self;
-}
-
-- (NSString *)timeZone
-{
-    /* For some reason, the weather feed shows the time in the future. For
-       example, if it's 8:02 PM and the weather feed was just updated, it
-       will display 2100 as the update time. The Bucknell weather prof
-       believes this is a bug in the way the data file is created, and that
-       it's entirely appropriate for me to compensate here. */
-    return [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0300" : @"-0400";
-}
 
 - (BOOL)isAfter:(NSDate *)date
 {
