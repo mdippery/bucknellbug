@@ -24,7 +24,8 @@
 {
     CSVFile *data;
 }
-+ (NSString *)rawData;
++ (NSURL *)defaultURL;
++ (NSStringEncoding)defaultEncoding;
 
 - (id)init;
 - (BOOL)update;

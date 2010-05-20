@@ -79,8 +79,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [weather release];
     [dateFormatter release];
-    [timer invalidate];
-    [timer release];
+    [timer invalidate]; [timer release];
     [statusItem release];
     [host release];
     [super dealloc];
@@ -205,7 +204,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)computerDidWake:(NSNotification *)notification
 {
-    //NSLog(@"Received computerDidWake notification");
     // Pause to confirm network connection has been established.
     [self performSelector:@selector(startTimer) withObject:nil afterDelay:WAKE_DELAY];
 }
@@ -239,7 +237,8 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (IBAction)logFeed:(id)sender
 {
-    NSLog(@"%@", [BBDataFile rawData]);
+    NSString *feed = [NSString stringWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding] error:NULL];
+    NSLog(@"%@", feed);
 }
 
 #pragma mark NSApplication Delegate

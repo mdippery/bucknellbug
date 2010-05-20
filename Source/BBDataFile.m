@@ -20,9 +20,6 @@
 #import "CSVFile.h"
 #import "NSDate+BucknellBug.h"
 
-#define DATA_FILE_URL   @"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"
-#define DATA_FILE_ENC   NSWindowsCP1251StringEncoding
-
 typedef enum {
     BBYearIndex        = 2-1,
     BBDateIndex        = 3-1,
@@ -39,9 +36,14 @@ typedef enum {
 
 @implementation BBDataFile
 
-+ (NSString *)rawData
++ (NSURL *)defaultURL
 {
-    return [NSString stringWithContentsOfURL:[NSURL URLWithString:DATA_FILE_URL] encoding:DATA_FILE_ENC error:NULL];
+    return [NSURL URLWithString:@"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"];
+}
+
++ (NSStringEncoding)defaultEncoding
+{
+    return NSWindowsCP1251StringEncoding;
 }
 
 - (id)init
@@ -64,13 +66,13 @@ typedef enum {
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p> (data = %@)", [self class], self, data];
+    return [NSString stringWithFormat:@"<%@: %p> (data = %@)", [self class], self, data];
 }
 
 - (void)resetData
 {
     [data release];
-    data = [[CSVFile alloc] initWithContentsOfURL:[NSURL URLWithString:DATA_FILE_URL] encoding:DATA_FILE_ENC];
+    data = [[CSVFile alloc] initWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding]];
 }
 
 - (BOOL)update
