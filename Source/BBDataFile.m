@@ -39,6 +39,11 @@ typedef enum {
 
 @implementation BBDataFile
 
++ (NSString *)rawData
+{
+    return [NSString stringWithContentsOfURL:[NSURL URLWithString:DATA_FILE_URL] encoding:DATA_FILE_ENC error:NULL];
+}
+
 - (id)init
 {
     if ((self == [super init])) {

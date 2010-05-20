@@ -94,6 +94,9 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     [statusItem setImage:[self statusMenuImage]];
     [statusItem setHighlightMode:YES];
     [statusItem setMenu:statusMenu];
+    
+    [downloadFeedItem setKeyEquivalentModifierMask:NSAlternateKeyMask];
+    [downloadFeedItem setAlternate:YES];
 }
 
 - (NSImage *)statusMenuImage
@@ -232,6 +235,11 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     } else {
         [self showReachabilityError];
     }
+}
+
+- (IBAction)logFeed:(id)sender
+{
+    NSLog(@"%@", [BBDataFile rawData]);
 }
 
 #pragma mark NSApplication Delegate

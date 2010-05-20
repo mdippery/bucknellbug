@@ -24,6 +24,8 @@
 {
     CSVFile *data;
 }
++ (NSString *)rawData;
+
 - (id)init;
 - (BOOL)update;
 
