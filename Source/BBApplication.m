@@ -131,7 +131,17 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     if (date) {
         NSString *update = [dateFormatter stringFromDate:date];
         if ([date isYesterdayOrEarlier]) {
-            update = [@"Yesterday, " stringByAppendingString:update];
+            if ([date isAdjacentToToday]) {
+                update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
+            } else {
+                static NSDateFormatter *longFormat = nil;
+                if (!longFormat) {
+                    longFormat = [[NSDateFormatter alloc] init];
+                    [longFormat setDateStyle:NSDateFormatterShortStyle];
+                    [longFormat setTimeStyle:NSDateFormatterShortStyle];
+                }
+                update = [longFormat stringFromDate:date];
+            }
         }
         [lastUpdatedItem updateTitle:update];
     }
@@ -143,7 +153,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
         NSDate *fire = [timer nextFireDate];
         NSString *fireStr = [dateFormatter stringFromDate:fire];
         if ([fire isTomorrowOrLater]) {
-            fireStr = [@"Tomorrow, " stringByAppendingString:fireStr];
+            fireStr = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Tomorrow", nil), fireStr];
         }
         [nextUpdateItem updateTitle:fireStr];
     }

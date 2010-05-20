@@ -29,5 +29,6 @@
 - (BOOL)isToday;
 - (BOOL)isTomorrowOrLater;
 - (BOOL)isYesterdayOrEarlier;
+- (BOOL)isAdjacentToToday;
 
 @end

@@ -1,11 +1,20 @@
-/* Growl "Weather Updated" notification title */
-"Weather Updated" = "Weather Updated";
+/* Growl "No Internet Connection" notification title */
+"No Internet Connection" = "No Internet Connection";
+
+/* Today */
+"Today" = "Today";
+
+/* Tomorrow */
+"Tomorrow" = "Tomorrow";
 
 /* Growl "Weather Updated" notification description */
 "Weather data has been updated." = "Weather data has been updated.";
 
-/* Growl "No Internet Connection" notification title */
-"No Internet Connection" = "No Internet Connection";
+/* Growl "Weather Updated" notification title */
+"Weather Updated" = "Weather Updated";
+
+/* Yesterday */
+"Yesterday" = "Yesterday";
 
 /* Growl "No Internet Connection" notification description */
 "You do not have an Internet connection." = "You do not have an Internet connection.";

@@ -16,6 +16,7 @@
  */
 
 #import "NSDate+BucknellBug.h"
+#import <stdlib.h>
 
 
 @interface NSDate (PrivateBucknellBugAdditions)
@@ -84,6 +85,14 @@
     int today;
     [self getDay:&day today:&today];
     return day < today;
+}
+
+- (BOOL)isAdjacentToToday
+{
+    int day;
+    int today;
+    [self getDay:&day today:&today];
+    return abs(day - today) <= 1;
 }
 
 - (void)getDay:(int *)inDay today:(int *)inToday
