@@ -1,9 +1,6 @@
 /* Growl "No Internet Connection" notification title */
 "No Internet Connection" = "No Internet Connection";
 
-/* Today */
-"Today" = "Today";
-
 /* Tomorrow */
 "Tomorrow" = "Tomorrow";
 
@@ -18,3 +15,6 @@
 
 /* Growl "No Internet Connection" notification description */
 "You do not have an Internet connection." = "You do not have an Internet connection.";
+
+/* Unspecified number of days ago */
+"%u days ago" = "%u days ago";

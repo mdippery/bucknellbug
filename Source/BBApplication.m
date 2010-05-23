@@ -133,16 +133,12 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
     if (date) {
         NSString *update = [dateFormatter stringFromDate:date];
         if ([date isYesterdayOrEarlier]) {
-            if ([date isAdjacentToToday]) {
+            unsigned int days = -[date numberOfDaysSinceNow];
+            NSLog(@"days = %u", days);
+            if (days <= 1) {
                 update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
             } else {
-                static NSDateFormatter *longFormat = nil;
-                if (!longFormat) {
-                    longFormat = [[NSDateFormatter alloc] init];
-                    [longFormat setDateStyle:NSDateFormatterShortStyle];
-                    [longFormat setTimeStyle:NSDateFormatterShortStyle];
-                }
-                update = [longFormat stringFromDate:date];
+                update = [NSString stringWithFormat:NSLocalizedString(@"%u days ago", nil), days];
             }
         }
         [lastUpdatedItem updateTitle:update];

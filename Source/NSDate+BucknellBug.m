@@ -18,6 +18,8 @@
 #import "NSDate+BucknellBug.h"
 #import <stdlib.h>
 
+#define SECONDS_IN_A_DAY    (60 * 60 * 24)
+#define sgn(x)              (x < 0.0 ? -1 : 1);
 
 @interface NSDate (PrivateBucknellBugAdditions)
 - (void)getDay:(int *)inDay today:(int *)inToday;
@@ -59,12 +61,12 @@
     return day < today;
 }
 
-- (BOOL)isAdjacentToToday
+- (int)numberOfDaysSinceNow
 {
-    int day;
-    int today;
-    [self getDay:&day today:&today];
-    return abs(day - today) <= 1;
+    NSTimeInterval interval = [self timeIntervalSinceNow] / SECONDS_IN_A_DAY;
+    int sign = sgn(interval);
+    interval = floor(abs(interval));    // If interval is negative, round towards 0, since 6.5 days ago is 6 days ago, not 7
+    return (int) (interval * sign);
 }
 
 - (void)getDay:(int *)inDay today:(int *)inToday
