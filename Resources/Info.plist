@@ -37,7 +37,7 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>http://mdippery.github.com/bucknellbug/appcast.xml</string>
+	<string>http://mdippery.github.com/BucknellBug/appcast.xml</string>
 	<key>SUEnableSystemProfiling</key>
 	<false/>
 </dict>
