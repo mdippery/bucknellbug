@@ -24,7 +24,7 @@
 		B753C85911A82754000D6D35 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B753C85711A82754000D6D35 /* Localizable.strings */; };
 		B753C86711A827BD000D6D35 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = B753C85C11A827BD000D6D35 /* Help */; };
 		B76B253A1067255300204670 /* NSMenuItem+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */; };
-		B76B257210672BB400204670 /* NSDate+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+BucknellBug.m */; };
+		B76B257210672BB400204670 /* NSDate+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+Relative.m */; };
 		B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */; };
 		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
@@ -99,8 +99,8 @@
 		B753C85D11A827BD000D6D35 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = Resources/English.lproj/Help; sourceTree = "<group>"; };
 		B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenuItem+BucknellBug.h"; path = "Source/NSMenuItem+BucknellBug.h"; sourceTree = "<group>"; };
 		B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenuItem+BucknellBug.m"; path = "Source/NSMenuItem+BucknellBug.m"; sourceTree = "<group>"; };
-		B76B257010672BB400204670 /* NSDate+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+BucknellBug.h"; path = "Source/NSDate+BucknellBug.h"; sourceTree = "<group>"; };
-		B76B257110672BB400204670 /* NSDate+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+BucknellBug.m"; path = "Source/NSDate+BucknellBug.m"; sourceTree = "<group>"; };
+		B76B257010672BB400204670 /* NSDate+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Relative.h"; path = "Source/NSDate+Relative.h"; sourceTree = "<group>"; };
+		B76B257110672BB400204670 /* NSDate+Relative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Relative.m"; path = "Source/NSDate+Relative.m"; sourceTree = "<group>"; };
 		B76B25D4106736AB00204670 /* NSTimer+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BucknellBug.h"; path = "Source/NSTimer+BucknellBug.h"; sourceTree = "<group>"; };
 		B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BucknellBug.m"; path = "Source/NSTimer+BucknellBug.m"; sourceTree = "<group>"; };
 		B77105310AF7BF8D00FA66C0 /* BBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBApplication.h; path = Source/BBApplication.h; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 		B76B25371067254000204670 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				B76B257010672BB400204670 /* NSDate+BucknellBug.h */,
-				B76B257110672BB400204670 /* NSDate+BucknellBug.m */,
+				B76B257010672BB400204670 /* NSDate+Relative.h */,
+				B76B257110672BB400204670 /* NSDate+Relative.m */,
 				B722EEB411A3204E007E19C4 /* NSImage+Convenience.h */,
 				B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */,
 				B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */,
@@ -344,7 +344,7 @@
 				B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */,
 				B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */,
 				B76B253A1067255300204670 /* NSMenuItem+BucknellBug.m in Sources */,
-				B76B257210672BB400204670 /* NSDate+BucknellBug.m in Sources */,
+				B76B257210672BB400204670 /* NSDate+Relative.m in Sources */,
 				B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */,
 				B788AFD61172102D000629D3 /* MDReachability.m in Sources */,
 				B73E370211826C300092EE58 /* CSVFile.m in Sources */,

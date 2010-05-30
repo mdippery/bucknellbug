@@ -23,7 +23,7 @@
 
 #import "BBDataFile.h"
 #import "MDReachability.h"
-#import "NSDate+BucknellBug.h"
+#import "NSDate+Relative.h"
 #import "NSImage+Convenience.h"
 #import "NSMenuItem+BucknellBug.h"
 #import "NSTimer+BucknellBug.h"

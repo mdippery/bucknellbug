@@ -18,7 +18,9 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface NSDate (BucknellBugAdditions)
+@interface NSDate (RelativeAdditions)
+
+- (int)dayOfMonth;
 
 - (BOOL)isAfter:(NSDate *)date;
 - (BOOL)isBefore:(NSDate *)data;

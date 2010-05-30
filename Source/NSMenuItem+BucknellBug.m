@@ -20,11 +20,11 @@
 
 @implementation NSMenuItem (BucknellBugAdditions)
 
-- (void)updateTitle:(NSString *)aTitle
+- (void)updateTitle:(NSString *)title
 {
     NSRange colon = [[self title] rangeOfString:@": "];
     NSString *baseTitle = [[self title] substringToIndex:(colon.location + 2)];
-    NSString *newTitle = [baseTitle stringByAppendingString:aTitle];
+    NSString *newTitle = [baseTitle stringByAppendingString:title];
     [self setTitle:newTitle];
 }
 

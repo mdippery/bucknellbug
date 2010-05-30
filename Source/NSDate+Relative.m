@@ -15,17 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import "NSDate+BucknellBug.h"
+#import "NSDate+Relative.h"
 #import <stdlib.h>
 
 #define SECONDS_IN_A_DAY    (60 * 60 * 24)
 #define sgn(x)              (x < 0.0 ? -1 : 1);
 
-@interface NSDate (PrivateBucknellBugAdditions)
-- (void)getDay:(int *)inDay today:(int *)inToday;
-@end
+@implementation NSDate (RelativeAdditions)
 
-@implementation NSDate (BucknellBugAdditions)
+- (int)dayOfMonth
+{
+    return [[[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self] day];
+}
 
 - (BOOL)isAfter:(NSDate *)date
 {
@@ -39,26 +40,17 @@
 
 - (BOOL)isToday
 {
-    int day;
-    int today;
-    [self getDay:&day today:&today];
-    return day == today;
+    return [self dayOfMonth] == [[NSDate date] dayOfMonth];
 }
 
 - (BOOL)isTomorrowOrLater
 {
-    int day;
-    int today;
-    [self getDay:&day today:&today];
-    return day > today;
+    return [self dayOfMonth] > [[NSDate date] dayOfMonth];
 }
 
 - (BOOL)isYesterdayOrEarlier
 {
-    int day;
-    int today;
-    [self getDay:&day today:&today];
-    return day < today;
+    return [self dayOfMonth] < [[NSDate date] dayOfMonth];
 }
 
 - (int)numberOfDaysSinceNow
@@ -67,14 +59,6 @@
     int sign = sgn(interval);
     interval = floor(abs(interval));    // If interval is negative, round towards 0, since 6.5 days ago is 6 days ago, not 7
     return (int) (interval * sign);
-}
-
-- (void)getDay:(int *)inDay today:(int *)inToday
-{
-    NSDateComponents *day = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self];
-    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:[NSDate date]];
-    *inDay = [day day];
-    *inToday = [today day];
 }
 
 @end

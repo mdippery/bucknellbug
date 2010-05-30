@@ -18,7 +18,7 @@
 #import "BBDataFile.h"
 
 #import "CSVFile.h"
-#import "NSDate+BucknellBug.h"
+#import "NSDate+Relative.h"
 
 typedef enum {
     BBYearIndex        = 2-1,
@@ -104,7 +104,7 @@ typedef enum {
 - (NSDate *)date
 {
     NSString *dateStr = [self dateString];
-    NSLog(@"Got date string: %@", dateStr);
+    //NSLog(@"Got date string: %@", dateStr);
     return [[BBDataFile dateFormatter] dateFromString:dateStr];
 }
 
