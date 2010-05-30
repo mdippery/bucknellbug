@@ -20,6 +20,8 @@
 #import "CSVFile.h"
 #import "NSDate+Relative.h"
 
+#define SECONDS_IN_AN_HOUR  (60 * 60)
+
 typedef enum {
     BBYearIndex        = 2-1,
     BBDateIndex        = 3-1,
@@ -48,13 +50,18 @@ typedef enum {
     return NSWindowsCP1251StringEncoding;
 }
 
++ (NSTimeZone *)defaultTimeZone
+{
+    return [NSTimeZone timeZoneWithName:@"US/Eastern"];
+}
+
 + (NSDateFormatter *)dateFormatter
 {
     static NSDateFormatter *sharedFormatter = nil;
     if (!sharedFormatter) {
-        int offset = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? -3 : -4;
-        offset *= (60 * 60);
         sharedFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y/%m/%d %H00 %z" allowNaturalLanguage:NO];
+        //int offset = [[BBDataFile defaultTimeZone] isDaylightSavingTime] ? -3 : -4;
+        //offset *= SECONDS_IN_AN_HOUR;
         //[sharedFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:offset]];
     }
     return sharedFormatter;
@@ -114,7 +121,7 @@ typedef enum {
     NSString *date = [data objectAtIndex:BBDateIndex];
     NSString *time = [data objectAtIndex:BBTimeIndex];
     if (year && date && time) {
-        NSString *tz = [[NSTimeZone timeZoneWithName:@"US/Eastern"] isDaylightSavingTime] ? @"-0300" : @"-0400";
+        NSString *tz = [[BBDataFile defaultTimeZone] isDaylightSavingTime] ? @"-0300" : @"-0400";
         return [NSString stringWithFormat:@"%@/%@ %@%@ %@", year, date, [time length] == 3 ? @"0" : @"", time, tz];
     } else {
         return nil;

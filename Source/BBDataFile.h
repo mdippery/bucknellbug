@@ -26,6 +26,7 @@
 }
 + (NSURL *)defaultURL;
 + (NSStringEncoding)defaultEncoding;
++ (NSTimeZone *)defaultTimeZone;
 
 - (id)init;
 - (BOOL)update;
