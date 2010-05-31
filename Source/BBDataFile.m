@@ -59,10 +59,8 @@ typedef enum {
 {
     static NSDateFormatter *sharedFormatter = nil;
     if (!sharedFormatter) {
-        sharedFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y/%m/%d %H00 %z" allowNaturalLanguage:NO];
-        //int offset = [[BBDataFile defaultTimeZone] isDaylightSavingTime] ? -3 : -4;
-        //offset *= SECONDS_IN_AN_HOUR;
-        //[sharedFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:offset]];
+        sharedFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y/%m/%d %H00" allowNaturalLanguage:NO];
+        [sharedFormatter setTimeZone:[BBDataFile defaultTimeZone]];
     }
     return sharedFormatter;
 }
@@ -110,7 +108,8 @@ typedef enum {
 
 - (NSDate *)date
 {
-    return [[BBDataFile dateFormatter] dateFromString:[self dateString]];
+    // Fix an issue with an incorrect timestamp in the feed file
+    return [[[BBDataFile dateFormatter] dateFromString:[self dateString]] addTimeInterval:-1 * SECONDS_IN_AN_HOUR];
 }
 
 - (NSString *)dateString
@@ -119,8 +118,7 @@ typedef enum {
     NSString *date = [data objectAtIndex:BBDateIndex];
     NSString *time = [data objectAtIndex:BBTimeIndex];
     if (year && date && time) {
-        NSString *tz = [[BBDataFile defaultTimeZone] isDaylightSavingTime] ? @"-0300" : @"-0400";
-        return [NSString stringWithFormat:@"%@/%@ %@%@ %@", year, date, [time length] == 3 ? @"0" : @"", time, tz];
+        return [NSString stringWithFormat:@"%@/%@ %@%@", year, date, [time length] == 3 ? @"0" : @"", time];
     } else {
         return nil;
     }

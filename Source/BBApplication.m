@@ -131,7 +131,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
         NSString *update = [dateFormatter stringFromDate:date];
         if ([date isYesterdayOrEarlier]) {
             unsigned int days = -[date numberOfDaysSinceNow];
-            NSLog(@"days = %u", days);
+            //NSLog(@"days = %u", days);
             if (days <= 1) {
                 update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
             } else {
