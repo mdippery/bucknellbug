@@ -30,8 +30,6 @@
     IBOutlet NSMenuItem *pressureItem;
     IBOutlet NSMenuItem *rainfallItem;
     
-    IBOutlet NSMenuItem *downloadFeedItem;
-    
     IBOutlet SUUpdater *updater;
     
     BBDataFile *weather;
@@ -46,6 +44,5 @@
 - (IBAction)openHomepage:(id)sender;
 - (IBAction)openBugHomepage:(id)sender;
 - (IBAction)refresh:(id)sender;
-- (IBAction)logFeed:(id)sender;
 
 @end
