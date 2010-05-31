@@ -69,7 +69,7 @@ typedef enum {
 
 - (id)init
 {
-    if ((self == [super init])) {
+    if ((self = [super init])) {
         [self resetData];
         if (!data) {
             [self autorelease];
@@ -110,9 +110,7 @@ typedef enum {
 
 - (NSDate *)date
 {
-    NSString *dateStr = [self dateString];
-    //NSLog(@"Got date string: %@", dateStr);
-    return [[BBDataFile dateFormatter] dateFromString:dateStr];
+    return [[BBDataFile dateFormatter] dateFromString:[self dateString]];
 }
 
 - (NSString *)dateString
