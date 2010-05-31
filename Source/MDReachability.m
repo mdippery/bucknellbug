@@ -37,7 +37,7 @@
 
 - (id)initWithURL:(NSURL *)url
 {
-    if ((self = [super init]) != nil) {
+    if ((self = [super init])) {
         hostname = [url retain];
         netReachRef = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [[hostname absoluteString] UTF8String]);
     }

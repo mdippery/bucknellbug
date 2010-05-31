@@ -159,8 +159,6 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)alertNewData:(NSNotification *)notification
 {
-    // Not valid, since we're now a status menu item
-    // [NSApp requestUserAttention:NSInformationalRequest];
     [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Weather Updated", nil)
                                 description:NSLocalizedString(@"Weather data has been updated.", nil)
                            notificationName:GROWL_WEATHER_UPDATED
