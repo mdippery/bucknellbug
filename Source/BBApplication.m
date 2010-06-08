@@ -43,7 +43,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
-- (void)doUpdate;
+- (void)update;
 - (void)updateLastUpdatedItem;
 - (void)updateNextUpdateItem;
 - (void)alertNewData:(NSNotification *)notification;
@@ -103,10 +103,10 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    if ([weather update]) [self doUpdate];
+    if ([weather update]) [self update];
 }
 
-- (void)doUpdate
+- (void)update
 {
     if ([host isReachable]) {
         [self updateLastUpdatedItem];
@@ -240,7 +240,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
                                                  name:BBDidUpdateWeatherNotification
                                                object:self];
     
-    [self doUpdate];
+    [self update];
     [self startTimer];
 }
 
