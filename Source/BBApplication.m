@@ -32,12 +32,15 @@
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 #define DEGREE_SYMBOL           0x00b0              // Unicode codepoint for degree symbol
 
-#define MillibarsToInches(mb)   ((float) ((unsigned int) mb * 0.0295301F))
-
 NSString * const BBDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
 NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 NSString * const GROWL_NO_INTERNET = @"Network error";
 NSString * const GROWL_PARSER_ERROR = @"Parser error";
+
+static float millibars_to_inches(unsigned int mb)
+{
+    return mb * 0.0295301F;
+}
 
 @interface BBApplication (Private)
 - (void)activateStatusMenu;
@@ -113,7 +116,7 @@ NSString * const GROWL_PARSER_ERROR = @"Parser error";
         
         [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weather temperature], DEGREE_SYMBOL]];
         [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
-        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", MillibarsToInches([weather pressure])]];
+        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
         [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
