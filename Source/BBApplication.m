@@ -30,7 +30,6 @@
 
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
-#define DEGREE_SYMBOL           0x00b0              // Unicode codepoint for degree symbol
 
 NSString * const BBDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
 NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
@@ -114,7 +113,7 @@ static float millibars_to_inches(unsigned int mb)
     if ([host isReachable]) {
         [self updateLastUpdatedItem];
         
-        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f%C F", [weather temperature], DEGREE_SYMBOL]];
+        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f\xc2\xb0 F", [weather temperature]]];
         [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
         [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
         [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
