@@ -31,7 +31,6 @@
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 
-NSString * const BBDidUpdateWeatherNotification = @"BugApplicationDidUpdateWeatherNotification";
 NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 NSString * const GROWL_NO_INTERNET = @"Network error";
 NSString * const GROWL_PARSER_ERROR = @"Parser error";
@@ -48,7 +47,7 @@ static float millibars_to_inches(unsigned int mb)
 - (void)update;
 - (void)updateLastUpdatedItem;
 - (void)updateNextUpdateItem;
-- (void)alertNewData:(NSNotification *)notification;
+- (void)alertNewData;
 - (void)showReachabilityError;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
@@ -118,7 +117,7 @@ static float millibars_to_inches(unsigned int mb)
         [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
         [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:BBDidUpdateWeatherNotification object:self];
+        [self alertNewData];
     } else {
         [self showReachabilityError];
     }
@@ -133,7 +132,6 @@ static float millibars_to_inches(unsigned int mb)
         NSString *update = [dateFormatter stringFromDate:date];
         if ([date isYesterdayOrEarlier]) {
             unsigned int days = -[date numberOfDaysSinceNow];
-            //NSLog(@"days = %u", days);
             if (days <= 1) {
                 update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
             } else {
@@ -156,7 +154,7 @@ static float millibars_to_inches(unsigned int mb)
     }
 }
 
-- (void)alertNewData:(NSNotification *)notification
+- (void)alertNewData
 {
     [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Weather Updated", nil)
                                 description:NSLocalizedString(@"Weather data has been updated.", nil)
@@ -236,11 +234,6 @@ static float millibars_to_inches(unsigned int mb)
                                                            selector:@selector(computerDidWake:)
                                                                name:NSWorkspaceDidWakeNotification
                                                              object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(alertNewData:)
-                                                 name:BBDidUpdateWeatherNotification
-                                               object:self];
     
     [self update];
     [self startTimer];
