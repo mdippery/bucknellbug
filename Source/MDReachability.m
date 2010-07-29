@@ -51,6 +51,11 @@
     [super dealloc];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p> (hostname = %@)", [self class], self, [hostname host]];
+}
+
 - (BOOL)isReachable
 {
     // In 10.6+, NSURL has a method named
