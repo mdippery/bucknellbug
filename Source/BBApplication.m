@@ -90,7 +90,7 @@ static float millibars_to_inches(unsigned int mb)
 {
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [[bar statusItemWithLength:NSSquareStatusItemLength] retain];
-    // [statusItem setTitle:@"BucknellBug"];
+    //[statusItem setTitle:@"BucknellBug"];
     [statusItem setImage:[self statusMenuImage]];
     [statusItem setHighlightMode:YES];
     [statusItem setMenu:statusMenu];

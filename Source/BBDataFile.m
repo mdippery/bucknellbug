@@ -109,7 +109,7 @@ typedef enum {
 - (NSDate *)date
 {
     // Fix an issue with an incorrect timestamp in the feed file
-    return [[[BBDataFile dateFormatter] dateFromString:[self dateString]] addTimeInterval:-1 * SECONDS_IN_AN_HOUR];
+    return [[[BBDataFile dateFormatter] dateFromString:[self dateString]] addTimeInterval:-SECONDS_IN_AN_HOUR];
 }
 
 - (NSString *)dateString
