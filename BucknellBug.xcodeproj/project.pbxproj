@@ -15,7 +15,6 @@
 		B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B70F1B470B06B3AC00A15771 /* BugIcon.icns */; };
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
-		B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714EA040B06FA460039B548 /* Carbon.framework */; };
 		B722EEB611A3204E007E19C4 /* NSImage+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */; };
 		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
 		B753C84F11A82712000D6D35 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B753C84D11A82712000D6D35 /* MainMenu.xib */; };
@@ -87,7 +86,6 @@
 		B701F413118B187300F762A0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
-		B714EA040B06FA460039B548 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		B722EEB411A3204E007E19C4 /* NSImage+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Convenience.h"; path = "Source/NSImage+Convenience.h"; sourceTree = "<group>"; };
 		B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Convenience.m"; path = "Source/NSImage+Convenience.m"; sourceTree = "<group>"; };
 		B73E370011826C300092EE58 /* CSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVFile.h; path = Source/CSVFile.h; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				B714EA050B06FA460039B548 /* Carbon.framework in Frameworks */,
 				B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */,
 				B701F3F2118B169200F762A0 /* Sparkle.framework in Frameworks */,
 				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
@@ -170,7 +167,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B714EA040B06FA460039B548 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				B7116EFE0C0497E1007D86E6 /* Growl.framework */,
 				B701F3E4118B164400F762A0 /* Sparkle.framework */,
