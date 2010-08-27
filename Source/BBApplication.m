@@ -112,7 +112,7 @@ static float millibars_to_inches(unsigned int mb)
     if ([host isReachable]) {
         [self updateLastUpdatedItem];
         
-        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f\xc2\xb0 F", [weather temperature]]];
+        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f\u00b0 F", [weather temperature]]];
         [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
         [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
         [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
