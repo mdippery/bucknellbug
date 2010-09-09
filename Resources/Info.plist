@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0b4, © 2006-2010 Michael Dippery</string>
+	<string>2.0b5, © 2006-2010 Michael Dippery</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>Help</string>
 	<key>CFBundleIconFile</key>
@@ -21,11 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0b4</string>
+	<string>2.0b5</string>
 	<key>CFBundleSignature</key>
 	<string>buBg</string>
 	<key>CFBundleVersion</key>
-	<string>64</string>
+	<string>65</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.4.0</string>
 	<key>NSMainNibFile</key>
@@ -37,7 +37,7 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>http://mdippery.github.com/bucknellbug/appcast.xml</string>
+	<string>http://software.monkey-robot.com/bucknellbug/appcast.xml</string>
 	<key>SUEnableSystemProfiling</key>
 	<false/>
 </dict>
