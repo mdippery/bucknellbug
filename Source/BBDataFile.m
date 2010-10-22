@@ -19,6 +19,7 @@
 
 #import "CSVFile.h"
 #import "NSDate+Relative.h"
+#import "NSString+Numeric.h"
 
 #define SECONDS_IN_AN_HOUR  (60 * 60)
 
@@ -136,12 +137,12 @@ typedef enum {
 
 - (unsigned int)pressure
 {
-    return (unsigned int) [[data objectAtIndex:BBPressureIndex] intValue];
+    return [[data objectAtIndex:BBPressureIndex] unsignedIntValue];
 }
 
 - (unsigned int)rainfall
 {
-    return (unsigned int) [[data objectAtIndex:BBRainfallIndex] intValue];
+    return [[data objectAtIndex:BBRainfallIndex] unsignedIntValue];
 }
 
 @end

@@ -16,6 +16,7 @@
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B722EEB611A3204E007E19C4 /* NSImage+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */; };
+		B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */; };
 		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
 		B753C84F11A82712000D6D35 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B753C84D11A82712000D6D35 /* MainMenu.xib */; };
 		B753C85211A82727000D6D35 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B753C85011A82727000D6D35 /* Credits.rtf */; };
@@ -88,6 +89,8 @@
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		B722EEB411A3204E007E19C4 /* NSImage+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Convenience.h"; path = "Source/NSImage+Convenience.h"; sourceTree = "<group>"; };
 		B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Convenience.m"; path = "Source/NSImage+Convenience.m"; sourceTree = "<group>"; };
+		B73DD52B12715DFB00B2EDFE /* NSString+Numeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Numeric.h"; path = "Source/NSString+Numeric.h"; sourceTree = "<group>"; };
+		B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Numeric.m"; path = "Source/NSString+Numeric.m"; sourceTree = "<group>"; };
 		B73E370011826C300092EE58 /* CSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVFile.h; path = Source/CSVFile.h; sourceTree = "<group>"; };
 		B73E370111826C300092EE58 /* CSVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVFile.m; path = Source/CSVFile.m; sourceTree = "<group>"; };
 		B753C84E11A82712000D6D35 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */,
 				B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */,
 				B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */,
+				B73DD52B12715DFB00B2EDFE /* NSString+Numeric.h */,
+				B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */,
 				B76B25D4106736AB00204670 /* NSTimer+BucknellBug.h */,
 				B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */,
 			);
@@ -346,6 +351,7 @@
 				B788AFD61172102D000629D3 /* MDReachability.m in Sources */,
 				B73E370211826C300092EE58 /* CSVFile.m in Sources */,
 				B722EEB611A3204E007E19C4 /* NSImage+Convenience.m in Sources */,
+				B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +461,7 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 66;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
@@ -484,7 +490,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 66;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
