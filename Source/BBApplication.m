@@ -242,7 +242,6 @@ static float millibars_to_inches(unsigned int mb)
     
     [self update];
     [self startTimer];
-    NSLog(@"Inside %s", __FUNCTION__);
 }
 
 #pragma mark NSMenu Delegate

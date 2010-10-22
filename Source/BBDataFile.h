@@ -23,6 +23,8 @@
 @interface BBDataFile : NSObject
 {
     CSVFile *data;
+@private
+    int timestampOffset;
 }
 + (NSURL *)defaultURL;
 + (NSStringEncoding)defaultEncoding;

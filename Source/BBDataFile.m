@@ -36,6 +36,8 @@ typedef enum {
 @interface BBDataFile (Private)
 + (NSDateFormatter *)dateFormatter;
 - (void)resetData;
+- (int)calculateTimestampOffset;
+- (NSDate *)unmodifiedDate;
 - (NSString *)dateString;
 @end
 
@@ -74,6 +76,7 @@ typedef enum {
             [self autorelease];
             return nil;
         }
+        timestampOffset = [self calculateTimestampOffset];
     }        
     return self;
 }
@@ -95,6 +98,23 @@ typedef enum {
     data = [[CSVFile alloc] initWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding]];
 }
 
+- (int)calculateTimestampOffset
+{
+    // Try to correct the timestamp. It's really weird how it works,
+    // and I haven't reverse-engineering the specifics. If the feed
+    // was just updated, and the last update time was more than 1
+    // hour but less than 2 hours before now, assume it's off
+    // by an hour and correct it.
+    // I'm sure this will break at some point, again.
+    NSTimeInterval delta = -[[self unmodifiedDate] timeIntervalSinceNow];
+    NSLog(@"Timestamp delta is %.2f = %.2f hours", delta, (delta / SECONDS_IN_AN_HOUR));
+    if (delta < SECONDS_IN_AN_HOUR) {
+        NSLog(@"Setting timestamp to 0 (delta is %.2f = %.2f hours)", delta, (delta / SECONDS_IN_AN_HOUR));
+        return 0;
+    }
+    return -1;
+}
+
 - (BOOL)update
 {
     // For parse documentation, see
@@ -104,13 +124,19 @@ typedef enum {
     NSDate *lastDate = [[[self date] retain] autorelease];
     [self resetData];
     if (!data) return NO;
+    timestampOffset = [self calculateTimestampOffset];
     return [[self date] isAfter:lastDate];
+}
+
+- (NSDate *)unmodifiedDate
+{
+    return [[BBDataFile dateFormatter] dateFromString:[self dateString]];
 }
 
 - (NSDate *)date
 {
     // Fix an issue with an incorrect timestamp in the feed file
-    return [[[BBDataFile dateFormatter] dateFromString:[self dateString]] addTimeInterval:-SECONDS_IN_AN_HOUR];
+    return [[self unmodifiedDate] addTimeInterval:timestampOffset * SECONDS_IN_AN_HOUR];
 }
 
 - (NSString *)dateString
