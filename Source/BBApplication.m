@@ -49,6 +49,7 @@ static float millibars_to_inches(unsigned int mb)
 - (void)updateNextUpdateItem;
 - (void)alertNewData;
 - (void)showReachabilityError;
+- (void)invalidateExistingTimer;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
 @end
@@ -129,6 +130,7 @@ static float millibars_to_inches(unsigned int mb)
 {
     NSDate *date = [weather date];
     if (date) {
+        // See -[NSDateFormatter setDoesRelativeDateFormatting:] in v10.6
         NSString *update = [dateFormatter stringFromDate:date];
         if ([date isYesterdayOrEarlier]) {
             unsigned int days = -[date numberOfDaysSinceNow];
@@ -176,14 +178,17 @@ static float millibars_to_inches(unsigned int mb)
                                clickContext:nil];
 }
 
+- (void)invalidateExistingTimer
+{
+    if (!timer) return;
+    [timer invalidate];
+    [timer release];
+    timer = nil;
+}
+
 - (void)startTimer
 {
-    if (timer) {
-        [timer invalidate];
-        [timer release];
-        timer = nil;
-    }
-    
+    [self invalidateExistingTimer];
     timer = [[NSTimer alloc] initWithFireDate:[[NSDate date] addTimeInterval:1.0]
                                      interval:UPDATE_INTERVAL
                                        target:self
@@ -237,6 +242,7 @@ static float millibars_to_inches(unsigned int mb)
     
     [self update];
     [self startTimer];
+    NSLog(@"Inside %s", __FUNCTION__);
 }
 
 #pragma mark NSMenu Delegate
@@ -252,18 +258,11 @@ static float millibars_to_inches(unsigned int mb)
 
 - (NSDictionary *)registrationDictionaryForGrowl
 {
-    NSArray *notifications;
-    NSDictionary *growl;
-    
-    notifications = [[NSArray alloc] initWithObjects:GROWL_WEATHER_UPDATED, GROWL_NO_INTERNET, nil];
-    
-    growl = [NSDictionary dictionaryWithObjectsAndKeys:
-                notifications, GROWL_NOTIFICATIONS_ALL,
-                notifications, GROWL_NOTIFICATIONS_DEFAULT,
-                nil];
-    
-    [notifications release];
-    return growl;
+    NSArray *notifications = [NSArray arrayWithObjects:GROWL_WEATHER_UPDATED, GROWL_NO_INTERNET, nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            notifications, GROWL_NOTIFICATIONS_ALL,
+            notifications, GROWL_NOTIFICATIONS_DEFAULT,
+            nil];
 }
 
 - (NSString *)applicationNameForGrowl
