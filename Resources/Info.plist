@@ -39,6 +39,6 @@
 	<key>SUFeedURL</key>
 	<string>http://software.monkey-robot.com/bucknellbug/appcast.xml</string>
 	<key>SUEnableSystemProfiling</key>
-	<false/>
+	<true/>
 </dict>
 </plist>
