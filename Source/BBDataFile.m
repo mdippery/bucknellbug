@@ -21,6 +21,10 @@
 #import "NSDate+Relative.h"
 #import "NSString+Numeric.h"
 
+#ifndef CORRECT_TIMESTAMP
+#define CORRECT_TIMESTAMP   0
+#endif
+
 #define SECONDS_IN_AN_HOUR  (60 * 60)
 
 typedef enum {
@@ -98,6 +102,8 @@ typedef enum {
     data = [[CSVFile alloc] initWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding]];
 }
 
+#if CORRECT_TIMESTAMP
+#warning Attempting to correct data file timestamp
 - (int)calculateTimestampOffset
 {
     // Try to correct the timestamp. It's really weird how it works,
@@ -114,6 +120,9 @@ typedef enum {
     }
     return -1;
 }
+#else
+- (int)calculateTimestampOffset { return 0; }
+#endif
 
 - (BOOL)update
 {
@@ -133,11 +142,16 @@ typedef enum {
     return [[BBDataFile dateFormatter] dateFromString:[self dateString]];
 }
 
+#if CORRECT_TIMESTAMP
+#warning Attempting to correct data file timestamp
 - (NSDate *)date
 {
     // Fix an issue with an incorrect timestamp in the feed file
     return [[self unmodifiedDate] addTimeInterval:timestampOffset * SECONDS_IN_AN_HOUR];
 }
+#else
+- (NSDate *)date { return [self unmodifiedDate]; }
+#endif
 
 - (NSString *)dateString
 {
