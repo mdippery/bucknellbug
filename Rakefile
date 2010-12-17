@@ -12,7 +12,7 @@
 
 NAME    = 'BucknellBug'
 PROJECT = 'BucknellBug.xcodeproj'
-TARGET  = {:bin => 'BucknellBug', :dmg => 'Disk Image', :sparkle => 'Sparkle Archive'}
+TARGET  = {:bin => 'BucknellBug', :dmg => 'Disk Image', :sparkle => 'Sparkle Archive', :test => 'Unit Tests'}
 CONFIG  = {:release => 'Release', :debug => 'Debug'}
 
 def xcodebuild(project, target, configuration)
@@ -52,6 +52,11 @@ end
 desc "Packages a release version into a distributable .dmg"
 task :dist do
   xcodebuild PROJECT, TARGET[:dmg], CONFIG[:release]
+end
+
+desc "Runs the unit tests"
+task :test do
+  xcodebuild PROJECT, TARGET[:test], CONFIG[:debug]
 end
 
 desc "Creates a Sparkle archive"

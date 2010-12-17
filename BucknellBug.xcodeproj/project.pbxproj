@@ -18,6 +18,10 @@
 		B722EEB611A3204E007E19C4 /* NSImage+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */; };
 		B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */; };
 		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
+		B7504B1C12BBF8FF00C43B54 /* TestReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7504B1B12BBF8FF00C43B54 /* TestReachability.m */; };
+		B7504B6312BBFB3A00C43B54 /* TestDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B7504B6212BBFB3A00C43B54 /* TestDateAdditions.m */; };
+		B7504B8A12BBFF4B00C43B54 /* TestMenuItemAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B7504B8912BBFF4B00C43B54 /* TestMenuItemAdditions.m */; };
+		B7504B9712BC00F000C43B54 /* TestStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B7504B9612BC00F000C43B54 /* TestStringAdditions.m */; };
 		B753C84F11A82712000D6D35 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B753C84D11A82712000D6D35 /* MainMenu.xib */; };
 		B753C85211A82727000D6D35 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B753C85011A82727000D6D35 /* Credits.rtf */; };
 		B753C85511A8273F000D6D35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B753C85311A8273F000D6D35 /* InfoPlist.strings */; };
@@ -46,6 +50,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		B70705F3118B1CB20073C2E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = BucknellBug;
+		};
+		B7504B1612BBF80000C43B54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
@@ -93,6 +104,16 @@
 		B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Numeric.m"; path = "Source/NSString+Numeric.m"; sourceTree = "<group>"; };
 		B73E370011826C300092EE58 /* CSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVFile.h; path = Source/CSVFile.h; sourceTree = "<group>"; };
 		B73E370111826C300092EE58 /* CSVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVFile.m; path = Source/CSVFile.m; sourceTree = "<group>"; };
+		B7504B1112BBF7A900C43B54 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7504B1212BBF7A900C43B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		B7504B1A12BBF8FF00C43B54 /* TestReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestReachability.h; path = Tests/TestReachability.h; sourceTree = "<group>"; };
+		B7504B1B12BBF8FF00C43B54 /* TestReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestReachability.m; path = Tests/TestReachability.m; sourceTree = "<group>"; };
+		B7504B6112BBFB3A00C43B54 /* TestDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestDateAdditions.h; path = Tests/TestDateAdditions.h; sourceTree = "<group>"; };
+		B7504B6212BBFB3A00C43B54 /* TestDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestDateAdditions.m; path = Tests/TestDateAdditions.m; sourceTree = "<group>"; };
+		B7504B8812BBFF4B00C43B54 /* TestMenuItemAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMenuItemAdditions.h; path = Tests/TestMenuItemAdditions.h; sourceTree = "<group>"; };
+		B7504B8912BBFF4B00C43B54 /* TestMenuItemAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestMenuItemAdditions.m; path = Tests/TestMenuItemAdditions.m; sourceTree = "<group>"; };
+		B7504B9512BC00F000C43B54 /* TestStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestStringAdditions.h; path = Tests/TestStringAdditions.h; sourceTree = "<group>"; };
+		B7504B9612BC00F000C43B54 /* TestStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestStringAdditions.m; path = Tests/TestStringAdditions.m; sourceTree = "<group>"; };
 		B753C84E11A82712000D6D35 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B753C85111A82727000D6D35 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B753C85411A8273F000D6D35 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -126,6 +147,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7504B0E12BBF7A900C43B54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -133,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* BucknellBug.app */,
+				B7504B1112BBF7A900C43B54 /* Unit Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +174,7 @@
 				B76B25371067254000204670 /* Additions */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				B79680E0106A84BC00699CB9 /* Other Sources */,
+				B7504B0712BBF77200C43B54 /* Unit Tests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -186,6 +216,22 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B7504B0712BBF77200C43B54 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B7504B6112BBFB3A00C43B54 /* TestDateAdditions.h */,
+				B7504B6212BBFB3A00C43B54 /* TestDateAdditions.m */,
+				B7504B8812BBFF4B00C43B54 /* TestMenuItemAdditions.h */,
+				B7504B8912BBFF4B00C43B54 /* TestMenuItemAdditions.m */,
+				B7504B1A12BBF8FF00C43B54 /* TestReachability.h */,
+				B7504B1B12BBF8FF00C43B54 /* TestReachability.m */,
+				B7504B9512BC00F000C43B54 /* TestStringAdditions.h */,
+				B7504B9612BC00F000C43B54 /* TestStringAdditions.m */,
+				B7504B1212BBF7A900C43B54 /* Info.plist */,
+			);
+			name = "Unit Tests";
 			sourceTree = "<group>";
 		};
 		B76B25371067254000204670 /* Additions */ = {
@@ -292,6 +338,25 @@
 			productReference = 8D1107320486CEB800E47090 /* BucknellBug.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B7504B1012BBF7A900C43B54 /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7504B1512BBF7AA00C43B54 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				B7504B0C12BBF7A900C43B54 /* Resources */,
+				B7504B0D12BBF7A900C43B54 /* Sources */,
+				B7504B0E12BBF7A900C43B54 /* Frameworks */,
+				B7504B0F12BBF7A900C43B54 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7504B1712BBF80000C43B54 /* PBXTargetDependency */,
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = B7504B1112BBF7A900C43B54 /* Unit Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,6 +380,7 @@
 				8D1107260486CEB800E47090 /* BucknellBug */,
 				B7B19D1711825EB600674594 /* Disk Image */,
 				B70705F0118B1C900073C2E5 /* Sparkle Archive */,
+				B7504B1012BBF7A900C43B54 /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,7 +401,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7504B0C12BBF7A900C43B54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7504B0F12BBF7A900C43B54 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -355,6 +444,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7504B0D12BBF7A900C43B54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7504B1C12BBF8FF00C43B54 /* TestReachability.m in Sources */,
+				B7504B6312BBFB3A00C43B54 /* TestDateAdditions.m in Sources */,
+				B7504B8A12BBFF4B00C43B54 /* TestMenuItemAdditions.m in Sources */,
+				B7504B9712BC00F000C43B54 /* TestStringAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -362,6 +462,11 @@
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* BucknellBug */;
 			targetProxy = B70705F3118B1CB20073C2E5 /* PBXContainerItemProxy */;
+		};
+		B7504B1712BBF80000C43B54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* BucknellBug */;
+			targetProxy = B7504B1612BBF80000C43B54 /* PBXContainerItemProxy */;
 		};
 		B7B19D1B11825EBB00674594 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -431,6 +536,66 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Sparkle Archive";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		B7504B1312BBF7AA00C43B54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(CONFIGURATION_BUILD_DIR)/BucknellBug.app/Contents/MacOS/BucknellBug";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_VERSION = 4.0;
+				INFOPLIST_FILE = Tests/Info.plist;
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B7504B1412BBF7AA00C43B54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(CONFIGURATION_BUILD_DIR)/BucknellBug.app/Contents/MacOS/BucknellBug";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				GCC_VERSION = 4.0;
+				INFOPLIST_FILE = Tests/Info.plist;
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -537,6 +702,15 @@
 			buildConfigurations = (
 				B70705F1118B1C900073C2E5 /* Debug */,
 				B70705F2118B1C900073C2E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7504B1512BBF7AA00C43B54 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7504B1312BBF7AA00C43B54 /* Debug */,
+				B7504B1412BBF7AA00C43B54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
