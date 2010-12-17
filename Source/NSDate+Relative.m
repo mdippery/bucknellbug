@@ -20,7 +20,7 @@
 
 #define DAY_COMPONENTS      (NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit)
 #define SECONDS_IN_A_DAY    (60 * 60 * 24)
-#define sgn(x)              (x < 0.0 ? -1 : 1);
+#define sgn(x)              (x < 0.0 ? -1 : 1)
 
 @interface NSCalendar (DefaultCalendar)
 + (id)defaultCalendar;
@@ -92,9 +92,16 @@
 - (int)numberOfDaysSinceNow
 {
     NSTimeInterval interval = [self timeIntervalSinceNow] / SECONDS_IN_A_DAY;
-    int sign = sgn(interval);
-    interval = floor(abs(interval));    // If interval is negative, round towards 0, since 6.5 days ago is 6 days ago, not 7
-    return (int) (interval * sign);
+    if (sgn(interval) == -1) {
+        // If the date is in the past, round down (6.5 days ago is 6
+        // days ago, not 7)
+        return (int) (floor(abs(interval)) * -1);
+    } else {
+        // If the date is in the future, round up (6.75 days from now is
+        // 7 days from now, not 6).
+        NSAssert1(sgn(interval) == 1, @"sgn(%.3f) is neither 1 nor -1", interval);
+        return (int) ceil(interval);
+    }
 }
 
 @end
