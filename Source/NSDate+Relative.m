@@ -18,14 +18,28 @@
 #import "NSDate+Relative.h"
 #import <stdlib.h>
 
+#define DAY_COMPONENTS      (NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit)
 #define SECONDS_IN_A_DAY    (60 * 60 * 24)
 #define sgn(x)              (x < 0.0 ? -1 : 1);
+
+@interface NSCalendar (DefaultCalendar)
++ (id)defaultCalendar;
+@end
+
+@implementation NSCalendar (DefaultCalendar)
+
++ (id)defaultCalendar
+{
+    return [[[self alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+}
+
+@end
 
 @implementation NSDate (RelativeAdditions)
 
 - (int)dayOfMonth
 {
-    return [[[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self] day];
+    return [[[NSCalendar defaultCalendar] components:NSDayCalendarUnit fromDate:self] day];
 }
 
 - (BOOL)isAfter:(NSDate *)date
@@ -40,17 +54,39 @@
 
 - (BOOL)isToday
 {
-    return [self dayOfMonth] == [[NSDate date] dayOfMonth];
+    NSDateComponents *this = [[NSCalendar defaultCalendar] components:DAY_COMPONENTS fromDate:self];
+    NSDateComponents *now = [[NSCalendar defaultCalendar] components:DAY_COMPONENTS fromDate:[NSDate date]];
+    return [this year] == [now year] && [this month] == [now month] && [this day] == [now day];
 }
 
 - (BOOL)isTomorrowOrLater
 {
-    return [self dayOfMonth] > [[NSDate date] dayOfMonth];
+    NSDateComponents *this = [[NSCalendar defaultCalendar] components:DAY_COMPONENTS fromDate:self];
+    NSDateComponents *now = [[NSCalendar defaultCalendar] components:DAY_COMPONENTS fromDate:[NSDate date]];
+    if ([this year] == [now year]) {
+        if ([this month] == [now month]) {
+            return [this day] > [now day];
+        } else {
+            return [this month] > [now month];
+        }
+    } else {
+        return [this year] > [now year];
+    }
 }
 
 - (BOOL)isYesterdayOrEarlier
 {
-    return [self dayOfMonth] < [[NSDate date] dayOfMonth];
+    NSDateComponents *this = [[NSCalendar defaultCalendar] components:DAY_COMPONENTS fromDate:self];
+    NSDateComponents *now = [[NSCalendar defaultCalendar] components:DAY_COMPONENTS fromDate:[NSDate date]];
+    if ([this year] == [now year]) {
+        if ([this month] == [now month]) {
+            return [this day] < [now day];
+        } else {
+            return [this month] < [now month];
+        }
+    } else {
+        return [this year] < [now year];
+    }
 }
 
 - (int)numberOfDaysSinceNow
