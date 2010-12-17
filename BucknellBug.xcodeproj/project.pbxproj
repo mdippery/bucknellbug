@@ -34,6 +34,7 @@
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
+		B7A60D2A12BC101B00C951E7 /* TestCSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A60D2912BC101B00C951E7 /* TestCSVFile.m */; };
 		B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataFile.m */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,8 @@
 		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDReachability.h; path = Source/MDReachability.h; sourceTree = "<group>"; };
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReachability.m; path = Source/MDReachability.m; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		B7A60D2812BC101B00C951E7 /* TestCSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCSVFile.h; sourceTree = "<group>"; };
+		B7A60D2912BC101B00C951E7 /* TestCSVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCSVFile.m; sourceTree = "<group>"; };
 		B7C854470AF6FEB90039D98F /* BBDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataFile.h; path = Source/BBDataFile.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataFile.m; path = Source/BBDataFile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +224,8 @@
 		B7504B0712BBF77200C43B54 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B7A60D2812BC101B00C951E7 /* TestCSVFile.h */,
+				B7A60D2912BC101B00C951E7 /* TestCSVFile.m */,
 				B7504B6112BBFB3A00C43B54 /* TestDateAdditions.h */,
 				B7504B6212BBFB3A00C43B54 /* TestDateAdditions.m */,
 				B7504B8812BBFF4B00C43B54 /* TestMenuItemAdditions.h */,
@@ -452,6 +457,7 @@
 				B7504B6312BBFB3A00C43B54 /* TestDateAdditions.m in Sources */,
 				B7504B8A12BBFF4B00C43B54 /* TestMenuItemAdditions.m in Sources */,
 				B7504B9712BC00F000C43B54 /* TestStringAdditions.m in Sources */,
+				B7A60D2A12BC101B00C951E7 /* TestCSVFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

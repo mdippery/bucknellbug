@@ -11,7 +11,7 @@
 
 - (void)testUnsignedIntValue
 {
-    STAssertEquals([defaultString unsignedIntValue], (unsigned int) 1024, @"%u is not equal to 1024.", [defaultString unsignedIntValue]);
+    STAssertEquals([defaultString unsignedIntValue], 1024U, @"%u is not equal to 1024.", [defaultString unsignedIntValue]);
 }
 
 - (void)tearDown
