@@ -132,8 +132,8 @@
 		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDReachability.h; path = Source/MDReachability.h; sourceTree = "<group>"; };
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReachability.m; path = Source/MDReachability.m; sourceTree = "<group>"; };
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
-		B7A60D2812BC101B00C951E7 /* TestCSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCSVFile.h; sourceTree = "<group>"; };
-		B7A60D2912BC101B00C951E7 /* TestCSVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCSVFile.m; sourceTree = "<group>"; };
+		B7A60D2812BC101B00C951E7 /* TestCSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCSVFile.h; path = Tests/TestCSVFile.h; sourceTree = "<group>"; };
+		B7A60D2912BC101B00C951E7 /* TestCSVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCSVFile.m; path = Tests/TestCSVFile.m; sourceTree = "<group>"; };
 		B7C854470AF6FEB90039D98F /* BBDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataFile.h; path = Source/BBDataFile.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataFile.m; path = Source/BBDataFile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
