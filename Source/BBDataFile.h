@@ -31,6 +31,7 @@
 + (NSTimeZone *)defaultTimeZone;
 
 - (id)init;
+
 - (BOOL)update;
 
 - (NSDate *)date;

@@ -27,6 +27,8 @@
 		B753C85511A8273F000D6D35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B753C85311A8273F000D6D35 /* InfoPlist.strings */; };
 		B753C85911A82754000D6D35 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B753C85711A82754000D6D35 /* Localizable.strings */; };
 		B753C86711A827BD000D6D35 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = B753C85C11A827BD000D6D35 /* Help */; };
+		B75487E312BFE2160084C04F /* TestDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B75487E212BFE2160084C04F /* TestDataFile.m */; };
+		B754888912BFE3730084C04F /* raw_data.dat in Resources */ = {isa = PBXBuildFile; fileRef = B754888812BFE3730084C04F /* raw_data.dat */; };
 		B76B253A1067255300204670 /* NSMenuItem+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */; };
 		B76B257210672BB400204670 /* NSDate+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+Relative.m */; };
 		B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */; };
@@ -120,6 +122,9 @@
 		B753C85411A8273F000D6D35 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B753C85811A82754000D6D35 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B753C85D11A827BD000D6D35 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = Resources/English.lproj/Help; sourceTree = "<group>"; };
+		B75487E112BFE2160084C04F /* TestDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestDataFile.h; path = Tests/TestDataFile.h; sourceTree = "<group>"; };
+		B75487E212BFE2160084C04F /* TestDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestDataFile.m; path = Tests/TestDataFile.m; sourceTree = "<group>"; };
+		B754888812BFE3730084C04F /* raw_data.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = raw_data.dat; path = Tests/raw_data.dat; sourceTree = "<group>"; };
 		B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenuItem+BucknellBug.h"; path = "Source/NSMenuItem+BucknellBug.h"; sourceTree = "<group>"; };
 		B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenuItem+BucknellBug.m"; path = "Source/NSMenuItem+BucknellBug.m"; sourceTree = "<group>"; };
 		B76B257010672BB400204670 /* NSDate+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Relative.h"; path = "Source/NSDate+Relative.h"; sourceTree = "<group>"; };
@@ -226,6 +231,8 @@
 			children = (
 				B7A60D2812BC101B00C951E7 /* TestCSVFile.h */,
 				B7A60D2912BC101B00C951E7 /* TestCSVFile.m */,
+				B75487E112BFE2160084C04F /* TestDataFile.h */,
+				B75487E212BFE2160084C04F /* TestDataFile.m */,
 				B7504B6112BBFB3A00C43B54 /* TestDateAdditions.h */,
 				B7504B6212BBFB3A00C43B54 /* TestDateAdditions.m */,
 				B7504B8812BBFF4B00C43B54 /* TestMenuItemAdditions.h */,
@@ -235,6 +242,7 @@
 				B7504B9512BC00F000C43B54 /* TestStringAdditions.h */,
 				B7504B9612BC00F000C43B54 /* TestStringAdditions.m */,
 				B7504B1212BBF7A900C43B54 /* Info.plist */,
+				B754888812BFE3730084C04F /* raw_data.dat */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -410,6 +418,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B754888912BFE3730084C04F /* raw_data.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +467,7 @@
 				B7504B8A12BBFF4B00C43B54 /* TestMenuItemAdditions.m in Sources */,
 				B7504B9712BC00F000C43B54 /* TestStringAdditions.m in Sources */,
 				B7A60D2A12BC101B00C951E7 /* TestCSVFile.m in Sources */,
+				B75487E312BFE2160084C04F /* TestDataFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
