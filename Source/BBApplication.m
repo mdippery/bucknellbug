@@ -17,6 +17,7 @@
 
 #import "BBApplication.h"
 
+#import <AvailabilityMacros.h>
 #import <stdarg.h>
 
 #import <Growl/Growl.h>
@@ -65,6 +66,10 @@ static double millibars_to_inches(unsigned int mb)
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        if ([dateFormatter respondsToSelector:@selector(setDoesRelativeDateFormatting:)]) {
+            NSLog(@"Using automatic relative date formatting");
+            [dateFormatter setDoesRelativeDateFormatting:YES];
+        }
         host = [[MDReachability alloc] initWithHostname:@"www.bucknell.edu"];
     }
     return self;
@@ -130,14 +135,17 @@ static double millibars_to_inches(unsigned int mb)
 {
     NSDate *date = [weather date];
     if (date) {
-        // See -[NSDateFormatter setDoesRelativeDateFormatting:] in v10.6
         NSString *update = [dateFormatter stringFromDate:date];
-        if ([date isYesterdayOrEarlier]) {
-            unsigned int days = -[date numberOfDaysSinceNow];
-            if (days <= 1) {
-                update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
-            } else {
-                update = [NSString stringWithFormat:NSLocalizedString(@"%u days ago", nil), days];
+        BOOL autoRelative = [dateFormatter respondsToSelector:@selector(doesRelativeDateFormatting)] && [dateFormatter doesRelativeDateFormatting];
+        if (!autoRelative) {
+            NSLog(@"Using manual date formatting");
+            if ([date isYesterdayOrEarlier]) {
+                unsigned int days = -[date numberOfDaysSinceNow];
+                if (days <= 1) {
+                    update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
+                } else {
+                    update = [NSString stringWithFormat:NSLocalizedString(@"%u days ago", nil), days];
+                }
             }
         }
         [lastUpdatedItem updateTitle:update];
