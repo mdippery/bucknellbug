@@ -32,12 +32,12 @@
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 
 NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
-NSString * const GROWL_NO_INTERNET = @"Network error";
-NSString * const GROWL_PARSER_ERROR = @"Parser error";
+NSString * const GROWL_NO_INTERNET     = @"Network error";
+NSString * const GROWL_PARSER_ERROR    = @"Parser error";
 
-static float millibars_to_inches(unsigned int mb)
+static double millibars_to_inches(unsigned int mb)
 {
-    return mb * 0.0295301F;
+    return mb * 0.0295301;
 }
 
 @interface BBApplication (Private)
