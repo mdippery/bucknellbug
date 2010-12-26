@@ -640,7 +640,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 68;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -658,9 +658,11 @@
 				GCC_VERSION = 4.0;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = /Applications;
-				ONLY_ACTIVE_ARCH = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
 				PRODUCT_NAME = BucknellBug;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -684,7 +686,9 @@
 				GCC_VERSION = 4.0;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = /Applications;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				PRODUCT_NAME = BucknellBug;
+				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
