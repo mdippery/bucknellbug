@@ -58,11 +58,6 @@
 
 - (BOOL)isReachable
 {
-    // In 10.6+, NSURL has a method named
-    // `checkResourceIsReachableAndReturnError:`. If
-    // I ever switch to only supporting 10.6, I can
-    // use this method instead.
-    
     SCNetworkConnectionFlags netReachFlags;
     
     if (SCNetworkReachabilityGetFlags(netReachRef, &netReachFlags)) {
