@@ -49,14 +49,6 @@ task :debug do
   xcodebuild PROJECT, TARGET[:bin], CONFIG[:debug]
 end
 
-desc "Builds and installs BucknellBug"
-task :install => [:release] do
-  bbug = 'build/Release/BucknellBug.app'
-  system 'chmod', '-R', 'a+rX', bbug
-  mv '/Applications/BucknellBug.app', "#{ENV['HOME']}/.Trash"
-  mv bbug, '/Applications'
-end
-
 desc "Packages a release version into a distributable .dmg"
 task :dist do
   xcodebuild PROJECT, TARGET[:dmg], CONFIG[:release]
