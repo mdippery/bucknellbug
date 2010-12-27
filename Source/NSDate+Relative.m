@@ -99,7 +99,7 @@
     } else {
         // If the date is in the future, round up (6.75 days from now is
         // 7 days from now, not 6).
-        NSAssert1(sgn(interval) == 1, @"sgn(%.3f) is neither 1 nor -1", interval);
+        NSAssert1(sgn(interval) == 1, @"sgn(%.3f) must be either 1 or -1", interval);
         return (int) ceil(interval);
     }
 }
