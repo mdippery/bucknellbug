@@ -55,13 +55,13 @@
     STAssertTrue([past isYesterdayOrEarlier], @"%@ is not yesterday or earlier.", past);
 }
 
-- (void)testNumberOfDaysSinceNow
+- (void)testDaysSinceToday
 {
     NSDate *later = [[NSDate date] addTimeInterval:HOURS_48];
     NSDate *earlier = [[NSDate date] addTimeInterval:-HOURS_48];
-    STAssertEquals([later numberOfDaysSinceNow], 2, @"Number of days between now and %@ is %d.", later, [later numberOfDaysSinceNow]);
-    STAssertEquals([earlier numberOfDaysSinceNow], -2, @"Number of days between now and %@ is %d.", earlier, [earlier numberOfDaysSinceNow]);
-    STAssertEquals([[NSDate date] numberOfDaysSinceNow], 0, @"Number of days between now and %@ is %d.", [NSDate date], [[NSDate date] numberOfDaysSinceNow]);
+    STAssertEquals([later daysSinceToday], 2, @"Number of days between now and %@ is %d.", later, [later daysSinceToday]);
+    STAssertEquals([earlier daysSinceToday], -2, @"Number of days between now and %@ is %d.", earlier, [earlier daysSinceToday]);
+    STAssertEquals([[NSDate date] daysSinceToday], 0, @"Number of days between now and %@ is %d.", [NSDate date], [[NSDate date] daysSinceToday]);
 }
 
 - (void)tearDown

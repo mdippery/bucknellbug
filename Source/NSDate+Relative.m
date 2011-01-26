@@ -70,7 +70,7 @@
     return [[self dateAtMidnight] isBefore:[[NSDate date] dateAtMidnight]];
 }
 
-- (int)numberOfDaysSinceNow
+- (int)daysSinceToday
 {
     return (int) ([[self dateAtMidnight] timeIntervalSinceDate:[[NSDate date] dateAtMidnight]] / SECONDS_IN_A_DAY);
 }

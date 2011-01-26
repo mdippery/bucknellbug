@@ -31,6 +31,6 @@
 - (BOOL)isTomorrowOrLater;
 - (BOOL)isYesterdayOrEarlier;
 
-- (int)numberOfDaysSinceNow;
+- (int)daysSinceToday;
 
 @end

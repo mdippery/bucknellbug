@@ -140,7 +140,7 @@ static double millibars_to_inches(unsigned int mb)
         if (!autoRelative) {
             NSLog(@"Using manual date formatting");
             if ([date isYesterdayOrEarlier]) {
-                unsigned int days = -[date numberOfDaysSinceNow];
+                int days = -[date daysSinceToday];
                 if (days <= 1) {
                     update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
                 } else {
