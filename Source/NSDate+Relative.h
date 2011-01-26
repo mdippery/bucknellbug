@@ -25,6 +25,8 @@
 - (BOOL)isAfter:(NSDate *)date;
 - (BOOL)isBefore:(NSDate *)data;
 
+- (NSDate *)dateAtMidnight;
+
 - (BOOL)isToday;
 - (BOOL)isTomorrowOrLater;
 - (BOOL)isYesterdayOrEarlier;
