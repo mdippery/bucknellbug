@@ -32,9 +32,9 @@
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 
-NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
-NSString * const GROWL_NO_INTERNET     = @"Network error";
-NSString * const GROWL_PARSER_ERROR    = @"Parser error";
+static NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
+static NSString * const GROWL_NO_INTERNET     = @"Network error";
+static NSString * const GROWL_PARSER_ERROR    = @"Parser error";
 
 static double millibars_to_inches(unsigned int mb)
 {
