@@ -63,7 +63,7 @@
     if (SCNetworkReachabilityGetFlags(netReachRef, &netReachFlags)) {
         return (netReachFlags & kSCNetworkFlagsReachable) == kSCNetworkFlagsReachable;
     } else {
-        NSLog(@"%s returned invalid flags", __FUNCTION__);
+        NSLog(@"%s returned invalid flags", __PRETTY_FUNCTION__);
         return NO;
     }
 }
