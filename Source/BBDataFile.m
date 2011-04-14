@@ -49,7 +49,13 @@ typedef enum {
 
 + (NSURL *)defaultURL
 {
-    return [NSURL URLWithString:@"http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat"];
+    static NSURL *defaultURL = nil;
+    if (!defaultURL) {
+        NSString *url = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBWeatherDataURL"];
+        defaultURL = [[NSURL alloc] initWithString:url];
+        NSLog(@"Loaded weather data URL: %@", defaultURL);
+    }
+    return defaultURL;
 }
 
 + (NSStringEncoding)defaultEncoding

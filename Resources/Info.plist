@@ -25,7 +25,7 @@
 	<key>CFBundleSignature</key>
 	<string>buBg</string>
 	<key>CFBundleVersion</key>
-	<string>71</string>
+	<string>72</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.4.0</string>
 	<key>NSMainNibFile</key>
@@ -40,5 +40,7 @@
 	<string>http://software.monkey-robot.com/bucknellbug/appcast.xml</string>
 	<key>SUEnableSystemProfiling</key>
 	<true/>
+	<key>BBWeatherDataURL</key>
+	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 </dict>
 </plist>
