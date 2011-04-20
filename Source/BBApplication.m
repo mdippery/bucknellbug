@@ -25,7 +25,6 @@
 #import "BBDataFile.h"
 #import "MDReachability.h"
 #import "NSDate+Relative.h"
-#import "NSImage+Convenience.h"
 #import "NSMenuItem+BucknellBug.h"
 #import "NSTimer+BucknellBug.h"
 
@@ -104,8 +103,7 @@ static double millibars_to_inches(unsigned int mb)
 
 - (NSImage *)statusMenuImage
 {
-    NSString *imgPath = [[NSBundle mainBundle] pathForResource:@"statusmenu" ofType:@"png"];
-    return [NSImage imageWithContentsOfFile:imgPath];
+    return [NSImage imageNamed:@"statusmenu.png"];
 }
 
 - (void)updateWeatherData:(NSTimer *)aTimer

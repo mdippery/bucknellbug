@@ -15,7 +15,6 @@
 		B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B70F1B470B06B3AC00A15771 /* BugIcon.icns */; };
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
-		B722EEB611A3204E007E19C4 /* NSImage+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */; };
 		B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */; };
 		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
 		B7504B1C12BBF8FF00C43B54 /* TestReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B7504B1B12BBF8FF00C43B54 /* TestReachability.m */; };
@@ -101,8 +100,6 @@
 		B701F413118B187300F762A0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
-		B722EEB411A3204E007E19C4 /* NSImage+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Convenience.h"; path = "Source/NSImage+Convenience.h"; sourceTree = "<group>"; };
-		B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Convenience.m"; path = "Source/NSImage+Convenience.m"; sourceTree = "<group>"; };
 		B73DD52B12715DFB00B2EDFE /* NSString+Numeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Numeric.h"; path = "Source/NSString+Numeric.h"; sourceTree = "<group>"; };
 		B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Numeric.m"; path = "Source/NSString+Numeric.m"; sourceTree = "<group>"; };
 		B73E370011826C300092EE58 /* CSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVFile.h; path = Source/CSVFile.h; sourceTree = "<group>"; };
@@ -252,8 +249,6 @@
 			children = (
 				B76B257010672BB400204670 /* NSDate+Relative.h */,
 				B76B257110672BB400204670 /* NSDate+Relative.m */,
-				B722EEB411A3204E007E19C4 /* NSImage+Convenience.h */,
-				B722EEB511A3204E007E19C4 /* NSImage+Convenience.m */,
 				B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */,
 				B76B25391067255300204670 /* NSMenuItem+BucknellBug.m */,
 				B73DD52B12715DFB00B2EDFE /* NSString+Numeric.h */,
@@ -453,7 +448,6 @@
 				B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */,
 				B788AFD61172102D000629D3 /* MDReachability.m in Sources */,
 				B73E370211826C300092EE58 /* CSVFile.m in Sources */,
-				B722EEB611A3204E007E19C4 /* NSImage+Convenience.m in Sources */,
 				B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
