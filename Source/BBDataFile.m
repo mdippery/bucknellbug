@@ -40,7 +40,7 @@ typedef enum {
 @interface BBDataFile (Private)
 + (NSDateFormatter *)dateFormatter;
 - (void)resetData;
-- (int)calculateTimestampOffset;
+- (int)timestampOffset;
 - (NSDate *)unmodifiedDate;
 - (NSString *)dateString;
 @end
@@ -86,7 +86,6 @@ typedef enum {
             [self autorelease];
             return nil;
         }
-        timestampOffset = [self calculateTimestampOffset];
     }        
     return self;
 }
@@ -110,7 +109,7 @@ typedef enum {
 
 #if CORRECT_TIMESTAMP
 #warning Attempting to correct data file timestamp
-- (int)calculateTimestampOffset
+- (int)timestampOffset
 {
     // Try to correct the timestamp. It's really weird how it works,
     // and I haven't reverse-engineering the specifics. If the feed
@@ -127,7 +126,7 @@ typedef enum {
     return -1;
 }
 #else
-- (int)calculateTimestampOffset { return 0; }
+- (int)timestampOffset { return 0; }
 #endif
 
 - (BOOL)update
@@ -139,7 +138,6 @@ typedef enum {
     NSDate *lastDate = [[[self date] retain] autorelease];
     [self resetData];
     if (!data) return NO;
-    timestampOffset = [self calculateTimestampOffset];
     return [[self date] isAfter:lastDate];
 }
 
@@ -153,7 +151,7 @@ typedef enum {
 - (NSDate *)date
 {
     // Fix an issue with an incorrect timestamp in the feed file
-    return [[self unmodifiedDate] addTimeInterval:timestampOffset * SECONDS_IN_AN_HOUR];
+    return [[self unmodifiedDate] addTimeInterval:[self timestampOffset] * SECONDS_IN_AN_HOUR];
 }
 #else
 - (NSDate *)date { return [self unmodifiedDate]; }
