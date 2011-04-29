@@ -28,6 +28,7 @@
 #import "NSMenuItem+BucknellBug.h"
 #import "NSTimer+BucknellBug.h"
 
+#define SECONDS_IN_AN_HOUR      (60 * 60)
 #define UPDATE_INTERVAL         (15.0 * 60.0)       // Frequency at which weather is updated (once every 15 mins)
 #define WAKE_DELAY              10.0                // Number of seconds to wait to update weather after wakeup
 
@@ -45,6 +46,7 @@ static double millibars_to_inches(unsigned int mb)
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
 - (void)update;
+- (NSDate *)fixDate:(NSDate *)theDate;
 - (void)updateLastUpdatedItem;
 - (void)updateNextUpdateItem;
 - (void)alertNewData;
@@ -129,9 +131,24 @@ static double millibars_to_inches(unsigned int mb)
     [self updateNextUpdateItem];
 }
 
+- (NSDate *)fixDate:(NSDate *)theDate
+{
+    // Weather data is sometimes an hour ahead from clock time.
+    // I don't think it's adjusted for daylight saving time, or
+    // something like that. Fix the discrepancy by moving the
+    // timestamp back by an hour if the timestamp is later than
+    // the current time.
+
+    if ([[NSDate date] isBefore:theDate]) {
+        NSLog(@"%@ is ahead of now. Going back in time 1 hour.", theDate);
+        return [NSDate dateWithTimeInterval:-SECONDS_IN_AN_HOUR sinceDate:theDate];
+    }
+    return theDate;
+}
+
 - (void)updateLastUpdatedItem
 {
-    NSDate *date = [weather date];
+    NSDate *date = [self fixDate:[weather date]];
     if (date) {
         NSString *update = [dateFormatter stringFromDate:date];
         BOOL autoRelative = [dateFormatter respondsToSelector:@selector(doesRelativeDateFormatting)] && [dateFormatter doesRelativeDateFormatting];

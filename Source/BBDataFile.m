@@ -21,10 +21,6 @@
 #import "NSDate+Relative.h"
 #import "NSString+Numeric.h"
 
-#ifndef CORRECT_TIMESTAMP
-#define CORRECT_TIMESTAMP   0
-#endif
-
 #define SECONDS_IN_AN_HOUR  (60 * 60)
 
 typedef enum {
@@ -107,28 +103,6 @@ typedef enum {
     data = [[CSVFile alloc] initWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding]];
 }
 
-#if CORRECT_TIMESTAMP
-#warning Attempting to correct data file timestamp
-- (int)timestampOffset
-{
-    // Try to correct the timestamp. It's really weird how it works,
-    // and I haven't reverse-engineering the specifics. If the feed
-    // was just updated, and the last update time was more than 1
-    // hour but less than 2 hours before now, assume it's off
-    // by an hour and correct it.
-    // I'm sure this will break at some point, again.
-    NSTimeInterval delta = -[[self unmodifiedDate] timeIntervalSinceNow];
-    NSLog(@"Timestamp delta is %.2f = %.2f hours", delta, (delta / SECONDS_IN_AN_HOUR));
-    if (delta < SECONDS_IN_AN_HOUR) {
-        NSLog(@"Setting timestamp to 0 (delta is %.2f = %.2f hours)", delta, (delta / SECONDS_IN_AN_HOUR));
-        return 0;
-    }
-    return -1;
-}
-#else
-- (int)timestampOffset { return 0; }
-#endif
-
 - (BOOL)update
 {
     // For parse documentation, see
@@ -141,21 +115,10 @@ typedef enum {
     return [[self date] isAfter:lastDate];
 }
 
-- (NSDate *)unmodifiedDate
+- (NSDate *)date
 {
     return [[BBDataFile dateFormatter] dateFromString:[self dateString]];
 }
-
-#if CORRECT_TIMESTAMP
-#warning Attempting to correct data file timestamp
-- (NSDate *)date
-{
-    // Fix an issue with an incorrect timestamp in the feed file
-    return [[self unmodifiedDate] addTimeInterval:[self timestampOffset] * SECONDS_IN_AN_HOUR];
-}
-#else
-- (NSDate *)date { return [self unmodifiedDate]; }
-#endif
 
 - (NSString *)dateString
 {
