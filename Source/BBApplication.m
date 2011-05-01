@@ -36,6 +36,11 @@ static NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 static NSString * const GROWL_NO_INTERNET     = @"Network error";
 static NSString * const GROWL_PARSER_ERROR    = @"Parser error";
 
+static NSString *_(NSString *string)
+{
+    return NSLocalizedString(string, nil);
+}
+
 static double millibars_to_inches(unsigned int mb)
 {
     return mb * 0.0295301;
@@ -157,9 +162,9 @@ static double millibars_to_inches(unsigned int mb)
             if ([date isYesterdayOrEarlier]) {
                 int days = -[date daysSinceToday];
                 if (days <= 1) {
-                    update = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Yesterday", nil), update];
+                    update = [NSString stringWithFormat:@"%@, %@", _(@"Yesterday"), update];
                 } else {
-                    update = [NSString stringWithFormat:NSLocalizedString(@"%u days ago", nil), days];
+                    update = [NSString stringWithFormat:_(@"%u days ago"), days];
                 }
             }
         }
@@ -173,7 +178,7 @@ static double millibars_to_inches(unsigned int mb)
         NSDate *fire = [timer nextFireDate];
         NSString *fireStr = [dateFormatter stringFromDate:fire];
         if ([fire isTomorrowOrLater]) {
-            fireStr = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Tomorrow", nil), fireStr];
+            fireStr = [NSString stringWithFormat:@"%@, %@", _(@"Tomorrow"), fireStr];
         }
         [nextUpdateItem updateTitle:fireStr];
     }
@@ -181,8 +186,8 @@ static double millibars_to_inches(unsigned int mb)
 
 - (void)alertNewData
 {
-    [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Weather Updated", nil)
-                                description:NSLocalizedString(@"Weather data has been updated.", nil)
+    [GrowlApplicationBridge notifyWithTitle:_(@"Weather Updated")
+                                description:_(@"Weather data has been updated.")
                            notificationName:GROWL_WEATHER_UPDATED
                                    iconData:nil
                                    priority:0
@@ -192,8 +197,8 @@ static double millibars_to_inches(unsigned int mb)
 
 - (void)showReachabilityError
 {
-    [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"No Internet Connection", nil)
-                                description:NSLocalizedString(@"You do not have an Internet connection.", nil)
+    [GrowlApplicationBridge notifyWithTitle:_(@"No Internet Connection")
+                                description:_(@"You do not have an Internet connection.")
                            notificationName:GROWL_NO_INTERNET
                                    iconData:nil
                                    priority:0
