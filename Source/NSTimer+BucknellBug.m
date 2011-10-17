@@ -27,7 +27,7 @@
     // the next update (which should be in the future), so increment to
     // NEXT fire date.
     if ([next compare:[NSDate date]] != NSOrderedDescending) {
-        next = [next addTimeInterval:[self timeInterval]];
+        next = [next dateByAddingTimeInterval:[self timeInterval]];
     }
     return next;
 }
