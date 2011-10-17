@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		B701F3F2118B169200F762A0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B701F3E4118B164400F762A0 /* Sparkle.framework */; };
-		B701F3F3118B169900F762A0 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B701F3E4118B164400F762A0 /* Sparkle.framework */; };
-		B701F414118B187300F762A0 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B701F413118B187300F762A0 /* dsa_pub.pem */; };
 		B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B70F1B470B06B3AC00A15771 /* BugIcon.icns */; };
 		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
@@ -51,7 +48,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */,
-				B701F3F3118B169900F762A0 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +61,6 @@
 		32CA4F630368D1EE00C91783 /* BucknellBug.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BucknellBug.pch; path = Source/BucknellBug.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BucknellBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucknellBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B701F3E4118B164400F762A0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
-		B701F413118B187300F762A0 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
 		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		B73DD52B12715DFB00B2EDFE /* NSString+Numeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Numeric.h"; path = "Source/NSString+Numeric.h"; sourceTree = "<group>"; };
@@ -101,7 +95,6 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */,
-				B701F3F2118B169200F762A0 /* Sparkle.framework in Frameworks */,
 				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +135,6 @@
 				B753C85311A8273F000D6D35 /* InfoPlist.strings */,
 				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
 				B78679AE105E7FED0070B84E /* statusmenu.png */,
-				B701F413118B187300F762A0 /* dsa_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -152,7 +144,6 @@
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				B7116EFE0C0497E1007D86E6 /* Growl.framework */,
-				B701F3E4118B164400F762A0 /* Sparkle.framework */,
 				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
 				B7372F5A118B443E00DFAA1A /* Other Frameworks */,
 			);
@@ -272,7 +263,6 @@
 			files = (
 				B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */,
 				B78679AF105E7FED0070B84E /* statusmenu.png in Resources */,
-				B701F414118B187300F762A0 /* dsa_pub.pem in Resources */,
 				B753C84F11A82712000D6D35 /* MainMenu.xib in Resources */,
 				B753C85211A82727000D6D35 /* Credits.rtf in Resources */,
 				B753C85511A8273F000D6D35 /* InfoPlist.strings in Resources */,

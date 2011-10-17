@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BBWeatherDataURL</key>
+	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -25,7 +27,9 @@
 	<key>CFBundleSignature</key>
 	<string>buBg</string>
 	<key>CFBundleVersion</key>
-	<string>75</string>
+	<string>76</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.6.0</string>
 	<key>LSUIElement</key>
@@ -34,13 +38,5 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
-	<key>SUFeedURL</key>
-	<string>http://software.monkey-robot.com/bucknellbug/appcast.xml</string>
-	<key>SUEnableSystemProfiling</key>
-	<true/>
-	<key>BBWeatherDataURL</key>
-	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 </dict>
 </plist>

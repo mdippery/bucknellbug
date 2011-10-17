@@ -30,8 +30,6 @@
     IBOutlet NSMenuItem *pressureItem;
     IBOutlet NSMenuItem *rainfallItem;
     
-    IBOutlet SUUpdater *updater;
-    
     BBDataFile *weather;
     NSDateFormatter *dateFormatter;
     NSTimer *timer;
