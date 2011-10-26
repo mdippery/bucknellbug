@@ -17,7 +17,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class BBDataFile, MDReachability, SUUpdater;
+@class BBDataFile, MDReachability;
 
 
 @interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
