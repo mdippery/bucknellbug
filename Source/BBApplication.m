@@ -151,22 +151,21 @@ static double millibars_to_inches(unsigned int mb)
 - (void)updateLastUpdatedItem
 {
     NSDate *date = [self fixDate:[weather date]];
-    if (date) {
-        NSString *update = [dateFormatter stringFromDate:date];
-        BOOL autoRelative = [dateFormatter respondsToSelector:@selector(doesRelativeDateFormatting)] && [dateFormatter doesRelativeDateFormatting];
-        if (!autoRelative) {
-            NSLog(@"Using manual date formatting");
-            if ([date isYesterdayOrEarlier]) {
-                int days = -[date daysSinceToday];
-                if (days <= 1) {
-                    update = [NSString stringWithFormat:@"%@, %@", _(@"Yesterday"), update];
-                } else {
-                    update = [NSString stringWithFormat:_(@"%u days ago"), days];
-                }
+    if (!date) return;
+    NSString *update = [dateFormatter stringFromDate:date];
+    BOOL autoRelative = [dateFormatter respondsToSelector:@selector(doesRelativeDateFormatting)] && [dateFormatter doesRelativeDateFormatting];
+    if (!autoRelative) {
+        NSLog(@"Using manual date formatting");
+        if ([date isYesterdayOrEarlier]) {
+            int days = -[date daysSinceToday];
+            if (days <= 1) {
+                update = [NSString stringWithFormat:@"%@, %@", _(@"Yesterday"), update];
+            } else {
+                update = [NSString stringWithFormat:_(@"%u days ago"), days];
             }
         }
-        [lastUpdatedItem updateTitle:update];
     }
+    [lastUpdatedItem updateTitle:update];
 }
 
 - (void)updateNextUpdateItem
