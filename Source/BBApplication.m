@@ -69,10 +69,7 @@ static double millibars_to_inches(unsigned int mb)
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-        if ([dateFormatter respondsToSelector:@selector(setDoesRelativeDateFormatting:)]) {
-            NSLog(@"Using automatic relative date formatting");
-            [dateFormatter setDoesRelativeDateFormatting:YES];
-        }
+        [dateFormatter setDoesRelativeDateFormatting:YES];
         host = [[MDReachability alloc] initWithHostname:@"www.bucknell.edu"];
     }
     return self;
@@ -153,18 +150,6 @@ static double millibars_to_inches(unsigned int mb)
     NSDate *date = [self fixDate:[weather date]];
     if (!date) return;
     NSString *update = [dateFormatter stringFromDate:date];
-    BOOL autoRelative = [dateFormatter respondsToSelector:@selector(doesRelativeDateFormatting)] && [dateFormatter doesRelativeDateFormatting];
-    if (!autoRelative) {
-        NSLog(@"Using manual date formatting");
-        if ([date isYesterdayOrEarlier]) {
-            int days = -[date daysSinceToday];
-            if (days <= 1) {
-                update = [NSString stringWithFormat:@"%@, %@", _(@"Yesterday"), update];
-            } else {
-                update = [NSString stringWithFormat:_(@"%u days ago"), days];
-            }
-        }
-    }
     [lastUpdatedItem updateTitle:update];
 }
 
