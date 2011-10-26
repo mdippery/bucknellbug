@@ -17,9 +17,6 @@
 
 #import "BBApplication.h"
 
-#import <AvailabilityMacros.h>
-#import <stdarg.h>
-
 #import <Growl/Growl.h>
 
 #import "BBDataFile.h"
