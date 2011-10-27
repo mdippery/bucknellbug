@@ -23,6 +23,7 @@
 		B76B257210672BB400204670 /* NSDate+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+Relative.m */; };
 		B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */; };
 		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
+		B77A0A9E1459CFC600842AB6 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = B77A0A9D1459CFC600842AB6 /* Growl Registration Ticket.growlRegDict */; };
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
@@ -80,6 +81,7 @@
 		B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BucknellBug.m"; path = "Source/NSTimer+BucknellBug.m"; sourceTree = "<group>"; };
 		B77105310AF7BF8D00FA66C0 /* BBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBApplication.h; path = Source/BBApplication.h; sourceTree = "<group>"; };
 		B77105320AF7BF8D00FA66C0 /* BBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBApplication.m; path = Source/BBApplication.m; sourceTree = "<group>"; };
+		B77A0A9D1459CFC600842AB6 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDict"; path = "Resources/Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
 		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDReachability.h; path = Source/MDReachability.h; sourceTree = "<group>"; };
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReachability.m; path = Source/MDReachability.m; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				B753C85311A8273F000D6D35 /* InfoPlist.strings */,
 				B70F1B470B06B3AC00A15771 /* BugIcon.icns */,
 				B78679AE105E7FED0070B84E /* statusmenu.png */,
+				B77A0A9D1459CFC600842AB6 /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				B753C85511A8273F000D6D35 /* InfoPlist.strings in Resources */,
 				B753C85911A82754000D6D35 /* Localizable.strings in Resources */,
 				B753C86711A827BD000D6D35 /* Help in Resources */,
+				B77A0A9E1459CFC600842AB6 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,7 @@
 @class BBDataFile, MDReachability;
 
 
-@interface BBApplication : NSObject <GrowlApplicationBridgeDelegate>
+@interface BBApplication : NSObject
 {
     IBOutlet NSMenu *statusMenu;
     IBOutlet NSMenuItem *nextUpdateItem;

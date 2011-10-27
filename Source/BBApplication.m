@@ -31,7 +31,6 @@
 
 static NSString * const GROWL_WEATHER_UPDATED = @"Weather updated";
 static NSString * const GROWL_NO_INTERNET     = @"Network error";
-static NSString * const GROWL_PARSER_ERROR    = @"Parser error";
 
 static NSString *_(NSString *string)
 {
@@ -78,7 +77,7 @@ static double millibars_to_inches(unsigned int mb)
 - (void)awakeFromNib
 {
     [self activateStatusMenu];
-    [GrowlApplicationBridge setGrowlDelegate:self];
+    [GrowlApplicationBridge setGrowlDelegate:nil];
 }
 
 - (void)dealloc
@@ -260,22 +259,6 @@ static double millibars_to_inches(unsigned int mb)
     NSAssert(menu == statusMenu, @"Received delegate message for unknown menu");
     [self updateLastUpdatedItem];
     [self updateNextUpdateItem];
-}
-
-#pragma mark Growl Delegate
-
-- (NSDictionary *)registrationDictionaryForGrowl
-{
-    NSArray *notifications = [NSArray arrayWithObjects:GROWL_WEATHER_UPDATED, GROWL_NO_INTERNET, nil];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            notifications, GROWL_NOTIFICATIONS_ALL,
-            notifications, GROWL_NOTIFICATIONS_DEFAULT,
-            nil];
-}
-
-- (NSString *)applicationNameForGrowl
-{
-    return @"BucknellBug";
 }
 
 @end
