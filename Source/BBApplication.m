@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2011 Michael Dippery <mdippery@gmail.com>
+ * Copyright (c) 2006-2012 Michael Dippery <mdippery@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -177,13 +177,23 @@ static double millibars_to_inches(unsigned int mb)
 
 - (void)sendNotificationWithTitle:(NSString *)title description:(NSString *)description name:(NSString *)name
 {
-    [GrowlApplicationBridge notifyWithTitle:_(title)
-                                description:_(description)
-                           notificationName:name
-                                   iconData:nil
-                                   priority:0
-                                   isSticky:NO
-                               clickContext:nil];
+    Class NSUserNotification = NSClassFromString(@"NSUserNotification");
+    Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
+    if (NSUserNotification && NSUserNotificationCenter) {
+        NSLog(@"Using 10.8 Notification Center");
+        id note = [[[NSUserNotification alloc] init] autorelease];
+        [note setTitle:_(title)];
+        [note setInformativeText:_(description)];
+        [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:note];
+    } else {
+        [GrowlApplicationBridge notifyWithTitle:_(title)
+                                    description:_(description)
+                               notificationName:name
+                                       iconData:nil
+                                       priority:0
+                                       isSticky:NO
+                                   clickContext:nil];
+    }
 }
 
 - (void)invalidateExistingTimer
