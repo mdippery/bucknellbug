@@ -52,6 +52,7 @@ static double millibars_to_inches(unsigned int mb)
 - (void)updateNextUpdateItem;
 - (void)alertNewData;
 - (void)showReachabilityError;
+- (void)sendNotificationWithTitle:(NSString *)title description:(NSString *)description name:(NSString *)name;
 - (void)invalidateExistingTimer;
 - (void)startTimer;
 - (void)computerDidWake:(NSNotification *)notification;
@@ -166,20 +167,19 @@ static double millibars_to_inches(unsigned int mb)
 
 - (void)alertNewData
 {
-    [GrowlApplicationBridge notifyWithTitle:_(@"Weather Updated")
-                                description:_(@"Weather data has been updated.")
-                           notificationName:GROWL_WEATHER_UPDATED
-                                   iconData:nil
-                                   priority:0
-                                   isSticky:NO
-                               clickContext:nil];
+    [self sendNotificationWithTitle:@"Weather Updated" description:@"Weather data has been updated." name:GROWL_WEATHER_UPDATED];
 }
 
 - (void)showReachabilityError
 {
-    [GrowlApplicationBridge notifyWithTitle:_(@"No Internet Connection")
-                                description:_(@"You do not have an Internet connection.")
-                           notificationName:GROWL_NO_INTERNET
+    [self sendNotificationWithTitle:@"No Internet Connection" description:@"You do not have an Internet connection." name:GROWL_NO_INTERNET];
+}
+
+- (void)sendNotificationWithTitle:(NSString *)title description:(NSString *)description name:(NSString *)name
+{
+    [GrowlApplicationBridge notifyWithTitle:_(title)
+                                description:_(description)
+                           notificationName:name
                                    iconData:nil
                                    priority:0
                                    isSticky:NO
