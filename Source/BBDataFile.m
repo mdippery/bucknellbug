@@ -46,11 +46,12 @@ typedef enum {
 + (NSURL *)defaultURL
 {
     static NSURL *defaultURL = nil;
-    if (!defaultURL) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         NSString *url = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBWeatherDataURL"];
         defaultURL = [[NSURL alloc] initWithString:url];
         NSLog(@"Loaded weather data URL: %@", defaultURL);
-    }
+    });
     return defaultURL;
 }
 
@@ -67,10 +68,11 @@ typedef enum {
 + (NSDateFormatter *)dateFormatter
 {
     static NSDateFormatter *sharedFormatter = nil;
-    if (!sharedFormatter) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         sharedFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y/%m/%d %H00" allowNaturalLanguage:NO];
         [sharedFormatter setTimeZone:[BBDataFile defaultTimeZone]];
-    }
+    });
     return sharedFormatter;
 }
 
