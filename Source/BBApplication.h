@@ -31,7 +31,7 @@
     IBOutlet NSMenuItem *rainfallItem;
     
     BBDataFile *weather;
-    NSDateFormatter *dateFormatter;
+    NSDateFormatter *timeFormatter;
     NSTimer *timer;
     NSStatusItem *statusItem;
     MDReachability *host;

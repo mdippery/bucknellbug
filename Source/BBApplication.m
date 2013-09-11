@@ -66,10 +66,10 @@ static double millibars_to_inches(unsigned int mb)
         weather = [[BBDataFile alloc] init];
         timer = nil;
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-        [dateFormatter setDoesRelativeDateFormatting:YES];
+        timeFormatter = [[NSDateFormatter alloc] init];
+        [timeFormatter setDateStyle:NSDateFormatterNoStyle];
+        [timeFormatter setTimeStyle:NSDateFormatterShortStyle];
+        [timeFormatter setDoesRelativeDateFormatting:YES];
         host = [[MDReachability alloc] initWithHostname:@"www.bucknell.edu"];
     }
     return self;
@@ -85,7 +85,7 @@ static double millibars_to_inches(unsigned int mb)
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [weather release];
-    [dateFormatter release];
+    [timeFormatter release];
     [timer invalidate]; [timer release];
     [statusItem release];
     [host release];
@@ -149,7 +149,7 @@ static double millibars_to_inches(unsigned int mb)
 {
     NSDate *date = [self fixDate:[weather date]];
     if (!date) return;
-    NSString *update = [dateFormatter stringFromDate:date];
+    NSString *update = [timeFormatter stringFromDate:date];
     [lastUpdatedItem updateTitle:update];
 }
 
@@ -157,7 +157,7 @@ static double millibars_to_inches(unsigned int mb)
 {
     if (timer && [timer isValid]) {
         NSDate *fire = [timer nextFireDate];
-        NSString *fireStr = [dateFormatter stringFromDate:fire];
+        NSString *fireStr = [timeFormatter stringFromDate:fire];
         if ([fire isTomorrowOrLater]) {
             fireStr = [NSString stringWithFormat:@"%@, %@", _(@"Tomorrow"), fireStr];
         }
