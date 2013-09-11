@@ -23,13 +23,14 @@
 - (int)dayOfMonth;
 
 - (BOOL)isAfter:(NSDate *)date;
-- (BOOL)isBefore:(NSDate *)data;
+- (BOOL)isBefore:(NSDate *)date;
 
 - (NSDate *)dateAtMidnight;
 
 - (BOOL)isToday;
 - (BOOL)isTomorrowOrLater;
 - (BOOL)isYesterdayOrEarlier;
+- (BOOL)isMoreThan:(unsigned int)daysAgo;
 
 - (int)daysSinceToday;
 

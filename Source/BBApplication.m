@@ -66,6 +66,9 @@ static double millibars_to_inches(unsigned int mb)
         weather = [[BBDataFile alloc] init];
         timer = nil;
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
         timeFormatter = [[NSDateFormatter alloc] init];
         [timeFormatter setDateStyle:NSDateFormatterNoStyle];
         [timeFormatter setTimeStyle:NSDateFormatterShortStyle];
@@ -85,6 +88,7 @@ static double millibars_to_inches(unsigned int mb)
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [weather release];
+    [dateFormatter release];
     [timeFormatter release];
     [timer invalidate]; [timer release];
     [statusItem release];
@@ -149,7 +153,8 @@ static double millibars_to_inches(unsigned int mb)
 {
     NSDate *date = [self fixDate:[weather date]];
     if (!date) return;
-    NSString *update = [timeFormatter stringFromDate:date];
+    NSDateFormatter *formatter = [date isMoreThan:2U] ? dateFormatter : timeFormatter;
+    NSString *update = [formatter stringFromDate:date];
     [lastUpdatedItem updateTitle:update];
 }
 

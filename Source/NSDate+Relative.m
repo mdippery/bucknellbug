@@ -70,6 +70,14 @@
     return [[self dateAtMidnight] isBefore:[[NSDate date] dateAtMidnight]];
 }
 
+- (BOOL)isMoreThan:(unsigned int)daysAgo;
+{
+    NSTimeInterval interval = [self timeIntervalSinceDate:[NSDate date]];
+    interval = -interval;    // Dates in the past return negative intervals
+    NSTimeInterval days = interval / SECONDS_IN_A_DAY;
+    return days > (double) daysAgo;
+}
+
 - (int)daysSinceToday
 {
     return (int) ([[self dateAtMidnight] timeIntervalSinceDate:[[NSDate date] dateAtMidnight]] / SECONDS_IN_A_DAY);
