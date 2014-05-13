@@ -70,7 +70,8 @@ typedef enum {
     static NSDateFormatter *sharedFormatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y/%m/%d %H00" allowNaturalLanguage:NO];
+        sharedFormatter = [[NSDateFormatter alloc] init];
+        [sharedFormatter setDateFormat:@"yyyy/MM/dd HHmm"];
         [sharedFormatter setTimeZone:[BBDataFile defaultTimeZone]];
     });
     return sharedFormatter;
