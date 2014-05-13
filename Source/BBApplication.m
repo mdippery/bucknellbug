@@ -212,7 +212,8 @@ static double millibars_to_inches(unsigned int mb)
 - (void)startTimer
 {
     [self invalidateExistingTimer];
-    timer = [[NSTimer alloc] initWithFireDate:[[NSDate date] addTimeInterval:1.0]
+    NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
+    timer = [[NSTimer alloc] initWithFireDate:fireDate
                                      interval:UPDATE_INTERVAL
                                        target:self
                                      selector:@selector(updateWeatherData:)
