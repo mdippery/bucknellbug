@@ -17,8 +17,6 @@
 
 #import "BBApplication.h"
 
-#import <Growl/Growl.h>
-
 #import "BBDataFile.h"
 #import "MDReachability.h"
 #import "NSDate+Relative.h"
@@ -81,7 +79,7 @@ static double millibars_to_inches(unsigned int mb)
 - (void)awakeFromNib
 {
     [self activateStatusMenu];
-    [GrowlApplicationBridge setGrowlDelegate:nil];
+    //[GrowlApplicationBridge setGrowlDelegate:nil];
 }
 
 - (void)dealloc
@@ -191,6 +189,7 @@ static double millibars_to_inches(unsigned int mb)
         [note setInformativeText:_(description)];
         [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:note];
     } else {
+#if 0
         [GrowlApplicationBridge notifyWithTitle:_(title)
                                     description:_(description)
                                notificationName:name
@@ -198,6 +197,7 @@ static double millibars_to_inches(unsigned int mb)
                                        priority:0
                                        isSticky:NO
                                    clickContext:nil];
+#endif
     }
 }
 

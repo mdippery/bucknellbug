@@ -10,8 +10,6 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B70F1B470B06B3AC00A15771 /* BugIcon.icns */; };
-		B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
-		B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B7116EFE0C0497E1007D86E6 /* Growl.framework */; };
 		B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */; };
 		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
 		B753C84F11A82712000D6D35 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B753C84D11A82712000D6D35 /* MainMenu.xib */; };
@@ -48,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B7116F830C0497EC007D86E6 /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +60,6 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BucknellBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucknellBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70F1B470B06B3AC00A15771 /* BugIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = BugIcon.icns; path = Resources/BugIcon.icns; sourceTree = "<group>"; };
-		B7116EFE0C0497E1007D86E6 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		B73DD52B12715DFB00B2EDFE /* NSString+Numeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Numeric.h"; path = "Source/NSString+Numeric.h"; sourceTree = "<group>"; };
 		B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Numeric.m"; path = "Source/NSString+Numeric.m"; sourceTree = "<group>"; };
 		B73E370011826C300092EE58 /* CSVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVFile.h; path = Source/CSVFile.h; sourceTree = "<group>"; };
@@ -96,7 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				B7116EFF0C0497E1007D86E6 /* Growl.framework in Frameworks */,
 				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				B7116EFE0C0497E1007D86E6 /* Growl.framework */,
 				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
 				B7372F5A118B443E00DFAA1A /* Other Frameworks */,
 			);
@@ -346,10 +340,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 78;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Frameworks",
-				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -374,10 +364,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 78;
 				DEPLOYMENT_POSTPROCESSING = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Frameworks",
-				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
