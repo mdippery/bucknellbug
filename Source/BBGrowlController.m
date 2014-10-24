@@ -57,7 +57,7 @@ static BBGrowlController *sharedGrowlController = nil;
 	return self;
 }
 
-- (unsigned int)retainCount
+- (NSUInteger)retainCount
 {
 	return UINT_MAX;	// Denotes an object that should be not released
 }
