@@ -17,6 +17,7 @@
 
 #import "BBDarkSkyService.h"
 #import "AFNetworking.h"
+#import "NSString+Numeric.h"
 
 
 @interface BBDarkSkyService ()
@@ -52,7 +53,6 @@
 {
     [_cache release];
     AFJSONRequestOperation *req = [AFJSONRequestOperation JSONRequestOperationWithRequest:[self APIRequest] success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"Retrieved response: %@", JSON);
         if (![JSON isKindOfClass:[NSDictionary class]]) {
             NSLog(@"JSON response is not a dictionary");
             failure();
@@ -71,6 +71,39 @@
     NSString *requestURL = [NSString stringWithFormat:_defaultURL, DARK_SKY_API_KEY, _defaultLocation.latitude, _defaultLocation.longitude];
     NSURL *url = [NSURL URLWithString:requestURL];
     return [NSURLRequest requestWithURL:url];
+}
+
+- (NSDate *)date
+{
+    id dateObj = [[_cache objectForKey:@"currently"] objectForKey:@"time"];
+    NSTimeInterval ts = [dateObj doubleValue];
+    return [NSDate dateWithTimeIntervalSince1970:ts];
+}
+
+- (double)temperature
+{
+    id tempObj = [[_cache objectForKey:@"currently"] objectForKey:@"temperature"];
+    return [tempObj doubleValue];
+}
+
+- (double)humidity
+{
+    id humidityObj = [[_cache objectForKey:@"currently"] objectForKey:@"humidity"];
+    return [humidityObj doubleValue];
+}
+
+- (unsigned int)pressure
+{
+    id pressureObj = [[_cache objectForKey:@"currently"] objectForKey:@"pressure"];
+    // Actually comes back as a double, but for now convert it to unsigned int
+    return [pressureObj unsignedIntegerValue];
+}
+
+- (double)rainfall
+{
+    // TODO: Calculate accumulated rainfall over past hour
+    NSLog(@"Rainfall calculation not implemented for Dark Sky API yet");
+    return 0.0;
 }
 
 @end
