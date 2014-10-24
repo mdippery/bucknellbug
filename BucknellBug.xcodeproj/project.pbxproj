@@ -306,11 +306,13 @@
 				GCC_PREFIX_HEADER = Resources/BucknellBug.pch;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = /Applications;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = (
 					"-D",
 					DEBUG_BUILD,
 				);
 				PRODUCT_NAME = BucknellBug;
+				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -333,7 +335,9 @@
 				GCC_PREFIX_HEADER = Resources/BucknellBug.pch;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = /Applications;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				PRODUCT_NAME = BucknellBug;
+				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -344,6 +348,7 @@
 			buildSettings = {
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
@@ -355,6 +360,7 @@
 			buildSettings = {
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 			};
