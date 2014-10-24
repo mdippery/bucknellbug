@@ -5,7 +5,7 @@
 	<key>BBWeatherDataURL</key>
 	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 	<key>BBDarkSkyURL</key>
-	<string>https://api.forecast.io/forecast/%@/%@,%@</string>
+	<string>https://api.forecast.io/forecast/%@/%.4f,%.4f</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
