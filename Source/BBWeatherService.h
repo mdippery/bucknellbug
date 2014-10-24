@@ -18,6 +18,10 @@
 #import <Foundation/Foundation.h>
 
 
+typedef void (^BBWeatherServiceSuccessHandler)(void);
+typedef void (^BBWeatherServiceFailureHandler)(void);
+
+
 @protocol BBWeatherService <NSObject>
 
 @property (readonly, nonatomic) NSDate *date;
