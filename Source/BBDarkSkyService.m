@@ -89,7 +89,7 @@
 - (double)humidity
 {
     id humidityObj = [[_cache objectForKey:@"currently"] objectForKey:@"humidity"];
-    return [humidityObj doubleValue];
+    return [humidityObj doubleValue] * 100.0;
 }
 
 - (unsigned int)pressure
