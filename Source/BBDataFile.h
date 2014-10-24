@@ -23,11 +23,12 @@
 
 @interface BBDataFile : NSObject <BBWeatherService>
 {
-    CSVFile *data;
+@private
+    CSVFile *_data;
+    NSURL *_defaultURL;
+    NSStringEncoding *_defaultEncoding;
+    NSTimeZone *_defaultTimeZone;
+    NSDateFormatter *_dateFormatter;
 }
-
-+ (NSURL *)defaultURL;
-+ (NSStringEncoding)defaultEncoding;
-+ (NSTimeZone *)defaultTimeZone;
 
 @end

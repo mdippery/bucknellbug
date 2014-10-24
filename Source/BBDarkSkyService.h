@@ -22,10 +22,10 @@
 
 @interface BBDarkSkyService : NSObject <BBWeatherService>
 {
+@private
     NSDictionary *_cache;
+    NSString *_defaultURL;
+    CLLocationCoordinate2D _defaultLocation;
 }
-
-+ (NSString *)defaultURL;
-+ (CLLocationCoordinate2D)defaultLocation;
 
 @end

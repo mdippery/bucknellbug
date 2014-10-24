@@ -26,35 +26,17 @@
 
 @implementation BBDarkSkyService
 
-+ (NSString *)defaultURL
-{
-    static NSString *defaultURL = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        defaultURL = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBDarkSkyURL"] retain];
-        NSLog(@"Loaded base weather data URL: %@", defaultURL);
-    });
-    return defaultURL;
-}
-
-+ (CLLocationCoordinate2D)defaultLocation
-{
-    static CLLocationCoordinate2D defaultLocation;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
-        NSNumber *lat = [info objectForKey:@"BBWeatherLatitude"];
-        NSNumber *lon = [info objectForKey:@"BBWeatherLongitude"];
-        defaultLocation = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
-        NSLog(@"Loaded weather data for location: %.4f,%.4f", defaultLocation.latitude, defaultLocation.longitude);
-    });
-    return defaultLocation;
-}
-
 - (id)init
 {
     if ((self = [super init])) {
         _cache = nil;
+
+        _defaultURL = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBDarkSkyURL"] retain];
+
+        NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+        NSNumber *lat = [info objectForKey:@"BBWeatherLatitude"];
+        NSNumber *lon = [info objectForKey:@"BBWeatherLongitude"];
+        _defaultLocation = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
     }
     return self;
 }
@@ -62,6 +44,7 @@
 - (void)dealloc
 {
     [_cache release];
+    [_defaultURL release];
     [super dealloc];
 }
 
@@ -85,9 +68,7 @@
 
 - (NSURLRequest *)APIRequest
 {
-    NSString *baseURL = [[self class] defaultURL];
-    CLLocationCoordinate2D coords = [[self class] defaultLocation];
-    NSString *requestURL = [NSString stringWithFormat:baseURL, DARK_SKY_API_KEY, coords.latitude, coords.longitude];
+    NSString *requestURL = [NSString stringWithFormat:_defaultURL, DARK_SKY_API_KEY, _defaultLocation.latitude, _defaultLocation.longitude];
     NSURL *url = [NSURL URLWithString:requestURL];
     return [NSURLRequest requestWithURL:url];
 }

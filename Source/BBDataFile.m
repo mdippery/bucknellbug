@@ -33,73 +33,50 @@ typedef enum {
     BBRainfallIndex    = 19-1
 } BBDataFileIndex;
 
-@interface BBDataFile (Private)
-+ (NSDateFormatter *)dateFormatter;
+@interface BBDataFile ()
 - (void)resetData;
-- (int)timestampOffset;
-- (NSDate *)unmodifiedDate;
 - (NSString *)dateString;
 @end
 
 @implementation BBDataFile
 
-+ (NSURL *)defaultURL
-{
-    static NSURL *defaultURL = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *url = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBWeatherDataURL"];
-        defaultURL = [[NSURL alloc] initWithString:url];
-        NSLog(@"Loaded weather data URL: %@", defaultURL);
-    });
-    return defaultURL;
-}
-
-+ (NSStringEncoding)defaultEncoding
-{
-    return NSWindowsCP1251StringEncoding;
-}
-
-+ (NSTimeZone *)defaultTimeZone
-{
-    return [NSTimeZone timeZoneWithName:@"US/Eastern"];
-}
-
-+ (NSDateFormatter *)dateFormatter
-{
-    static NSDateFormatter *sharedFormatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedFormatter = [[NSDateFormatter alloc] init];
-        [sharedFormatter setDateFormat:@"yyyy/MM/dd HHmm"];
-        [sharedFormatter setTimeZone:[BBDataFile defaultTimeZone]];
-    });
-    return sharedFormatter;
-}
-
 - (id)init
 {
     if ((self = [super init])) {
-        data = nil;
+        _data = nil;
+
+        NSString *url = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBWeatherDataURL"];
+        _defaultURL = [[NSURL alloc] initWithString:url];
+
+        _defaultEncoding = NSWindowsCP1251StringEncoding;
+
+        _defaultTimeZone = [NSTimeZone timeZoneWithName:@"US/Eastern"];
+
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [_dateFormatter setDateFormat:@"yyyy/MM/dd HHmm"];
+        [_dateFormatter setTimeZone:_defaultTimeZone];
     }        
     return self;
 }
 
 - (void)dealloc
 {
-    [data release];
+    [_data release];
+    [_defaultURL release];
+    [_defaultTimeZone release];
+    [_dateFormatter release];
     [super dealloc];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p> (data = %@)", [self class], self, data];
+    return [NSString stringWithFormat:@"<%@: %p> (data = %@)", [self class], self, _data];
 }
 
 - (void)resetData
 {
-    [data release];
-    data = [[CSVFile alloc] initWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding]];
+    [_data release];
+    _data = [[CSVFile alloc] initWithContentsOfURL:_defaultURL encoding:_defaultEncoding];
 }
 
 - (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure
@@ -110,7 +87,7 @@ typedef enum {
 
     NSDate *lastDate = [[[self date] retain] autorelease];
     [self resetData];
-    if (data && [[self date] isAfter:lastDate]) {
+    if (_data && [[self date] isAfter:lastDate]) {
         success();
     } else {
         failure();
@@ -119,14 +96,14 @@ typedef enum {
 
 - (NSDate *)date
 {
-    return [[BBDataFile dateFormatter] dateFromString:[self dateString]];
+    return [_dateFormatter dateFromString:[self dateString]];
 }
 
 - (NSString *)dateString
 {
-    NSString *year = [data objectAtIndex:BBYearIndex];
-    NSString *date = [data objectAtIndex:BBDateIndex];
-    NSString *time = [data objectAtIndex:BBTimeIndex];
+    NSString *year = [_data objectAtIndex:BBYearIndex];
+    NSString *date = [_data objectAtIndex:BBDateIndex];
+    NSString *time = [_data objectAtIndex:BBTimeIndex];
     if (year && date && time) {
         return [NSString stringWithFormat:@"%@/%@ %@%@", year, date, [time length] == 3 ? @"0" : @"", time];
     } else {
@@ -136,22 +113,22 @@ typedef enum {
 
 - (double)temperature
 {
-    return [[data objectAtIndex:BBTemperatureIndex] doubleValue];
+    return [[_data objectAtIndex:BBTemperatureIndex] doubleValue];
 }
 
 - (double)humidity
 {
-    return [[data objectAtIndex:BBHumidityIndex] doubleValue];
+    return [[_data objectAtIndex:BBHumidityIndex] doubleValue];
 }
 
 - (unsigned int)pressure
 {
-    return [[data objectAtIndex:BBPressureIndex] unsignedIntValue];
+    return [[_data objectAtIndex:BBPressureIndex] unsignedIntValue];
 }
 
 - (double)rainfall
 {
-    return [[data objectAtIndex:BBRainfallIndex] doubleValue];
+    return [[_data objectAtIndex:BBRainfallIndex] doubleValue];
 }
 
 @end
