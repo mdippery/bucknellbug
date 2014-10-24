@@ -20,10 +20,9 @@ works fine. However...
 
 BucknellBug is longer functional. According to the [weather station
 website][weather], on April 8th, 2013, an electrical surge knocked out the
-service, and as of October 23rd, 2014, it has yet to be restored. This
-repository is mainly present for archival and educational purposes, although
-work is planned to rewrite BucknellBug to work with the [Dark Sky API][sky]
-instead.
+service, and as of October 23rd, 2014, it has yet to be restored. For now,
+BucknellBug uses the [forecast.io API][sky] instead of the data supplied by
+Bucknell's own weather station.
 
   [sky]:     https://developer.forecast.io
   [source]:  http://www.departments.bucknell.edu/geography/weather/BucknellBug-1.1.src.tgz
