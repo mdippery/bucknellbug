@@ -28,7 +28,7 @@ typedef void (^BBWeatherServiceFailureHandler)(void);
 @property (readonly, nonatomic) double temperature;
 @property (readonly, nonatomic) double humidity;
 @property (readonly, nonatomic) unsigned int pressure;
-@property (readonly, nonatomic) unsigned int rainfall;
+@property (readonly, nonatomic) double rainfall;
 
 - (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure;
 

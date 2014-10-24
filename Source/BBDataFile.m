@@ -149,9 +149,9 @@ typedef enum {
     return [[data objectAtIndex:BBPressureIndex] unsignedIntValue];
 }
 
-- (unsigned int)rainfall
+- (double)rainfall
 {
-    return [[data objectAtIndex:BBRainfallIndex] unsignedIntValue];
+    return [[data objectAtIndex:BBRainfallIndex] doubleValue];
 }
 
 @end

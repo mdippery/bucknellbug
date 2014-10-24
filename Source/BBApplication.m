@@ -123,7 +123,7 @@ static double millibars_to_inches(unsigned int mb)
             [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f\u00b0 F", [weather temperature]]];
             [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
             [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
-            [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
+            [rainfallItem updateTitle:[NSString stringWithFormat:@"%.2f in.", [weather rainfall]]];
 
             [self alertNewData];
         } failure:^{
