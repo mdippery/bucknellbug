@@ -82,6 +82,7 @@
 		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		B7C854470AF6FEB90039D98F /* BBDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataFile.h; path = Source/BBDataFile.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataFile.m; path = Source/BBDataFile.m; sourceTree = "<group>"; };
+		B7E93EB419FA01EF00FFA021 /* BBWeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBWeatherService.h; path = Source/BBWeatherService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +202,7 @@
 		B7E93EB119FA016F00FFA021 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B7E93EB419FA01EF00FFA021 /* BBWeatherService.h */,
 				B7E93EB219FA017A00FFA021 /* Bucknell */,
 				B7E93EB319FA018C00FFA021 /* Dark Sky */,
 			);

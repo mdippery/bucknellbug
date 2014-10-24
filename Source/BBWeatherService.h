@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2011 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (c) 2014 Michael Dippery <michael@monkey-robot.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,19 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#import <Cocoa/Cocoa.h>
-#import "BBWeatherService.h"
-
-@class CSVFile;
+#import <Foundation/Foundation.h>
 
 
-@interface BBDataFile : NSObject <BBWeatherService>
-{
-    CSVFile *data;
-}
+@protocol BBWeatherService <NSObject>
 
-+ (NSURL *)defaultURL;
-+ (NSStringEncoding)defaultEncoding;
-+ (NSTimeZone *)defaultTimeZone;
+@property (readonly, nonatomic) NSDate *date;
+@property (readonly, nonatomic) double temperature;
+@property (readonly, nonatomic) double humidity;
+@property (readonly, nonatomic) unsigned int pressure;
+@property (readonly, nonatomic) unsigned int rainfall;
+
+- (BOOL)update;
 
 @end
