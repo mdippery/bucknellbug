@@ -115,20 +115,24 @@ static double millibars_to_inches(unsigned int mb)
 
 - (void)updateWeatherData:(NSTimer *)aTimer
 {
-    if ([weather update]) [self update];
+    [self update];
 }
 
 - (void)update
 {
     if ([host isReachable]) {
-        [self updateLastUpdatedItem];
-        
-        [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f\u00b0 F", [weather temperature]]];
-        [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
-        [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
-        [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
-        
-        [self alertNewData];
+        [weather updateWithSuccess:^{
+            [self updateLastUpdatedItem];
+
+            [temperatureItem updateTitle:[NSString stringWithFormat:@"%.0f\u00b0 F", [weather temperature]]];
+            [humidityItem updateTitle:[NSString stringWithFormat:@"%.2f%%", [weather humidity]]];
+            [pressureItem updateTitle:[NSString stringWithFormat:@"%.2f in.", millibars_to_inches([weather pressure])]];
+            [rainfallItem updateTitle:[NSString stringWithFormat:@"%u in.", [weather rainfall]]];
+
+            [self alertNewData];
+        } failure:^{
+            NSLog(@"Failed to update weather data");
+        }];
     } else {
         [self showReachabilityError];
     }
