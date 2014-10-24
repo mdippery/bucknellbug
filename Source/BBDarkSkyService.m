@@ -16,32 +16,37 @@
  */
 
 #import "BBDarkSkyService.h"
+#import "AFNetworking.h"
+
+
+@interface BBDarkSkyService ()
+- (NSURLRequest *)APIRequest;
+@end
 
 
 @implementation BBDarkSkyService
 
-+ (NSURL *)defaultURL
++ (NSString *)defaultURL
 {
-    static NSURL *defaultURL = nil;
+    static NSString *defaultURL = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *url = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBDarkSkyURL"];
-        defaultURL = [[NSURL alloc] initWithString:url];
-        NSLog(@"Loaded weather data URL: %@", defaultURL);
+        defaultURL = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBDarkSkyURL"] retain];
+        NSLog(@"Loaded base weather data URL: %@", defaultURL);
     });
     return defaultURL;
 }
 
-+ (CLLocation *)defaultLocation
++ (CLLocationCoordinate2D)defaultLocation
 {
-    static CLLocation *defaultLocation = nil;
+    static CLLocationCoordinate2D defaultLocation;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
         NSNumber *lat = [info objectForKey:@"BBWeatherLatitude"];
         NSNumber *lon = [info objectForKey:@"BBWeatherLongitude"];
-        defaultLocation = [[CLLocation alloc] initWithLatitude:[lat doubleValue] longitude:[lon doubleValue]];
-        NSLog(@"Loaded weather data for location: %@", defaultLocation);
+        defaultLocation = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
+        NSLog(@"Loaded weather data for location: %.4f,%.4f", defaultLocation.latitude, defaultLocation.longitude);
     });
     return defaultLocation;
 }
@@ -63,8 +68,28 @@
 - (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure
 {
     [_cache release];
-    // TODO: Fetch new data
-    failure();
+    AFJSONRequestOperation *req = [AFJSONRequestOperation JSONRequestOperationWithRequest:[self APIRequest] success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"Retrieved response: %@", JSON);
+        if (![JSON isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"JSON response is not a dictionary");
+            failure();
+        }
+        _cache = [JSON retain];
+        success();
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"HTTP request failed: %@", [error localizedDescription]);
+        failure();
+    }];
+    [req start];
+}
+
+- (NSURLRequest *)APIRequest
+{
+    NSString *baseURL = [[self class] defaultURL];
+    CLLocationCoordinate2D coords = [[self class] defaultLocation];
+    NSString *requestURL = [NSString stringWithFormat:baseURL, DARK_SKY_API_KEY, coords.latitude, coords.longitude];
+    NSURL *url = [NSURL URLWithString:requestURL];
+    return [NSURLRequest requestWithURL:url];
 }
 
 @end

@@ -25,7 +25,7 @@
     NSDictionary *_cache;
 }
 
-+ (NSURL *)defaultURL;
-+ (CLLocation *)defaultLocation;
++ (NSString *)defaultURL;
++ (CLLocationCoordinate2D)defaultLocation;
 
 @end
