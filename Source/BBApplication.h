@@ -18,6 +18,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class BBDataFile, MDReachability;
+@protocol BBWeatherService;
 
 
 @interface BBApplication : NSObject
@@ -30,7 +31,7 @@
     IBOutlet NSMenuItem *pressureItem;
     IBOutlet NSMenuItem *rainfallItem;
     
-    BBDataFile *weather;
+    id<BBWeatherService> weather;
     NSDateFormatter *dateFormatter;
     NSDateFormatter *timeFormatter;
     NSTimer *timer;

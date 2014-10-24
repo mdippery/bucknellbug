@@ -17,8 +17,7 @@
 
 #import "BBApplication.h"
 
-#import "BBDarkSkyService.h"
-#import "BBDataFile.h"
+#import "BBWeatherService.h"
 #import "MDReachability.h"
 #import "NSDate+Relative.h"
 #import "NSMenuItem+BucknellBug.h"
@@ -62,7 +61,8 @@ static double millibars_to_inches(unsigned int mb)
 
 + (Class)weatherService
 {
-    return [BBDarkSkyService class];
+    NSString *service = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"BBWeatherService"];
+    return NSClassFromString(service);
 }
 
 - (id)init
