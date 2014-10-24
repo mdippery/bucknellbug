@@ -80,11 +80,7 @@ typedef enum {
 - (id)init
 {
     if ((self = [super init])) {
-        [self resetData];
-        if (!data) {
-            [self autorelease];
-            return nil;
-        }
+        data = nil;
     }        
     return self;
 }
@@ -106,16 +102,19 @@ typedef enum {
     data = [[CSVFile alloc] initWithContentsOfURL:[BBDataFile defaultURL] encoding:[BBDataFile defaultEncoding]];
 }
 
-- (BOOL)update
+- (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure
 {
     // For parse documentation, see
     // http://www.departments.bucknell.edu/geography/Weather/output.htm
     // http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat
-    
+
     NSDate *lastDate = [[[self date] retain] autorelease];
     [self resetData];
-    if (!data) return NO;
-    return [[self date] isAfter:lastDate];
+    if (data && [[self date] isAfter:lastDate]) {
+        success();
+    } else {
+        failure();
+    }
 }
 
 - (NSDate *)date
