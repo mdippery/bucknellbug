@@ -50,7 +50,6 @@
 {
     if ((self = [super init])) {
         _cache = nil;
-        [self update];
     }
     return self;
 }
@@ -61,11 +60,11 @@
     [super dealloc];
 }
 
-- (BOOL)update
+- (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure
 {
     [_cache release];
     // TODO: Fetch new data
-    return NO;
+    failure();
 }
 
 @end
