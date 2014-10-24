@@ -6,6 +6,10 @@
 	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 	<key>BBDarkSkyURL</key>
 	<string>https://api.forecast.io/forecast/%@/%.4f,%.4f</string>
+	<key>BBWeatherLatitude</key>
+	<real>40.95445</real>
+	<key>BBWeatherLongitude</key>
+	<real>-76.882729</real>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
