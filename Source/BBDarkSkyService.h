@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2011 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (c) 2014 Michael Dippery <michael@monkey-robot.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 #import "BBWeatherService.h"
 
@@ -22,5 +23,6 @@
 @interface BBDarkSkyService : NSObject <BBWeatherService>
 
 + (NSURL *)defaultURL;
++ (CLLocation *)defaultLocation;
 
 @end
