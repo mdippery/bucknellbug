@@ -41,6 +41,7 @@ static double millibars_to_inches(unsigned int mb)
 }
 
 @interface BBApplication (Private)
++ (Class)weatherService;
 - (void)activateStatusMenu;
 - (NSImage *)statusMenuImage;
 - (void)updateWeatherData:(NSTimer *)aTimer;
@@ -58,10 +59,15 @@ static double millibars_to_inches(unsigned int mb)
 
 @implementation BBApplication
 
++ (Class)weatherService
+{
+    return [BBDataFile class];
+}
+
 - (id)init
 {
     if ((self = [super init])) {
-        weather = [[BBDataFile alloc] init];
+        weather = [[[BBApplication weatherService] alloc] init];
         timer = nil;
         [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
         dateFormatter = [[NSDateFormatter alloc] init];
