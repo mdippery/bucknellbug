@@ -1,0 +1,26 @@
+/* Growl application name */
+"BucknellBug" = "BucknellBug";
+
+/* Growl "Weather Updated" notification title */
+"Weather Updated" = "Weather Updated";
+
+/* Growl "Weather Updated" notification description */
+"Weather data has been updated." = "Weather data has been updated.";
+
+/* Date format dictionary key */
+"Last Updated" = "Last Updated";
+
+/* Temperature key */
+"Temperature" = "Temperature";
+
+/* Humidity key */
+"Humidity" = "Humidity";
+
+/* Sunshine index key */
+"Sunshine Index" = "Sunshine Index";
+
+/* Pressure key */
+"Pressure" = "Pressure";
+
+/* Rainfall key */
+"Rainfall" = "Rainfall";
