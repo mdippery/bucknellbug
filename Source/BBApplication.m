@@ -17,6 +17,7 @@
 
 #import "BBApplication.h"
 
+#import "BBDarkSkyService.h"
 #import "BBDataFile.h"
 #import "MDReachability.h"
 #import "NSDate+Relative.h"
@@ -61,7 +62,7 @@ static double millibars_to_inches(unsigned int mb)
 
 + (Class)weatherService
 {
-    return [BBDataFile class];
+    return [BBDarkSkyService class];
 }
 
 - (id)init
