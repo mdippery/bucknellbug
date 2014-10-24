@@ -143,6 +143,11 @@ static double millibars_to_inches(unsigned int mb)
     // something like that. Fix the discrepancy by moving the
     // timestamp back by an hour if the timestamp is later than
     // the current time.
+    //
+    // This only occurs when getting dates from Bucknell's weather
+    // service, so ignore for other services.
+
+    if (![NSStringFromClass([weather class]) isEqualToString:@"BBDataFile"]) return theDate;
 
     if ([[NSDate date] isBefore:theDate]) {
         NSLog(@"%@ is ahead of now. Going back in time 1 hour.", theDate);
