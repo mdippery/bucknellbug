@@ -37,7 +37,7 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.weather</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.6.0</string>
+	<string>10.7.0</string>
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSMainNibFile</key>
