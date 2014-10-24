@@ -25,6 +25,7 @@
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
 		B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataFile.m */; };
+		B7E93EB919FA06FF00FFA021 /* BBDarkSkyService.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E93EB819FA06FF00FFA021 /* BBDarkSkyService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -84,6 +85,8 @@
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataFile.m; path = Source/BBDataFile.m; sourceTree = "<group>"; };
 		B7E93EB419FA01EF00FFA021 /* BBWeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBWeatherService.h; path = Source/BBWeatherService.h; sourceTree = "<group>"; };
 		B7E93EB619FA03E100FFA021 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Application.h; path = Source/Application.h; sourceTree = "<group>"; };
+		B7E93EB719FA06FF00FFA021 /* BBDarkSkyService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDarkSkyService.h; path = Source/BBDarkSkyService.h; sourceTree = "<group>"; };
+		B7E93EB819FA06FF00FFA021 /* BBDarkSkyService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDarkSkyService.m; path = Source/BBDarkSkyService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,8 @@
 		B7E93EB319FA018C00FFA021 /* Dark Sky */ = {
 			isa = PBXGroup;
 			children = (
+				B7E93EB719FA06FF00FFA021 /* BBDarkSkyService.h */,
+				B7E93EB819FA06FF00FFA021 /* BBDarkSkyService.m */,
 			);
 			name = "Dark Sky";
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				B788AFD61172102D000629D3 /* MDReachability.m in Sources */,
 				B73E370211826C300092EE58 /* CSVFile.m in Sources */,
 				B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */,
+				B7E93EB919FA06FF00FFA021 /* BBDarkSkyService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
