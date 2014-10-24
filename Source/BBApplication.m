@@ -17,8 +17,6 @@
 
 #import "BBApplication.h"
 
-#import <Growl/Growl.h>
-
 #import "BBDataFile.h"
 #import "MDReachability.h"
 #import "NSDate+Relative.h"
@@ -81,7 +79,6 @@ static double millibars_to_inches(unsigned int mb)
 - (void)awakeFromNib
 {
     [self activateStatusMenu];
-    [GrowlApplicationBridge setGrowlDelegate:nil];
 }
 
 - (void)dealloc
@@ -100,7 +97,6 @@ static double millibars_to_inches(unsigned int mb)
 {
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     statusItem = [[bar statusItemWithLength:NSSquareStatusItemLength] retain];
-    //[statusItem setTitle:@"BucknellBug"];
     [statusItem setImage:[self statusMenuImage]];
     [statusItem setHighlightMode:YES];
     [statusItem setMenu:statusMenu];
@@ -185,19 +181,12 @@ static double millibars_to_inches(unsigned int mb)
     Class NSUserNotification = NSClassFromString(@"NSUserNotification");
     Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
     if (NSUserNotification && NSUserNotificationCenter) {
-        NSLog(@"Using 10.8 Notification Center");
         id note = [[[NSUserNotification alloc] init] autorelease];
         [note setTitle:_(title)];
         [note setInformativeText:_(description)];
         [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:note];
     } else {
-        [GrowlApplicationBridge notifyWithTitle:_(title)
-                                    description:_(description)
-                               notificationName:name
-                                       iconData:nil
-                                       priority:0
-                                       isSticky:NO
-                                   clickContext:nil];
+        NSLog(@"Cannot send notification; NSUserNotification class not found");
     }
 }
 
