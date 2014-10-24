@@ -46,4 +46,26 @@
     return defaultLocation;
 }
 
+- (id)init
+{
+    if ((self = [super init])) {
+        _cache = nil;
+        [self update];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [_cache release];
+    [super dealloc];
+}
+
+- (BOOL)update
+{
+    [_cache release];
+    // TODO: Fetch new data
+    return NO;
+}
+
 @end

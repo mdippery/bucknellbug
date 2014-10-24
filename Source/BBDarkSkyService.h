@@ -21,6 +21,9 @@
 
 
 @interface BBDarkSkyService : NSObject <BBWeatherService>
+{
+    NSDictionary *_cache;
+}
 
 + (NSURL *)defaultURL;
 + (CLLocation *)defaultLocation;
