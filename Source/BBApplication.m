@@ -113,12 +113,7 @@ static double millibars_to_inches(unsigned int mb)
     return [NSImage imageNamed:@"statusmenu.png"];
 }
 
-- (void)updateWeatherData:(NSTimer *)aTimer
-{
-    [self update];
-}
-
-- (void)update
+- (void)update:(NSTimer *)aTimer;
 {
     if ([host isReachable]) {
         [weather updateWithSuccess:^{
@@ -215,7 +210,7 @@ static double millibars_to_inches(unsigned int mb)
     timer = [[NSTimer alloc] initWithFireDate:fireDate
                                      interval:UPDATE_INTERVAL
                                        target:self
-                                     selector:@selector(updateWeatherData:)
+                                     selector:@selector(update:)
                                      userInfo:nil
                                       repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
@@ -248,7 +243,7 @@ static double millibars_to_inches(unsigned int mb)
 - (IBAction)refresh:(id)sender
 {
     if ([host isReachable]) {
-        [self updateWeatherData:nil];
+        [self update:nil];
     } else {
         [self showReachabilityError];
     }
@@ -263,7 +258,7 @@ static double millibars_to_inches(unsigned int mb)
                                                                name:NSWorkspaceDidWakeNotification
                                                              object:nil];
     
-    [self update];
+    [self update:nil];
     [self startTimer];
 }
 
