@@ -30,6 +30,6 @@ typedef void (^BBWeatherServiceFailureHandler)(void);
 @property (readonly, nonatomic) unsigned int pressure;
 @property (readonly, nonatomic) unsigned int rainfall;
 
-- (BOOL)update;
+- (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure;
 
 @end
