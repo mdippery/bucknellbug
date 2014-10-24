@@ -83,6 +83,7 @@
 		B7C854470AF6FEB90039D98F /* BBDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBDataFile.h; path = Source/BBDataFile.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBDataFile.m; path = Source/BBDataFile.m; sourceTree = "<group>"; };
 		B7E93EB419FA01EF00FFA021 /* BBWeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BBWeatherService.h; path = Source/BBWeatherService.h; sourceTree = "<group>"; };
+		B7E93EB619FA03E100FFA021 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Application.h; path = Source/Application.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				32CA4F630368D1EE00C91783 /* BucknellBug.pch */,
+				B7E93EB619FA03E100FFA021 /* Application.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";

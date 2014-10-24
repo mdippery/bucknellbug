@@ -1,4 +1,4 @@
 .DS_Store
-build
+Source/Application.h
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj

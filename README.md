@@ -29,3 +29,13 @@ instead.
   [source]:  http://www.departments.bucknell.edu/geography/weather/BucknellBug-1.1.src.tgz
   [station]: http://www.departments.bucknell.edu/geography/weather/bug.html
   [weather]: http://www.departments.bucknell.edu/geography/weather/index.html
+
+## Building
+
+To build BucknellBug, simply open the Xcode project and select Build from the
+Product menu.
+
+You will need to create a file at Source/Application.h containing a `#define`
+with your Dark Sky API key. The file should look like this:
+
+    #define DARK_SKY_API_KEY @"<your api key>"
