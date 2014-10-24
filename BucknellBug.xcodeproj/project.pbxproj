@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		B70F1B480B06B3AC00A15771 /* BugIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B70F1B470B06B3AC00A15771 /* BugIcon.icns */; };
 		B73DD52D12715DFB00B2EDFE /* NSString+Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = B73DD52C12715DFB00B2EDFE /* NSString+Numeric.m */; };
 		B73E370211826C300092EE58 /* CSVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E370111826C300092EE58 /* CSVFile.m */; };
@@ -23,7 +22,6 @@
 		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
-		B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A221300C00A24A00869E48 /* SystemConfiguration.framework */; };
 		B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataFile.m */; };
 		B7E93EB919FA06FF00FFA021 /* BBDarkSkyService.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E93EB819FA06FF00FFA021 /* BBDarkSkyService.m */; };
 		B7E93EBB19FA07DD00FFA021 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E93EBA19FA07DD00FFA021 /* CoreLocation.framework */; };
@@ -36,6 +34,8 @@
 		B7E93ED419FA1EFA00FFA021 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E93ECB19FA1EFA00FFA021 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		B7E93ED519FA1EFA00FFA021 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E93ECD19FA1EFA00FFA021 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		B7E93ED719FA1FA500FFA021 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E93ED619FA1FA500FFA021 /* Security.framework */; };
+		B7E93ED919FA204100FFA021 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E93ED819FA204100FFA021 /* Cocoa.framework */; };
+		B7E93EDB19FA204F00FFA021 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E93EDA19FA204F00FFA021 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -62,10 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* BucknellBug.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BucknellBug.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* BucknellBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucknellBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +87,6 @@
 		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
 		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDReachability.h; sourceTree = "<group>"; };
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDReachability.m; sourceTree = "<group>"; };
-		B7A221300C00A24A00869E48 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		B7C854470AF6FEB90039D98F /* BBDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDataFile.h; sourceTree = "<group>"; };
 		B7C854480AF6FEB90039D98F /* BBDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDataFile.m; sourceTree = "<group>"; };
 		B7E93EB419FA01EF00FFA021 /* BBWeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBWeatherService.h; sourceTree = "<group>"; };
@@ -116,6 +112,8 @@
 		B7E93ECC19FA1EFA00FFA021 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
 		B7E93ECD19FA1EFA00FFA021 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		B7E93ED619FA1FA500FFA021 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B7E93ED819FA204100FFA021 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B7E93EDA19FA204F00FFA021 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +121,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7E93EDB19FA204F00FFA021 /* SystemConfiguration.framework in Frameworks */,
+				B7E93ED919FA204100FFA021 /* Cocoa.framework in Frameworks */,
 				B7E93ED719FA1FA500FFA021 /* Security.framework in Frameworks */,
 				B7E93EBB19FA07DD00FFA021 /* CoreLocation.framework in Frameworks */,
-				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				B7A221310C00A24A00869E48 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,23 +173,13 @@
 			isa = PBXGroup;
 			children = (
 				B7E93EBC19FA1ED500FFA021 /* AFNetworking */,
+				B7E93ED819FA204100FFA021 /* Cocoa.framework */,
 				B7E93EBA19FA07DD00FFA021 /* CoreLocation.framework */,
-				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				B7E93ED619FA1FA500FFA021 /* Security.framework */,
-				B7A221300C00A24A00869E48 /* SystemConfiguration.framework */,
-				B7372F5A118B443E00DFAA1A /* Other Frameworks */,
+				B7E93EDA19FA204F00FFA021 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = SOURCE_ROOT;
-		};
-		B7372F5A118B443E00DFAA1A /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
 		};
 		B76B25371067254000204670 /* Additions */ = {
 			isa = PBXGroup;
