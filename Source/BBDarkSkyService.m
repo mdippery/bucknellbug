@@ -101,9 +101,9 @@
 
 - (double)rainfall
 {
-    // TODO: Calculate accumulated rainfall over past hour
-    NSLog(@"Rainfall calculation not implemented for Dark Sky API yet");
-    return 0.0;
+    id rainfallObj = [[[[_cache objectForKey:@"daily"] objectForKey:@"data"] objectAtIndex:0] objectForKey:@"precipAccumulation"];
+    if (!rainfallObj) return 0.0;
+    return [rainfallObj doubleValue];
 }
 
 @end
