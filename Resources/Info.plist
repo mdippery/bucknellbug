@@ -35,7 +35,7 @@
 	<key>CFBundleSignature</key>
 	<string>buBg</string>
 	<key>CFBundleVersion</key>
-	<string>210.113</string>
+	<string>210.114</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.weather</string>
 	<key>LSMinimumSystemVersion</key>
