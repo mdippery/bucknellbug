@@ -20,6 +20,7 @@
 		B76B257210672BB400204670 /* NSDate+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B257110672BB400204670 /* NSDate+Relative.m */; };
 		B76B25D6106736AB00204670 /* NSTimer+BucknellBug.m in Sources */ = {isa = PBXBuildFile; fileRef = B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */; };
 		B77105340AF7BF8D00FA66C0 /* BBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B77105320AF7BF8D00FA66C0 /* BBApplication.m */; };
+		B785F6D01A8FFF8C0072589E /* BBNestedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B785F6CF1A8FFF8C0072589E /* BBNestedObject.m */; };
 		B78679AF105E7FED0070B84E /* statusmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B78679AE105E7FED0070B84E /* statusmenu.png */; };
 		B788AFD61172102D000629D3 /* MDReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B788AFD51172102D000629D3 /* MDReachability.m */; };
 		B7C854490AF6FEB90039D98F /* BBDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C854480AF6FEB90039D98F /* BBDataFile.m */; };
@@ -84,6 +85,8 @@
 		B76B25D5106736AB00204670 /* NSTimer+BucknellBug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+BucknellBug.m"; sourceTree = "<group>"; };
 		B77105310AF7BF8D00FA66C0 /* BBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBApplication.h; sourceTree = "<group>"; };
 		B77105320AF7BF8D00FA66C0 /* BBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBApplication.m; sourceTree = "<group>"; };
+		B785F6CE1A8FFF8C0072589E /* BBNestedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNestedObject.h; sourceTree = "<group>"; };
+		B785F6CF1A8FFF8C0072589E /* BBNestedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNestedObject.m; sourceTree = "<group>"; };
 		B78679AE105E7FED0070B84E /* statusmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusmenu.png; path = Resources/statusmenu.png; sourceTree = "<group>"; };
 		B788AFD41172102D000629D3 /* MDReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDReachability.h; sourceTree = "<group>"; };
 		B788AFD51172102D000629D3 /* MDReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDReachability.m; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 		B76B25371067254000204670 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				B785F6CE1A8FFF8C0072589E /* BBNestedObject.h */,
+				B785F6CF1A8FFF8C0072589E /* BBNestedObject.m */,
 				B76B257010672BB400204670 /* NSDate+Relative.h */,
 				B76B257110672BB400204670 /* NSDate+Relative.m */,
 				B76B25381067255300204670 /* NSMenuItem+BucknellBug.h */,
@@ -368,6 +373,7 @@
 				B73E370211826C300092EE58 /* CSVFile.m in Sources */,
 				B7E93ED419FA1EFA00FFA021 /* AFURLConnectionOperation.m in Sources */,
 				B7E93ED519FA1EFA00FFA021 /* AFXMLRequestOperation.m in Sources */,
+				B785F6D01A8FFF8C0072589E /* BBNestedObject.m in Sources */,
 				B7E93ED019FA1EFA00FFA021 /* AFImageRequestOperation.m in Sources */,
 				B7E93ED319FA1EFA00FFA021 /* AFPropertyListRequestOperation.m in Sources */,
 				B7E93ED119FA1EFA00FFA021 /* AFJSONRequestOperation.m in Sources */,

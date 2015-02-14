@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (c) 2015 Michael Dippery <michael@monkey-robot.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,7 @@
  */
 
 #import "BBDarkSkyService.h"
+#import "BBNestedObject.h"
 #import "AFNetworking.h"
 #import "NSString+Numeric.h"
 
@@ -75,33 +76,33 @@
 
 - (NSDate *)date
 {
-    id dateObj = [[_cache objectForKey:@"currently"] objectForKey:@"time"];
+    id dateObj = [_cache nestedObjectForKey:@"currently.time"];
     NSTimeInterval ts = [dateObj doubleValue];
     return [NSDate dateWithTimeIntervalSince1970:ts];
 }
 
 - (double)temperature
 {
-    id tempObj = [[_cache objectForKey:@"currently"] objectForKey:@"temperature"];
+    id tempObj = [_cache nestedObjectForKey:@"currently.temperature"];
     return [tempObj doubleValue];
 }
 
 - (double)humidity
 {
-    id humidityObj = [[_cache objectForKey:@"currently"] objectForKey:@"humidity"];
+    id humidityObj = [_cache nestedObjectForKey:@"currently.humidity"];
     return [humidityObj doubleValue] * 100.0;
 }
 
 - (unsigned int)pressure
 {
-    id pressureObj = [[_cache objectForKey:@"currently"] objectForKey:@"pressure"];
+    id pressureObj = [_cache nestedObjectForKey:@"currently.pressure"];
     // Actually comes back as a double, but for now convert it to unsigned int
     return [pressureObj unsignedIntegerValue];
 }
 
 - (double)rainfall
 {
-    id rainfallObj = [[[[_cache objectForKey:@"daily"] objectForKey:@"data"] objectAtIndex:0] objectForKey:@"precipAccumulation"];
+    id rainfallObj = [_cache nestedObjectForKey:@"daily.data.0.precipAccumulation"];
     if (!rainfallObj) return 0.0;
     return [rainfallObj doubleValue];
 }
