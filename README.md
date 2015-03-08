@@ -18,7 +18,7 @@ works fine. However...
 
 ## Status
 
-BucknellBug is longer functional. According to the [weather station
+BucknellBug is no longer functional. According to the [weather station
 website][weather], on April 8th, 2013, an electrical surge knocked out the
 service, and as of October 23rd, 2014, it has yet to be restored. For now,
 BucknellBug uses the [forecast.io API][sky] instead of the data supplied by
