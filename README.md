@@ -13,8 +13,8 @@ tracked in a Subversion repository; the source code for the released version is
 tag in this repository.
 
 The version represented in this repository, slated to be v2.1, was never
-released publicly, but you can build and run it yourself -- the current code
-works fine. However...
+released publicly, but you can build and run it yourself—the current code
+works fine. However…
 
 ## Status
 
