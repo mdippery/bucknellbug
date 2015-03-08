@@ -7,9 +7,9 @@
 	<key>BBWeatherDataURL</key>
 	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 	<key>BBWeatherLatitude</key>
-	<real>40.954450000000001</real>
+	<real>40.95445</real>
 	<key>BBWeatherLongitude</key>
-	<real>-76.882728999999998</real>
+	<real>-76.882729</real>
 	<key>BBWeatherService</key>
 	<string>BBDarkSkyService</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -17,7 +17,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.1dev, © 2006-2014 Michael Dippery</string>
+	<string>2.1dev, © 2006-2015 Michael Dippery</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>Help</string>
 	<key>CFBundleIconFile</key>
