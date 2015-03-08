@@ -18,22 +18,21 @@
 #import "BBNestedObject.h"
 
 
-id BBObjectForKey(id container, NSString *key)
-{
-    if ([container isKindOfClass:[NSArray class]]) {
-        return [container objectAtIndex:[key integerValue]];
-    } else {
-        NSCAssert([container isKindOfClass:[NSDictionary class]], @"container is neither an NSArray nor an NSDictionary");
-        return [container objectForKey:key];
-    }
-}
+@interface NSArray (NestedObjectPrivate)
+- (id)objectForNestedKeyComponent:(NSString *)key;
+@end
+
+
+@interface NSDictionary (NestedObjectPrivate)
+- (id)objectForNestedKeyComponent:(NSString *)key;
+@end
 
 
 id BBRetrieveNestedObjectUsingKeyArray(id obj, NSArray *keys)
 {
     NSCAssert([keys count] >= 1, @"key count < 1");
     NSString *key = [keys objectAtIndex:0];
-    id item = BBObjectForKey(obj, key);
+    id item = [obj objectForNestedKeyComponent:key];
     if ([keys count] > 1) {
         NSArray *rest = [keys subarrayWithRange:NSMakeRange(1, [keys count]-1)];
         return BBRetrieveNestedObjectUsingKeyArray(item, rest);
@@ -66,6 +65,24 @@ id BBRetrieveNestedObject(id container, NSString *key)
 - (id)nestedObjectForKey:(NSString *)key
 {
     return BBRetrieveNestedObject(self, key);
+}
+
+@end
+
+@implementation NSArray (NestedObjectPrivate)
+
+- (id)objectForNestedKeyComponent:(NSString *)key
+{
+    return [self objectAtIndex:[key integerValue]];
+}
+
+@end
+
+@implementation NSDictionary (NestedObjectPrivate)
+
+- (id)objectForNestedKeyComponent:(NSString *)key
+{
+    return [self objectForKey:key];
 }
 
 @end
