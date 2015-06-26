@@ -34,7 +34,7 @@ Bucknell's own weather station.
 To build BucknellBug, simply open the Xcode project and select Build from the
 Product menu.
 
-You will need to create a file at Source/Application.h containing a `#define`
+You will need to create a file at `Source/Application.h` containing a `#define`
 with your Dark Sky API key. The file should look like this:
 
     #define DARK_SKY_API_KEY @"<your api key>"
