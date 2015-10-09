@@ -23,7 +23,7 @@
 	<key>CFBundleIconFile</key>
 	<string>BugIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.monkey-robot.BucknellBug</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
