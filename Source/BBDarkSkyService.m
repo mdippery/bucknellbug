@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (c) 2015-2016 Michael Dippery <michael@monkey-robot.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
