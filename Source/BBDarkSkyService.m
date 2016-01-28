@@ -70,6 +70,8 @@
             return;
         }
 
+        NSAssert(body != nil, @"JSON body is nil");
+
         if (![body isKindOfClass:[NSDictionary class]]) {
             NSLog(@"JSON response is not a dictionary");
             failure();
