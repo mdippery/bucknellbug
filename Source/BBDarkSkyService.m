@@ -17,7 +17,6 @@
 
 #import "BBDarkSkyService.h"
 #import "BBNestedObject.h"
-#import "AFNetworking.h"
 #import "NSString+Numeric.h"
 
 
@@ -53,18 +52,29 @@
 - (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure
 {
     [_cache release];
-    AFJSONRequestOperation *req = [AFJSONRequestOperation JSONRequestOperationWithRequest:[self APIRequest] success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if (![JSON isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"JSON response is not a dictionary");
+
+    NSURLSessionTask *req = [[NSURLSession sharedSession] dataTaskWithRequest:[self APIRequest] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"HTTP request failed: %@", [error localizedDescription]);
             failure();
+        } else {
+            NSError *e = nil;
+            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&e];
+            if (e) {
+                NSLog(@"Error reading JSON data: %@", [error localizedDescription]);
+                failure();
+            } else {
+                if (![json isKindOfClass:[NSDictionary class]]) {
+                    NSLog(@"JSON response is not a dictionary");
+                    failure();
+                } else {
+                    _cache = [json retain];
+                }
+            }
         }
-        _cache = [JSON retain];
-        success();
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"HTTP request failed: %@", [error localizedDescription]);
-        failure();
     }];
-    [req start];
+
+    [req resume];
 }
 
 - (NSURLRequest *)APIRequest
