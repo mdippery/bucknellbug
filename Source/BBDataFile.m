@@ -121,7 +121,7 @@ typedef enum {
     return [[_data objectAtIndex:BBHumidityIndex] doubleValue];
 }
 
-- (unsigned int)pressure
+- (NSUInteger)pressure
 {
     return [[_data objectAtIndex:BBPressureIndex] unsignedIntValue];
 }

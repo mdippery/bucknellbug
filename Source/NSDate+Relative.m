@@ -35,7 +35,7 @@
 
 @implementation NSDate (RelativeAdditions)
 
-- (int)dayOfMonth
+- (NSInteger)dayOfMonth
 {
     return [[[NSCalendar defaultCalendar] components:NSDayCalendarUnit fromDate:self] day];
 }

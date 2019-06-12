@@ -26,9 +26,9 @@
 @private
     CSVFile *_data;
     NSURL *_defaultURL;
-    NSStringEncoding *_defaultEncoding;
     NSTimeZone *_defaultTimeZone;
     NSDateFormatter *_dateFormatter;
+    NSStringEncoding _defaultEncoding;
 }
 
 @end

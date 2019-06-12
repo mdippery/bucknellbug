@@ -26,6 +26,6 @@
 - (id)initWithContentsOfString:(NSString *)s;
 - (id)initWithContentsOfURL:(NSURL *)url encoding:(NSStringEncoding)enc;
 - (NSString *)objectAtIndex:(unsigned int)i;
-- (unsigned int)count;
+- (NSUInteger)count;
 
 @end

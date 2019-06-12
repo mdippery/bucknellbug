@@ -35,7 +35,7 @@ static NSString *_(NSString *string)
     return NSLocalizedString(string, nil);
 }
 
-static double millibars_to_inches(unsigned int mb)
+static double millibars_to_inches(NSUInteger mb)
 {
     return mb * 0.0295301;
 }

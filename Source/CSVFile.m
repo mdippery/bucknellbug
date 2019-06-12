@@ -49,7 +49,7 @@
     return data ? [data objectAtIndex:i] : nil;
 }
 
-- (unsigned int)count
+- (NSUInteger)count
 {
     return data ? [data count] : 0U;
 }

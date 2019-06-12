@@ -27,7 +27,7 @@ typedef void (^BBWeatherServiceFailureHandler)(void);
 @property (readonly, nonatomic) NSDate *date;
 @property (readonly, nonatomic) double temperature;
 @property (readonly, nonatomic) double humidity;
-@property (readonly, nonatomic) unsigned int pressure;
+@property (readonly, nonatomic) NSUInteger pressure;
 @property (readonly, nonatomic) double rainfall;
 
 - (void)updateWithSuccess:(BBWeatherServiceSuccessHandler)success failure:(BBWeatherServiceFailureHandler)failure;

@@ -93,7 +93,7 @@
     return [humidityObj doubleValue] * 100.0;
 }
 
-- (unsigned int)pressure
+- (NSUInteger)pressure
 {
     id pressureObj = [_cache nestedObjectForKey:@"currently.pressure"];
     // Actually comes back as a double, but for now convert it to unsigned int

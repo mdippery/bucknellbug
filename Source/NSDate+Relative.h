@@ -20,7 +20,7 @@
 
 @interface NSDate (RelativeAdditions)
 
-- (int)dayOfMonth;
+- (NSInteger)dayOfMonth;
 
 - (BOOL)isAfter:(NSDate *)date;
 - (BOOL)isBefore:(NSDate *)date;
