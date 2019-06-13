@@ -24,11 +24,6 @@ service, and as of October 23rd, 2014, it has yet to be restored. For now,
 BucknellBug uses the [forecast.io API][sky] instead of the data supplied by
 Bucknell's own weather station.
 
-  [sky]:     https://developer.forecast.io
-  [source]:  http://www.departments.bucknell.edu/geography/weather/BucknellBug-1.1.src.tgz
-  [station]: http://www.departments.bucknell.edu/geography/weather/bug.html
-  [weather]: http://www.departments.bucknell.edu/geography/weather/index.html
-
 ## Building
 
 To build BucknellBug, simply open the Xcode project and select Build from the
@@ -38,3 +33,8 @@ You will need to create a file at `Source/Application.h` containing a `#define`
 with your Dark Sky API key. The file should look like this:
 
     #define DARK_SKY_API_KEY @"<your api key>"
+
+  [sky]:     https://darksky.net/dev
+  [source]:  http://www.departments.bucknell.edu/geography/weather/BucknellBug-1.1.src.tgz
+  [station]: http://www.departments.bucknell.edu/geography/weather/bug.html
+  [weather]: http://www.departments.bucknell.edu/geography/weather/index.html
