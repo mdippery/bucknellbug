@@ -60,16 +60,16 @@
         } else {
             NSError *e = nil;
             id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&e];
+
             if (e) {
                 NSLog(@"Error reading JSON data: %@", [error localizedDescription]);
                 failure();
-            } else {
-                if (![json isKindOfClass:[NSDictionary class]]) {
+            } else if (![json isKindOfClass:[NSDictionary class]]) {
                     NSLog(@"JSON response is not a dictionary");
                     failure();
-                } else {
-                    _cache = [json retain];
-                }
+            } else {
+                _cache = [json retain];
+                success();
             }
         }
     }];
