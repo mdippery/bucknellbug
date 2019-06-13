@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BBDarkSkyURL</key>
-	<string>https://api.forecast.io/forecast/%@/%.4f,%.4f</string>
+	<string>https://api.darksky.net/forecast/%@/%.4f,%.4f</string>
 	<key>BBWeatherDataURL</key>
 	<string>http://www.departments.bucknell.edu/geography/Weather/Data/raw_data.dat</string>
 	<key>BBWeatherLatitude</key>
