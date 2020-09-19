@@ -1,3 +1,6 @@
 .DS_Store
+contents.xcworkspacedata
 Source/Application.h
 xcuserdata
+*.mode1
+*.pbxuser
