@@ -17,7 +17,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.1dev, © 2006-2019 Michael Dippery</string>
+	<string>${MARKETING_VERSION}, © 2006-2023 Michael Dippery</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>Help</string>
 	<key>CFBundleIconFile</key>
@@ -31,15 +31,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1dev</string>
+	<string>${MARKETING_VERSION}</string>
 	<key>CFBundleSignature</key>
 	<string>buBg</string>
 	<key>CFBundleVersion</key>
-	<string>210.116</string>
+	<string>${CURRENT_PROJECT_VERSION}</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.weather</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.8.0</string>
+	<string>${RECOMMENDED_MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSMainNibFile</key>
