@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (c) 2014-2023 Michael Dippery <michael@monkey-robot.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -53,6 +53,7 @@
 {
     [_cache release];
 
+    NSLog(@"Attempting to retrieve weather from %@", [[self APIRequest] URL]);
     NSURLSessionTask *req = [[NSURLSession sharedSession] dataTaskWithRequest:[self APIRequest] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             NSLog(@"HTTP request failed: %@", [error localizedDescription]);

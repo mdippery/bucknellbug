@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2011 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (c) 2006-2023 Michael Dippery <michael@monkey-robot.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 
 + (id)defaultCalendar
 {
-    return [[[self alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    return [[[self alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] autorelease];
 }
 
 @end
@@ -37,7 +37,7 @@
 
 - (NSInteger)dayOfMonth
 {
-    return [[[NSCalendar defaultCalendar] components:NSDayCalendarUnit fromDate:self] day];
+    return [[[NSCalendar defaultCalendar] components:NSCalendarUnitDay fromDate:self] day];
 }
 
 - (BOOL)isAfter:(NSDate *)date
@@ -52,7 +52,7 @@
 
 - (NSDate *)dateAtMidnight
 {
-    return [[NSCalendar defaultCalendar] dateFromComponents:[[NSCalendar defaultCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self]];
+    return [[NSCalendar defaultCalendar] dateFromComponents:[[NSCalendar defaultCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self]];
 }
 
 - (BOOL)isToday
